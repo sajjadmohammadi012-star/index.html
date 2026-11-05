@@ -1,700 +1,404 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عادت‌های کوچک</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دفترچه‌ی ما</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Lalezar&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream-bg: #fdfbf7;
-    --card-border: #f0dec2;
-    --navy: #1f2a63;
-    --text: #2c2c3a;
-    --morning-bg: #fffbf1;
-    --morning-border: #f2e2c6;
-    --morning-badge: #fde6a8;
-    --morning-check: #eab44b;
-    --night-bg: #f2f6fc;
-    --night-border: #d2dfea;
-    --night-badge: #38568c;
-    --night-check: #38568c;
-    --purple-bg: #f5f0fa;
-    --purple-border: #dcd1f0;
-    --purple-text: #5b468e;
-  }
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#FBF7F2;--card:#fff;--tx:#2B2540;--mut:#8C86A0;--line:#EFE8F5;--sh:0 6px 24px rgba(80,60,120,.08);--me:#6C8CF5;--her:#F58FA9;--ok:#7BD3B0;--tog:#B48CF0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B1830;--card:#272344;--tx:#F1EEFF;--mut:#A9A3CF;--line:#363158;--sh:0 6px 24px rgba(0,0,0,.3)}}
+:root[data-theme="dark"]{--bg:#1B1830;--card:#272344;--tx:#F1EEFF;--mut:#A9A3CF;--line:#363158;--sh:0 6px 24px rgba(0,0,0,.3)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Vazirmatn,Tahoma,sans-serif;transition:background .5s}
+body[data-u=me]{--ac:var(--me)}body[data-u=her]{--ac:var(--her)}
+body[data-tab=night]{--bg:#1B1830;--card:#272344;--tx:#F1EEFF;--mut:#A9A3CF;--line:#363158;--sh:0 6px 24px rgba(0,0,0,.3);background-image:radial-gradient(1.5px 1.5px at 20% 12%,#fff8,transparent),radial-gradient(1.5px 1.5px at 75% 8%,#fff8,transparent),radial-gradient(1px 1px at 50% 30%,#fff7,transparent),radial-gradient(1.5px 1.5px at 90% 40%,#fff6,transparent),radial-gradient(1px 1px at 10% 55%,#fff6,transparent);background-attachment:fixed}
+#app{max-width:480px;margin:auto;padding:16px 16px 110px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+h1{font-size:22px;font-weight:800;margin:0}
+.date{color:var(--mut);font-size:13px;margin-top:2px}
+.sw{display:flex;background:var(--card);border-radius:99px;padding:4px;box-shadow:var(--sh)}
+.sw button{border:0;background:none;border-radius:99px;padding:8px 14px;font:600 13px inherit;font-family:inherit;color:var(--mut);cursor:pointer;min-height:40px}
+.sw button.on{color:#fff}
+.sw button.on.me{background:var(--me)}.sw button.on.her{background:var(--her)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin:6px 0 18px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--tog));border-radius:9px;transition:width .5s cubic-bezier(.3,1.4,.5,1)}
+.card{background:var(--card);border-radius:24px;padding:18px;margin-bottom:14px;box-shadow:var(--sh)}
+.card h2{font-size:16px;font-weight:800;margin:0 0 12px;display:flex;justify-content:space-between;align-items:center}
+.card h2 small{font-weight:600;color:var(--mut);font-size:12px}
+.c-m{background:linear-gradient(135deg,#FFF3D6,#FFE3D3);color:#3b3050}.c-m h2 small{color:#8a7a6a}
+.row{display:flex;align-items:center;gap:12px;min-height:48px;cursor:pointer;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.c-m .row{border-color:#0000000d}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--ac);flex:none;display:grid;place-items:center;color:#fff;font-size:14px;transition:.25s cubic-bezier(.3,1.6,.5,1)}
+.done .dot{background:var(--ac);transform:scale(1.1)}
+.done .dot:after{content:"✓"}
+.done .lb{opacity:.45;text-decoration:line-through}
+.lb{flex:1;font-size:15px}
+input[type=text],textarea{width:100%;border:0;background:transparent;font:inherit;color:inherit;font-size:15px;padding:10px 0;outline:0}
+textarea{resize:none;min-height:70px;line-height:1.9}
+.field{background:var(--bg);border-radius:16px;padding:4px 14px;margin-top:8px}
+.tk{flex:1;border-bottom:0}
+.cups{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.cup{aspect-ratio:3/4;border:2px solid #7FB8F0;border-radius:6px 6px 12px 12px;position:relative;overflow:hidden;background:none;padding:0;cursor:pointer}
+.cup:after{content:"";position:absolute;inset:auto 0 0 0;height:0;background:linear-gradient(#9fd2ff,#6aa8f0);transition:height .5s}
+.cup.f:after{height:100%}
+.step{display:flex;align-items:center;gap:10px}
+.step button{width:38px;height:38px;border-radius:50%;border:0;background:var(--line);color:var(--tx);font:800 18px inherit;cursor:pointer}
+.step b{min-width:30px;text-align:center;font-size:17px}
+.sub{display:flex;justify-content:space-between;align-items:center;min-height:50px;border-bottom:1px solid var(--line)}
+.sub:last-child{border:0}
+.sticky{background:#FFE98A;color:#5a4a10;transform:rotate(-1.5deg);border-radius:6px 6px 20px 6px;padding:14px 16px;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+.sticky textarea{min-height:56px;font-family:inherit}
+.add{display:flex;gap:8px;margin-top:10px}
+.add input{background:var(--bg);border-radius:99px;padding:10px 16px}
+.add button,.btn{border:0;background:var(--ac);color:#fff;border-radius:99px;font:800 15px inherit;font-family:inherit;padding:0 18px;min-height:48px;cursor:pointer}
+.btn{width:100%;font-size:17px;min-height:56px;background:linear-gradient(90deg,var(--ac),var(--tog));box-shadow:0 8px 22px rgba(120,90,220,.35)}
+.x{background:none;border:0;color:var(--mut);font-size:18px;cursor:pointer;padding:8px}
+.nav{position:fixed;bottom:0;inset-inline:0;display:flex;justify-content:center;padding:8px 12px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(transparent,var(--bg) 40%);pointer-events:none}
+.nav div{display:flex;gap:4px;background:var(--card);border-radius:99px;padding:6px;box-shadow:0 8px 30px rgba(60,40,110,.18);pointer-events:auto;width:100%;max-width:400px}
+.nav button{flex:1;border:0;background:none;border-radius:99px;min-height:50px;font:600 12px inherit;font-family:inherit;color:var(--mut);cursor:pointer;display:grid;gap:1px;place-items:center}
+.nav button span{font-size:19px}
+.nav button.on{background:var(--ac);color:#fff}
+.ring{display:grid;place-items:center;position:relative;margin:4px auto 16px;width:150px}
+.ring b{position:absolute;font-size:28px;font-weight:800}
+.ring svg{transform:rotate(90deg) scaleX(-1)}
+.moods{display:flex;justify-content:space-between}
+.moods button{font-size:34px;background:none;border:0;cursor:pointer;opacity:.4;transition:.3s cubic-bezier(.3,1.6,.5,1);padding:4px}
+.moods button.on{opacity:1;transform:scale(1.35)}
+input[type=range]{width:100%;accent-color:var(--ac);height:36px}
+.lbl{font-size:13px;color:var(--mut);margin:12px 0 0}
+.cd{text-align:center;color:var(--mut);font-size:14px;margin-top:12px;line-height:1.9}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.half{border-radius:20px;padding:14px;text-align:center;color:#fff}
+.half.me{background:var(--me)}.half.her{background:var(--her)}
+.half big{font-size:30px;display:block}
+.note{background:var(--bg);border-radius:18px;padding:14px;margin-top:10px;line-height:1.9;font-size:14px;border-inline-start:5px solid var(--ac)}
+.note.me{border-color:var(--me)}.note.her{border-color:var(--her)}
+.lock{text-align:center;padding:22px 10px;color:var(--mut);line-height:2}
+.tg{display:flex;gap:8px;margin:6px 0}
+.tg button{flex:1;border:2px solid var(--line);background:none;border-radius:16px;padding:8px 2px;font:600 12px inherit;font-family:inherit;color:var(--tx);cursor:pointer}
+.tg button.on{border-color:var(--ac);background:var(--ac);color:#fff}
+.toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translate(-50%,-90px);background:var(--card);color:var(--tx);padding:12px 20px;border-radius:99px;box-shadow:var(--sh);transition:.4s;z-index:9;font-size:14px}
+.toast.s{transform:translate(-50%,0)}
+.tiny{font-size:12px;color:var(--mut);text-align:center;margin-top:8px}
 
-  * { box-sizing: border-box; }
+body::before{content:"";position:fixed;inset:-15%;z-index:-1;pointer-events:none;background:radial-gradient(38% 28% at 15% 8%,color-mix(in srgb,var(--ac) 28%,transparent),transparent),radial-gradient(34% 28% at 90% 35%,color-mix(in srgb,var(--tog) 26%,transparent),transparent),radial-gradient(30% 24% at 20% 85%,color-mix(in srgb,var(--ac) 18%,transparent),transparent);filter:blur(24px);animation:drift 16s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(4%,3%) scale(1.12)}}
+.ico{display:inline-grid;place-items:center;width:1.6em;height:1.6em;border-radius:.52em;background:var(--c,var(--ac));color:#fff;vertical-align:middle;margin-inline-end:.45em;box-shadow:0 5px 12px -4px var(--c,var(--ac))}
+.ico svg{width:.98em;height:.98em}
+.fc{display:inline-block;width:1.3em;height:1.3em;vertical-align:middle}.fc svg{width:100%;height:100%;display:block}
+.moods button .fc{width:48px;height:48px;filter:grayscale(.8) opacity(.7);transition:.3s}
+.moods button.on .fc{filter:none;animation:pop .5s}
+.nav .ico{background:none;box-shadow:none;width:24px;height:24px;margin:0}.nav .ico svg{width:22px;height:22px}
+.nav button.on{background:linear-gradient(135deg,var(--ac),var(--tog));box-shadow:0 8px 18px -6px var(--ac)}.nav button.on .ico{animation:pop .5s}
+.btn .ico{background:rgba(255,255,255,.25);box-shadow:none;margin-inline-start:8px}
+.card{border:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.card h2{font-size:17px}
+.hero{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,var(--ac),var(--tog));color:#fff;border-radius:32px;padding:24px 22px;margin-bottom:16px;box-shadow:0 18px 36px -12px color-mix(in srgb,var(--ac) 60%,transparent)}
+.hero i{position:absolute;border-radius:50%;background:rgba(255,255,255,.16);animation:float 7s ease-in-out infinite alternate}
+.hero .b1{width:170px;height:170px;top:-60px;left:-40px}.hero .b2{width:90px;height:90px;bottom:-34px;right:110px;animation-delay:-3s}
+@keyframes float{to{transform:translateY(14px) scale(1.12)}}
+.hero .ht{position:relative}.hero small{opacity:.88;font-size:13px}.hero h1{font-size:25px;margin:4px 0 6px}.hero p{margin:0;font-size:13px;opacity:.94;line-height:1.8}
+.hero .ring{margin:0;position:relative;flex:none}.hero .ring b{font-size:22px;color:#fff}.hero .ring circle:first-child{stroke:rgba(255,255,255,.3)}
+.sw.wide{width:100%}.sw.wide button{flex:1;font-size:15px;transition:.35s cubic-bezier(.3,1.4,.5,1)}
+.top:has(.wide){margin-bottom:14px}
+@keyframes up{from{opacity:0;transform:translateY(24px) scale(.96)}}
+#app.enter>*{animation:up .65s cubic-bezier(.2,.9,.3,1.1) both;animation-delay:calc(var(--i,0)*70ms)}
+@keyframes pop{40%{transform:scale(1.28)}}
+.dot svg{width:15px;height:15px}.dot path{stroke-dasharray:1;stroke-dashoffset:1}.done .dot path{stroke-dashoffset:0}
+.pop path{animation:draw .45s .05s both}@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.pop .dot,.dot.pop,.cup.pop{animation:pop .5s}
+.done .dot:after{content:none}
+.row,.btn,.cup,.nav button{transition:transform .18s}.row:active,.btn:active,.cup:active{transform:scale(.96)}
+.cup.f{box-shadow:0 0 14px -2px #6aa8f0}
+.bp{position:fixed;width:9px;height:9px;border-radius:50%;pointer-events:none;z-index:99;animation:bp .7s ease-out forwards}
+@keyframes bp{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+body[data-tab=night] .card{background:rgba(39,35,68,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:rgba(255,255,255,.08)}
+.sticky{animation:float 6s ease-in-out infinite alternate}
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: #fbf7ee; 
-    font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
-    color: var(--text);
-  }
+/* ===== v2 redesign ===== */
+:root{--bg:#F5F0FB;--card:rgba(255,255,255,.8);--line:#E8DFF4;--sh:0 1px 0 #fff inset,0 2px 6px rgba(70,50,120,.04),0 22px 44px -22px rgba(70,50,120,.28)}
+body{-webkit-font-smoothing:antialiased;line-height:1.6}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E")}
+body[data-tab=night]::after{opacity:1;background-image:radial-gradient(2px 2px at 30% 20%,#fffc,transparent),radial-gradient(1.5px 1.5px at 65% 14%,#fffb,transparent),radial-gradient(2px 2px at 85% 62%,#fff9,transparent),radial-gradient(1.5px 1.5px at 12% 75%,#fffa,transparent),radial-gradient(1.5px 1.5px at 45% 88%,#fff8,transparent);animation:tw 4s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.35}to{opacity:1}}
+h1,.top h1{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;font-size:30px;line-height:1.3}
+.ring b{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400}
+.card{border:1px solid rgba(255,255,255,.75);border-radius:30px;padding:20px;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .card{border-color:rgba(255,255,255,.07)}}
+:root[data-theme=dark] .card{border-color:rgba(255,255,255,.07)}
+.card h2{font-size:17px;margin-bottom:14px}
+.c-m{background:linear-gradient(145deg,#FFF1CF,#FFDCE6 65%,#E9DDFF)}
+.hero{border-radius:38px;padding:28px 22px 24px;background:radial-gradient(110% 120% at 100% 0%,color-mix(in srgb,var(--tog) 85%,#fff),transparent 60%),linear-gradient(135deg,var(--ac),var(--tog))}
+.hero h1{font-size:36px;margin:6px 0 8px}
+.pc{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 13px;border-radius:99px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);font-size:12px;font-weight:600}
+.pd{width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.4)}
+.sw{padding:5px;background:color-mix(in srgb,var(--card) 85%,transparent);backdrop-filter:blur(14px)}
+.sw button.on.me{background:linear-gradient(135deg,var(--me),#93AAFF);box-shadow:0 8px 16px -6px var(--me)}
+.sw button.on.her{background:linear-gradient(135deg,var(--her),#FFB3C6);box-shadow:0 8px 16px -6px var(--her)}
+.row{padding:2px 8px;margin:0 -8px 2px;border-bottom:0;border-radius:18px;transition:background .25s,transform .18s}
+.row:hover{background:color-mix(in srgb,var(--ac) 7%,transparent)}
+.row.done{background:color-mix(in srgb,var(--ac) 10%,transparent)}
+.c-m .row.done{background:rgba(255,255,255,.55)}
+.dot{width:28px;height:28px;border-color:color-mix(in srgb,var(--ac) 55%,transparent)}
+.done .dot{background:linear-gradient(135deg,var(--ac),var(--tog));border-color:transparent;box-shadow:0 6px 14px -4px var(--ac)}
+.cups{gap:7px}
+.cup{border:0;border-radius:10px 10px 18px 18px;background:linear-gradient(#ffffffb0,#dcebff70);box-shadow:inset 0 0 0 1.5px #ADD2FB}
+.cup:after{background:linear-gradient(#c4e3ff,#5aa2f2);border-radius:50% 50% 0 0/5px 5px 0 0}
+.cup:before{content:"";position:absolute;z-index:1;top:10%;inset-inline-start:20%;width:14%;height:38%;border-radius:9px;background:#fffa}
+.cup.f{box-shadow:inset 0 0 0 1.5px #6aa8f0,0 10px 18px -8px #5a9cf0}
+.step button{background:color-mix(in srgb,var(--ac) 14%,var(--card));color:var(--ac)}
+.moods button{width:58px;height:58px;display:grid;place-items:center;padding:0;border-radius:50%}
+.moods button .fc{width:40px;height:40px}
+.moods button.on{transform:scale(1.15);background:color-mix(in srgb,var(--ac) 14%,transparent);box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 45%,transparent),0 12px 24px -8px var(--ac)}
+.field{background:color-mix(in srgb,var(--ac) 6%,var(--bg));border:1px solid var(--line);border-radius:18px;transition:border-color .2s,box-shadow .2s}
+.field:focus-within,.add input:focus{border-color:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 18%,transparent)}
+.sticky{position:relative;background:linear-gradient(160deg,#FFF1A6,#FFDF66);border-radius:4px 4px 30px 4px;padding:24px 18px 14px;box-shadow:0 1px 0 #fff9 inset,0 24px 30px -18px rgba(120,90,0,.5)}
+.sticky:before{content:"";position:absolute;top:-10px;left:50%;width:86px;height:22px;transform:translateX(-50%) rotate(2deg);background:rgba(255,255,255,.55);box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;inset:0 0 50% 0;background:linear-gradient(rgba(255,255,255,.28),transparent);pointer-events:none}
+.nav div{background:color-mix(in srgb,var(--card) 78%,transparent);backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);border:1px solid rgba(255,255,255,.6);box-shadow:0 20px 40px -12px rgba(60,40,110,.38)}
+.nav button{font-weight:700;min-height:54px}
+:focus-visible{outline:3px solid color-mix(in srgb,var(--ac) 60%,transparent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
-  .page-wrap {
-    display: flex;
-    justify-content: center;
-    padding: 35px 15px;
-  }
+/* ===== v3: bolder, pro look ===== */
+:root{--bg:#F1EBFA}
+body::before{background:radial-gradient(42% 30% at 12% 6%,color-mix(in srgb,var(--ac) 42%,transparent),transparent),radial-gradient(38% 30% at 95% 30%,color-mix(in srgb,var(--tog) 40%,transparent),transparent),radial-gradient(36% 26% at 10% 80%,color-mix(in srgb,var(--her) 26%,transparent),transparent),radial-gradient(30% 22% at 85% 92%,color-mix(in srgb,var(--me) 26%,transparent),transparent)}
+#app{padding-top:20px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.66));border:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),0 2px 4px rgba(70,50,120,.04),0 30px 50px -28px rgba(70,50,120,.4)}
+body[data-tab=night] .card{box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 30px 50px -28px #000}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .card{background:linear-gradient(180deg,rgba(48,43,84,.9),rgba(34,30,64,.75));box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 30px 50px -28px #000}}
+.card h2{font-size:18px;font-weight:800}
+.card h2 small{background:color-mix(in srgb,var(--ac) 14%,transparent);color:var(--ac);padding:4px 11px;border-radius:99px;font-weight:800;font-size:12px}
+.hero{padding:30px 24px 26px;border-radius:40px;box-shadow:0 30px 50px -20px color-mix(in srgb,var(--ac) 70%,transparent),inset 0 1px 0 rgba(255,255,255,.4)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.18) 50%,transparent 60%);transform:translateX(-120%);animation:shine 5s 1s ease-in-out infinite;pointer-events:none}
+@keyframes shine{to{transform:translateX(120%)}}
+.hero h1{font-size:42px;line-height:1.15}
+.hero small{display:inline-block;background:rgba(255,255,255,.2);padding:4px 12px;border-radius:99px;font-weight:600}
+.hero p{font-size:14px;margin-top:2px}
+.hero .ring b{font-size:30px}
+.sw.wide{padding:6px;border-radius:22px}.sw.wide button{border-radius:17px;min-height:46px;font-weight:800}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{--t:var(--ac);display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:26px;background:linear-gradient(160deg,color-mix(in srgb,var(--t) 16%,var(--card)),color-mix(in srgb,var(--t) 4%,var(--card)));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--t) 22%,transparent)}
+.tile.wide{grid-column:1/-1}
+.tile .tl{font-size:13px;font-weight:700;color:var(--mut)}
+.tile .th{display:flex;justify-content:space-between;align-items:center}
+.big{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;font-size:38px;line-height:1;display:flex;align-items:baseline;gap:6px}
+.big small{font-family:Vazirmatn,sans-serif;font-size:12px;font-weight:600;color:var(--mut)}
+.tile .step{justify-content:space-between}
+.tile .step button{width:46px;height:46px;border-radius:16px;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--t),color-mix(in srgb,var(--t) 60%,#fff));box-shadow:0 10px 18px -8px var(--t)}
+.tile.med{flex-direction:row;align-items:center;cursor:pointer;gap:12px}.tile.med .tl{flex:1;color:var(--tx);font-size:15px}.tile.med .st{font-size:12px;color:var(--mut)}
+.tile.med .dot{border-color:var(--t)}.tile.med.done .dot{background:var(--t);box-shadow:0 6px 14px -4px var(--t)}
+.cups{gap:6px}.cup{border-radius:12px 12px 20px 20px}
+.moods{gap:6px}
+.moods button{flex:1;width:auto;height:64px;border-radius:20px;background:color-mix(in srgb,var(--bg) 70%,transparent);box-shadow:inset 0 0 0 1px var(--line)}
+.moods button.on{transform:translateY(-4px);background:linear-gradient(160deg,color-mix(in srgb,var(--ac) 22%,var(--card)),var(--card));box-shadow:inset 0 0 0 2px var(--ac),0 16px 24px -10px var(--ac)}
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;height:34px}
+input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:9px;background:linear-gradient(90deg,var(--her),var(--tog),var(--me))}
+input[type=range]::-moz-range-track{height:10px;border-radius:9px;background:linear-gradient(90deg,var(--her),var(--tog),var(--me))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;margin-top:-9px;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 5px color-mix(in srgb,var(--tog) 35%,transparent),0 8px 14px rgba(0,0,0,.25)}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 5px color-mix(in srgb,var(--tog) 35%,transparent),0 8px 14px rgba(0,0,0,.25)}
+.btn{border-radius:22px;min-height:60px;font-size:17px;box-shadow:0 18px 30px -12px color-mix(in srgb,var(--ac) 80%,transparent),inset 0 1px 0 rgba(255,255,255,.45)}
+.add button{width:50px;padding:0;border-radius:18px;font-size:24px;background:linear-gradient(135deg,var(--ac),var(--tog));box-shadow:0 10px 18px -8px var(--ac)}
+.add input{border-radius:18px;border:1px solid var(--line)}
+.nav div{background:rgba(24,20,48,.88);border:1px solid rgba(255,255,255,.12);border-radius:30px;padding:7px;box-shadow:0 24px 44px -10px rgba(20,10,60,.6)}
+.nav button{color:#B7B0DA;border-radius:23px;min-height:56px;gap:3px}
+.nav button.on{color:#fff;box-shadow:0 10px 22px -6px var(--ac),inset 0 1px 0 rgba(255,255,255,.35)}
+.nav .ico{color:inherit}
+.sticky{border-radius:6px 6px 34px 6px}
 
-  .journal {
-    width: 100%;
-    max-width: 680px;
-    background: var(--cream-bg);
-    border: 1.5px solid var(--card-border);
-    border-radius: 12px;
-    padding: 25px 25px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-  }
-
-  /* ---------- HEADER ---------- */
-  .header {
-    position: relative;
-    text-align: center;
-    padding: 0 40px 15px;
-  }
-  .header h1 {
-    margin: 0;
-    font-size: 2.3rem;
-    font-weight: 800;
-    color: var(--navy);
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .sparkle { color: #fcbf29; font-size: 1.6rem; }
-  .branch {
-    position: absolute;
-    top: 5px;
-    width: 110px;
-    height: 70px;
-  }
-  .branch.left { left: -10px; transform: scaleX(-1); }
-  .branch.right { right: -10px; }
-
-  .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .divider .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--navy); }
-  .divider .line { width: 90px; border-top: 1.5px solid var(--navy); }
-  .divider .heart { color: var(--navy); font-size: 1.3rem; line-height: 1; }
-
-  /* ---------- SECTION CARD ---------- */
-  .card {
-    position: relative;
-    border-radius: 12px;
-    margin-top: 30px;
-    padding: 25px 20px 15px;
-  }
-  .card.morning { background: var(--morning-bg); border: 1.5px solid var(--morning-border); }
-  .card.night { background: var(--night-bg); border: 1.5px solid var(--night-border); }
-  .card.start { background: var(--purple-bg); border: 1.5px solid var(--purple-border); padding: 20px 20px 25px; }
-
-  .badge {
-    position: absolute;
-    top: -16px;
-    right: 25px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 18px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-  .badge.morning { background: var(--morning-badge); color: #333; }
-  .badge.night { background: var(--night-badge); color: #fff; }
-  .badge svg { width: 18px; height: 18px; }
-
-  /* ---------- ROWS ---------- */
-  .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 12px 10px;
-  }
-  .row + .row { border-top: 1.5px dashed rgba(0,0,0,0.08); }
-  .night .row + .row { border-top: 1.5px dashed rgba(56, 86, 140, 0.15); }
-
-  .row .icon {
-    flex: 0 0 32px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .row .icon svg { width: 100%; height: 100%; }
-
-  .row .text {
-    flex: 1;
-    text-align: right;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    font-weight: 500;
-  }
-
-  /* ---------- CHECKBOX ---------- */
-  input[type="checkbox"].chk {
-    appearance: none;
-    -webkit-appearance: none;
-    flex: 0 0 24px;
-    width: 24px;
-    height: 24px;
-    border-radius: 6px;
-    background: #fff;
-    cursor: pointer;
-    position: relative;
-    margin: 0;
-    border: 1.5px solid #2c2c3a;
-    transition: 0.2s all;
-  }
-  .morning input.chk:checked { background: var(--morning-check); border-color: var(--morning-check); }
-  .night input.chk:checked { background: var(--night-check); border-color: var(--night-check); }
-
-  input.chk:checked::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 45%;
-    width: 5px;
-    height: 10px;
-    border: solid #fff;
-    border-width: 0 2.2px 2.2px 0;
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  /* ---------- START CARD ---------- */
-  .start-title {
-    text-align: center;
-    font-weight: 800;
-    font-size: 1.3rem;
-    color: var(--purple-text);
-    letter-spacing: 2px;
-    margin: 0 0 15px;
-  }
-  .start-title span { margin: 0 6px; font-size: 1.1rem; }
-  
-  .start-content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .start-text-wrapper { flex: 1; padding-left: 10px; }
-  .start-text { font-size: 0.95rem; line-height: 1.8; margin: 0 0 5px; }
-  .start-text b { color: var(--purple-text); font-weight: 800; }
-  
-  .start-list { list-style: none; margin: 0; padding: 0; }
-  .start-list li {
-    position: relative;
-    padding-right: 15px;
-    margin: 4px 0;
-    font-size: 0.92rem;
-    line-height: 1.8;
-  }
-  .start-list li::before {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 10px;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--purple-text);
-  }
-
-  .lungs-wrap { flex: 0 0 140px; display: flex; justify-content: flex-end; }
-  .lungs-wrap svg { width: 140px; height: auto; }
-
-  /* ---------- TASKS SECTION ---------- */
-  .card.tasks {
-    background: #f4f9f6;
-    border: 1.5px solid #c9e0d3;
-    padding: 20px 20px 25px;
-  }
-  .tasks-title {
-    text-align: center;
-    font-weight: 800;
-    font-size: 1.2rem;
-    color: #5d8c72;
-    margin: 0 0 20px;
-  }
-  .tasks-title span { margin: 0 6px; font-size: 1rem; }
-  
-  .task-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-  .task-row:last-child { margin-bottom: 0; }
-  .task-num { font-weight: 800; font-size: 1.1rem; color: #5d8c72; flex: 0 0 20px; text-align: right; }
-  .task-input {
-    flex: 1;
-    border: 1.5px dashed #b1d1c0;
-    background: #fff;
-    border-radius: 8px;
-    padding: 12px 15px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    color: var(--text);
-    outline: none;
-    transition: all 0.2s;
-  }
-  .task-input:focus { border-color: #5d8c72; border-style: solid; }
-
-  /* ---------- HEARTS ROW ---------- */
-  .hearts-container {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 0 5px;
-    margin-right: 40px; 
-  }
-  .heart-label { cursor: pointer; width: 24px; height: 24px; }
-  .heart-label svg { width: 100%; height: 100%; fill: none; stroke: var(--night-badge); stroke-width: 1.5; }
-  .heart-input { display: none; }
-  .heart-input:checked + .heart-label svg { fill: var(--purple-text); stroke: var(--purple-text); }
-
-  /* ---------- TELEGRAM BUTTON & MODAL ---------- */
-  .tg-btn-wrap { margin-top: 30px; display: flex; justify-content: center; }
-  .tg-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 400px;
-    background: #0088cc;
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    padding: 15px 20px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    font-family: inherit;
-    cursor: pointer;
-    transition: background 0.2s;
-    box-shadow: 0 4px 10px rgba(0, 136, 204, 0.3);
-  }
-  .tg-btn:hover { background: #0077b3; }
-  .tg-btn svg { width: 24px; height: 24px; fill: #fff; }
-
-  /* Notification Box (Toast) */
-  #toast {
-    visibility: hidden;
-    min-width: 280px;
-    background-color: #1f2a63;
-    color: #fff;
-    text-align: center;
-    border-radius: 10px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1000;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
-    font-size: 0.95rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: visibility 0.5s, opacity 0.5s;
-    opacity: 0;
-  }
-  #toast.show { visibility: visible; opacity: 1; }
-
-  /* ---------- FOOTER ---------- */
-  .footer-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 25px;
-  }
-  .footer-divider svg { width: 70px; height: 25px; }
-  .footer-divider svg.left { transform: scaleX(-1); }
-  .footer-heart { color: var(--purple-text); font-size: 1.4rem; line-height: 1; }
-
-  @media (max-width: 600px) {
-    .start-content { flex-direction: column-reverse; align-items: center; text-align: right; }
-    .lungs-wrap { margin-bottom: 20px; }
-    .header h1 { font-size: 1.8rem; }
-    .branch { width: 80px; height: 50px; }
-  }
-</style>
-</head>
-<body>
-<div class="page-wrap">
-<div class="journal">
-
-  <!-- HEADER -->
-  <div class="header">
-    <svg class="branch right" viewBox="0 0 110 70" fill="none">
-      <path d="M8 62 C 20 40, 30 30, 55 18" stroke="#8a9c6d" stroke-width="2" fill="none"/>
-      <ellipse cx="20" cy="52" rx="9" ry="5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-30 20 52)"/>
-      <ellipse cx="33" cy="38" rx="9" ry="5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-20 33 38)"/>
-      <ellipse cx="47" cy="26" rx="8" ry="4.5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-15 47 26)"/>
-      <circle cx="15" cy="60" r="2.6" fill="#9179c2"/>
-      <circle cx="55" cy="17" r="2.2" fill="#9179c2"/>
-    </svg>
-    <h1><span class="sparkle">✦</span> عادت‌های کوچک <span class="sparkle">✦</span></h1>
-    <svg class="branch left" viewBox="0 0 110 70" fill="none">
-      <path d="M8 62 C 20 40, 30 30, 55 18" stroke="#8a9c6d" stroke-width="2" fill="none"/>
-      <ellipse cx="20" cy="52" rx="9" ry="5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-30 20 52)"/>
-      <ellipse cx="33" cy="38" rx="9" ry="5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-20 33 38)"/>
-      <ellipse cx="47" cy="26" rx="8" ry="4.5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-15 47 26)"/>
-      <circle cx="15" cy="60" r="2.6" fill="#9179c2"/>
-      <circle cx="55" cy="17" r="2.2" fill="#9179c2"/>
-    </svg>
-    <div class="divider">
-      <span class="dot"></span>
-      <span class="line"></span>
-      <span class="heart">♡</span>
-      <span class="line"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-
-  <!-- MORNING SECTION -->
-  <div class="card morning">
-    <div class="badge morning">
-      <span>بخش صبح:</span>
-      <svg viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="5" fill="#eab44b"/>
-        <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1" stroke="#eab44b" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="10" stroke="#d93b3b" stroke-width="2"/>
-          <path d="M8 6h8v12H8z" stroke="#555" stroke-width="1.5" rx="1"/>
-          <path d="M4 4l16 16" stroke="#d93b3b" stroke-width="2"/>
-        </svg>
-      </span>
-      <span class="text">صبح‌ها بعد از بیدار شدن، تا نیم ساعت گوشی چک نکنیم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M7 4h10l-1.5 16h-7L7 4z" fill="#b0d4f1" stroke="#5a9fd4" stroke-width="1.5"/>
-          <path d="M8 10h8" stroke-dasharray="2 2" stroke="#5a9fd4"/>
-        </svg>
-      </span>
-      <span class="text">قبل از هر چیزی ۱ لیوان کامل آب بخوریم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M4 20l12-12c1.5-1.5 3.5-1.5 5 0s1.5 3.5 0 5L9 20" fill="#e6f0fa" stroke="#5a9fd4" stroke-width="1.5"/>
-          <path d="M16 8l3-3M14 10l3-3M12 12l3-3" stroke="#5a9fd4" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="text">قبل از صبحانه مسواک بزنیم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M3 14c0 4.5 4 7 9 7s9-2.5 9-7H3z" fill="#ebd6eb" stroke="#9b709b" stroke-width="1.5"/>
-          <circle cx="8" cy="11" r="2.5" fill="#f4c652"/>
-          <circle cx="12" cy="10" r="3" fill="#8bc34a"/>
-          <circle cx="16" cy="12" r="2.5" fill="#ff9800"/>
-        </svg>
-      </span>
-      <span class="text">صبحانه رو کامل بخوریم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="5" r="2.5" fill="#f4a261"/>
-          <path d="M8 11c0-2 2-3 4-3s4 1 4 3v4h-8v-4z" fill="#457b9d"/>
-          <path d="M4 17c2-2 4-2 6 0M20 17c-2-2-4-2-6 0" stroke="#457b9d" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="text">مدیتیشن: حداقل ۱۵ دقیقه.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <rect x="6" y="3" width="12" height="18" rx="1" fill="#fff9eb" stroke="#d5b657" stroke-width="1.5"/>
-          <path d="M9 7h6M9 11h6M9 15h4" stroke="#d5b657" stroke-linecap="round"/>
-          <path d="M16 19l4-4 1.5 1.5-4 4z" fill="#8cc6f4" stroke="#4a8bc8"/>
-        </svg>
-      </span>
-      <span class="text">گزارش کار های صبح رو بهم بدیم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-  </div>
-
-  <!-- START SECTION -->
-  <div class="card start">
-    <p class="start-title"><span>★</span> START <span>★</span></p>
-    <div class="start-content">
-      <div class="start-text-wrapper">
-        <p class="start-text">برای اینکه از کاری به کار دیگر برویم ، یکباره وارد عمل نشویم،<br>اول ۳ <b>نفس عمیق</b> بکشیم.</p>
-        <p class="start-text" style="margin-top:10px;">نفس عمیق بکشیم یعنی:</p>
-        <ul class="start-list">
-          <li>بازدم درست،</li>
-          <li>حبس هوا،</li>
-          <li>سپس آرام هوا را خارج کنم،</li>
-          <li>این کار را حدود ۳۰ ثانیه انجام دهیم و بعد سراغ کار برویم.</li>
-        </ul>
-      </div>
-      
-      <div class="lungs-wrap">
-        <svg viewBox="0 0 200 210" fill="none">
-          <circle cx="60" cy="20" r="4.5" fill="#c9baec" opacity="0.6"/>
-          <circle cx="140" cy="15" r="3" fill="#c9baec" opacity="0.5"/>
-          <circle cx="100" cy="8" r="2.5" fill="#c9baec" opacity="0.6"/>
-          <circle cx="35" cy="45" r="3" fill="#c9baec" opacity="0.4"/>
-          <circle cx="165" cy="40" r="4" fill="#c9baec" opacity="0.5"/>
-
-          <path d="M 90 25 L 90 65 M 110 25 L 110 65" stroke="#a893d4" stroke-width="4.5" stroke-linecap="round"/>
-          <path d="M 91 33 L 109 33 M 91 43 L 109 43 M 91 53 L 109 53" stroke="#a893d4" stroke-width="2.5" stroke-linecap="round"/>
-
-          <path d="M 90 63 C 90 75, 80 85, 65 95 M 110 63 C 110 75, 120 85, 135 95" stroke="#a893d4" stroke-width="4.5" stroke-linecap="round"/>
-
-          <path d="M 85 75 C 60 55, 25 70, 20 105 C 15 145, 30 180, 65 185 C 85 185, 95 170, 95 155 C 95 130, 90 95, 85 75 Z" fill="#e9e4f5" stroke="#a893d4" stroke-width="3" stroke-linejoin="round"/>
-          
-          <path d="M 115 75 C 140 55, 175 70, 180 105 C 185 145, 170 180, 135 185 C 115 185, 105 170, 105 155 C 105 130, 110 95, 115 75 Z" fill="#e9e4f5" stroke="#a893d4" stroke-width="3" stroke-linejoin="round"/>
-
-          <path d="M 75 90 Q 60 110, 50 135 M 65 105 Q 80 120, 80 145 M 55 120 Q 40 135, 35 155" stroke="#c5b9e3" stroke-width="2.5" stroke-linecap="round"/>
-          
-          <path d="M 125 90 Q 140 110, 150 135 M 135 105 Q 120 120, 120 145 M 145 120 Q 160 135, 165 155" stroke="#c5b9e3" stroke-width="2.5" stroke-linecap="round"/>
-
-          <g transform="translate(145, 160) rotate(-15)">
-            <path d="M0 40 C 5 25, 10 10, 25 0" stroke="#8a9c6d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="8" cy="25" rx="7" ry="4" fill="#e4ebd9" stroke="#8a9c6d" stroke-width="1.5" transform="rotate(-35 8 25)"/>
-            <ellipse cx="18" cy="12" rx="6" ry="3.5" fill="#e4ebd9" stroke="#8a9c6d" stroke-width="1.5" transform="rotate(-20 18 12)"/>
-          </g>
-          <g transform="translate(30, 155) rotate(45)">
-            <path d="M0 35 C -5 20, -10 10, -20 0" stroke="#8a9c6d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="-8" cy="20" rx="6" ry="3.5" fill="#e4ebd9" stroke="#8a9c6d" stroke-width="1.5" transform="rotate(35 -8 20)"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- IMPORTANT TASKS SECTION -->
-  <div class="card tasks">
-    <p class="tasks-title"><span>✿</span> کار های مهمی که امروز انجام دادیم <span>✿</span></p>
-    <div class="task-row">
-      <span class="task-num">۱.</span>
-      <input type="text" class="task-input">
-    </div>
-    <div class="task-row">
-      <span class="task-num">۲.</span>
-      <input type="text" class="task-input">
-    </div>
-    <div class="task-row">
-      <span class="task-num">۳.</span>
-      <input type="text" class="task-input">
-    </div>
-  </div>
-
-  <!-- NIGHT SECTION -->
-  <div class="card night">
-    <div class="badge night">
-      <span>بخش شب:</span>
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="#fde6a8"/>
-        <path d="M15 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z" fill="#fff"/>
-      </svg>
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="13" r="8" fill="#e6f0fa" stroke="#38568c" stroke-width="1.5"/>
-          <path d="M12 9v4l2 2M5 4l-2 3M19 4l2 3" stroke="#38568c" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M9 3h6" stroke="#38568c" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="text">صبح‌ها حداکثر ساعت ۹:۳۰ بیدار شیم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="#38568c"/>
-          <path d="M16 6h2M12 11h2M18 10h1" stroke="#fff" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="text">شب‌ها حداکثر ساعت ۱:۳۰ بخوابیم (موقتا تا بعد کمتر شود).</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <rect x="6" y="3" width="12" height="18" rx="1" fill="#fff" stroke="#38568c" stroke-width="1.5"/>
-          <path d="M9 8h6M9 12h6M9 16h4" stroke="#38568c" stroke-linecap="round"/>
-          <path d="M18 18l3-3 1-1-4 4z" fill="#8cc6f4" stroke="#4a8bc8"/>
-        </svg>
-      </span>
-      <span class="text">کارهای مهم روزانمون رو انجام بدیم و برای هم شرح بدیم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="#38568c" stroke-linecap="round"/>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="#e6f0fa" stroke="#38568c" stroke-width="1.5"/>
-          <path d="M8 7h8M8 11h8M8 15h6" stroke="#f4c652" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="text">اگر در طول روز چیز جدیدی یاد گرفتیم یا مطلب آموزنده‌ای دیدیم به هم یاد بدیم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-
-    <div class="row" style="border-bottom: none; padding-bottom: 2px;">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 0 0 0-7.8z" fill="#e07a5f" stroke="#e07a5f"/>
-        </svg>
-      </span>
-      <span class="text">به هم عشق بورزیم و از یک تا پنج به ابراز احساسات هم نمره بدیم.</span>
-      <input type="checkbox" class="chk">
-    </div>
-    
-    <div class="hearts-container">
-      <input type="checkbox" id="h1" class="heart-input">
-      <label for="h1" class="heart-label"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 0 0 0-7.8z" stroke-linejoin="round"/></svg></label>
-      <input type="checkbox" id="h2" class="heart-input">
-      <label for="h2" class="heart-label"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 0 0 0-7.8z" stroke-linejoin="round"/></svg></label>
-      <input type="checkbox" id="h3" class="heart-input">
-      <label for="h3" class="heart-label"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 0 0 0-7.8z" stroke-linejoin="round"/></svg></label>
-      <input type="checkbox" id="h4" class="heart-input">
-      <label for="h4" class="heart-label"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 0 0 0-7.8z" stroke-linejoin="round"/></svg></label>
-      <input type="checkbox" id="h5" class="heart-input">
-      <label for="h5" class="heart-label"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1 1 7.9 7.9 7.9-7.9 1-1a5.5 5.5 0 0 0 0-7.8z" stroke-linejoin="round"/></svg></label>
-    </div>
-
-    <div class="row" style="border-top: 1.5px dashed rgba(56, 86, 140, 0.15);">
-      <span class="icon" style="flex: 0 0 45px; width:45px; display:flex; justify-content:center; gap: 2px;">
-        <svg viewBox="0 0 24 24" fill="none" style="width:20px;"><path d="M7 4h10l-1.5 16h-7L7 4z" fill="#b0d4f1" stroke="#5a9fd4" stroke-width="1.5"/></svg>
-        <span style="font-size:1rem; color:#5a9fd4; font-weight:bold;">+</span>
-        <svg viewBox="0 0 24 24" fill="none" style="width:20px;"><path d="M4 20l12-12c1.5-1.5 3.5-1.5 5 0s1.5 3.5 0 5L9 20" fill="#e6f0fa" stroke="#5a9fd4" stroke-width="1.5"/></svg>
-      </span>
-      <span class="text">شب: ۱ لیوان آب + مسواک</span>
-      <input type="checkbox" class="chk">
-    </div>
-  </div>
-
-  <!-- TELEGRAM BUTTON -->
-  <div class="tg-btn-wrap">
-    <button class="tg-btn" onclick="copyReport()">
-      <svg viewBox="0 0 24 24">
-        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-      </svg>
-      کپی کردن گزارش برای تلگرام
-    </button>
-  </div>
-
-  <!-- Toast Notification -->
-  <div id="toast">✅ گزارش کپی شد! حالا در تلگرام پیست کنید.</div>
-
-  <!-- FOOTER -->
-  <div class="footer-divider">
-    <svg class="left" viewBox="0 0 80 30" fill="none">
-      <path d="M0 25 C 20 15, 40 10, 80 5" stroke="#8a9c6d" stroke-width="1.5" fill="none"/>
-      <ellipse cx="20" cy="20" rx="6" ry="3.5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-30 20 20)"/>
-      <ellipse cx="40" cy="10" rx="5" ry="3" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-15 40 10)"/>
-    </svg>
-    <span class="footer-heart">♥</span>
-    <svg viewBox="0 0 80 30" fill="none">
-      <path d="M0 25 C 20 15, 40 10, 80 5" stroke="#8a9c6d" stroke-width="1.5" fill="none"/>
-      <ellipse cx="20" cy="20" rx="6" ry="3.5" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-30 20 20)"/>
-      <ellipse cx="40" cy="10" rx="5" ry="3" fill="#e4ebd9" stroke="#8a9c6d" transform="rotate(-15 40 10)"/>
-    </svg>
-  </div>
-
-</div>
-</div>
-
+/* ===== v4: week strip, streak, polish ===== */
+#app{position:relative}
+.hero{background:radial-gradient(rgba(255,255,255,.22) 1.2px,transparent 1.7px) 0 0/16px 16px,radial-gradient(110% 120% at 100% 0%,color-mix(in srgb,var(--tog) 85%,#fff),transparent 60%),linear-gradient(135deg,var(--ac),var(--tog))}
+.pc .ico{width:1.7em;height:1.7em;margin:0;box-shadow:none}
+.pc.sk{margin-inline-start:6px;background:rgba(255,255,255,.28)}
+.wk{display:flex;gap:4px;margin:0 0 16px;padding:12px 8px;border-radius:28px;background:var(--card);box-shadow:var(--sh);backdrop-filter:blur(16px)}
+.wd{flex:1;display:grid;justify-items:center;gap:7px;font-size:11px;font-weight:700;color:var(--mut)}
+.wd i{--p:0;position:relative;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ac) calc(var(--p)*1%),var(--line) 0)}
+.wd i:before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--card)}
+.wd i b{position:relative;font-size:12px;font-weight:700;color:var(--tx)}
+.wd.now{color:var(--ac)}
+.wd.now i{box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 25%,transparent),0 10px 16px -6px var(--ac)}
+.wd.now i b{font-weight:800;color:var(--ac)}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;margin:0 0 14px}
+.seg i{height:7px;border-radius:9px;background:rgba(60,40,90,.1);transition:background .4s,box-shadow .4s}
+.seg i.on{background:linear-gradient(90deg,#FFB020,#FF7AA8);box-shadow:0 5px 10px -3px #FF7AA8}
+.card h2 .ico{width:1.9em;height:1.9em;border-radius:.68em;margin-inline-end:.55em}
+.row .lb{font-weight:600}
+.tile{transition:transform .2s}.tile:active{transform:scale(.97)}
+body[data-tab=night] .ring:before{content:"";position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--ac) 38%,transparent),transparent 66%);filter:blur(12px);animation:float 6s ease-in-out infinite alternate}
+body[data-tab=night] .ring svg,body[data-tab=night] .ring b{position:relative}
+body[data-tab=night] .ring b{font-size:40px}
+#pv{box-shadow:0 26px 44px -18px rgba(40,20,90,.55),0 0 0 1px rgba(255,255,255,.4)}
+.note{border-radius:22px}
+.lock{border-radius:22px}
+</style></head><body data-u="me" data-tab="today">
+<div class="toast" id="toast"></div>
+<div id="app"></div>
+<nav class="nav"><div id="nav"></div></nav>
 <script>
-  function copyReport() {
-    let report = "🌟 گزارش عادت‌های امروز من 🌟\n\n";
-
-    // بررسی بخش صبح
-    report += "☀️ بخش صبح:\n";
-    let morningRows = document.querySelectorAll('.card.morning .row');
-    morningRows.forEach(row => {
-      let text = row.querySelector('.text').innerText;
-      let isChecked = row.querySelector('.chk').checked;
-      report += (isChecked ? "✅ " : "❌ ") + text + "\n";
-    });
-
-    // بررسی بخش کارهای مهم
-    report += "\n📝 کارهای مهم امروز:\n";
-    let tasks = document.querySelectorAll('.task-input');
-    let taskCount = 1;
-    let hasTasks = false;
-    tasks.forEach(task => {
-      if(task.value.trim() !== "") {
-        report += taskCount + ". " + task.value.trim() + "\n";
-        taskCount++;
-        hasTasks = true;
-      }
-    });
-    if(!hasTasks) {
-      report += "موردی نوشته نشده.\n";
-    }
-
-    // بررسی بخش شب
-    report += "\n🌙 بخش شب:\n";
-    let nightRows = document.querySelectorAll('.card.night .row');
-    nightRows.forEach(row => {
-      let chk = row.querySelector('.chk');
-      if(chk) {
-        let text = row.querySelector('.text').innerText;
-        report += (chk.checked ? "✅ " : "❌ ") + text + "\n";
-      }
-    });
-
-    // محاسبه قلب‌ها
-    let hearts = document.querySelectorAll('.heart-input:checked').length;
-    report += "\n❤️ میزان عشق امروز من: " + hearts + " از ۵\n";
-
-    // کپی متن در حافظه موقت (Clipboard)
-    navigator.clipboard.writeText(report).then(() => {
-      showToast();
-    }).catch(err => {
-      // روش جایگزین در صورت عدم پشتیبانی مرورگر از کلیپ‌بورد مستقیم
-      let textarea = document.createElement("textarea");
-      textarea.value = report;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-      showToast();
-    });
-  }
-
-  function showToast() {
-    let x = document.getElementById("toast");
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-  }
-</script>
-
-</body>
-</html>
+const $=s=>document.querySelector(s);
+const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const key=new Date().toISOString().slice(0,10);
+const def=()=>({m:[0,0,0,0,0],t:[{x:'',d:0},{x:'',d:0},{x:'',d:0}],w:0,sl:7,med:0,read:0,ch:{},nx:'',grat:'',note:'',mood:null,en:5,best:'',hard:'',sent:0});
+let S={u:'me',tab:'today',names:{me:'سجاد',her:'ستایش'},chores:{me:[{id:1,x:'ظرف‌ها'},{id:2,x:'لباس‌شویی'},{id:3,x:'خرید'}],her:[{id:1,x:'ظرف‌ها'},{id:2,x:'تمیزکاری'},{id:3,x:'تماس با خانواده'}]},days:{}};
+try{const r=localStorage.getItem('duo1');if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+S.names=Object.assign({me:'سجاد',her:'ستایش'},S.names);if(!S.names.me)S.names.me='سجاد';if(!S.names.her)S.names.her='ستایش';
+S.days[key]=S.days[key]||{me:def(),her:def()};
+const save=()=>{try{localStorage.setItem('duo1',JSON.stringify(S))}catch(e){}};
+const D=u=>S.days[key][u||S.u];
+const other=()=>S.u==='me'?'her':'me';
+const nm={get me(){return S.names.me||'سجاد'},get her(){return S.names.her||'ستایش'}};
+const MM=['😞','😕','😐','🙂','😄'];
+const MORN=['بیدار شدن سر ساعت','مرتب کردن تخت','خوردن صبحانه','ورزش یا کشش (۱۰ دقیقه)','آماده شدن به‌موقع'];
+function pct(u){const d=D(u),c=S.chores[u];let tot=5+3+1+1+c.length,dn=d.m.filter(Boolean).length+d.t.filter(t=>t.d).length+(d.w>=8?1:0)+d.med+c.filter(k=>d.ch[k.id]).length;return Math.round(dn/tot*100)}
+function pdOf(k,u){const dd=S.days[k]&&S.days[k][u];if(!dd)return 0;const c=S.chores[u];const dn=dd.m.filter(Boolean).length+dd.t.filter(t=>t.d).length+(dd.w>=8?1:0)+dd.med+c.filter(q=>dd.ch[q.id]).length;return Math.round(dn/(10+c.length)*100)}
+function wk(){const u=S.u,L=[],wf=new Intl.DateTimeFormat('fa-IR',{weekday:'narrow'}),df=new Intl.DateTimeFormat('fa-IR',{day:'numeric'});
+for(let n=6;n>=0;n--){const dt=new Date(Date.now()-n*864e5);L.push([dt,pdOf(dt.toISOString().slice(0,10),u)])}
+let st=0;for(let i=6;i>=0;i--){if(L[i][1]>=60)st++;else if(i!==6)break}
+return [`<div class="wk">${L.map((a,i)=>`<div class="wd ${i===6?'now':''}"><span>${wf.format(a[0])}</span><i style="--p:${a[1]}"><b>${df.format(a[0])}</b></i></div>`).join('')}</div>`,st]}
+const ring=(p,c,s=150)=>`<div class="ring" style="width:${s}px"><svg width="${s}" height="${s}" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${c}" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 327" data-d="${p*3.267} 327" style="transition:stroke-dasharray 1.1s cubic-bezier(.3,1.2,.5,1)"/></svg><b>${fa(p)}٪</b></div>`;
+const row=(a,i,l,on)=>`<div class="row ${on?'done':''}" data-a="${a}" data-i="${i}"><span class="dot">${CK}</span><span class="lb">${l}</span></div>`;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function greet(){const h=new Date().getHours();return h<5?'شب بخیر':h<12?'صبح بخیر':h<17?'ظهر بخیر':h<20?'عصر بخیر':'شب بخیر'}
+function today(){const d=D(),p=pct(S.u),c=S.chores[S.u],W=wk();
+const dt=new Intl.DateTimeFormat('fa-IR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
+return `<div class="top"><div class="sw wide">${['me','her'].map(k=>`<button class="${k} ${S.u===k?'on':''}" data-a="user" data-i="${k}">${nm[k]}</button>`).join('')}</div></div>
+<div class="hero"><i class="b1"></i><i class="b2"></i><div class="ht"><small>${dt}</small><h1>${greet()}، ${nm[S.u]}</h1><p>${p>=100?'روزت کامل شد، آفرین':p>=80?'یه قدم تا کامل شدن':p>=40?'داری عالی پیش می‌ری':p>0?'شروع خوبیه، ادامه بده':'بزن بریم، روز قشنگی در پیش داره'}</p><div class="pc"><span class="pd" style="background:var(--${other()})"></span>${nm[other()]} تا الان ${fa(pct(other()))}٪ پیش رفته</div>${W[1]>0?`<div class="pc sk">🔥 ${fa(W[1])} روز پشت‌سرهم</div>`:''}</div>${ring(p,'#fff',112)}</div>
+${W[0]}
+<div class="card c-m"><h2>☀️ روتین صبح <small>${fa(d.m.filter(Boolean).length)}/۵</small></h2><div class="seg">${d.m.map(v=>`<i class="${v?'on':''}"></i>`).join('')}</div>${MORN.map((l,i)=>row('m',i,l,d.m[i])).join('')}</div>
+<div class="card"><h2>💼 سه کار اصلی امروز</h2>${d.t.map((t,i)=>`<div class="row ${t.d?'done':''}" style="cursor:default"><span class="dot" data-a="t" data-i="${i}" style="cursor:pointer">${CK}</span><input class="tk lb" type="text" data-f="t${i}" value="${esc(t.x)}" placeholder="کار شماره ${fa(i+1)}…"></div>`).join('')}</div>
+<div class="card"><h2>🩺 سلامتی</h2><div class="bento"><div class="tile wide" style="--t:#3DA9FC"><div class="th"><span class="tl">💧 آب</span><b class="big">${fa(d.w)}<small>از ۸ لیوان</small></b></div><div class="cups">${[...Array(8)].map((_,i)=>`<button class="cup ${i<d.w?'f':''}" data-a="w" data-i="${i+1}"></button>`).join('')}</div></div>
+<div class="tile" style="--t:#8B7CF6"><span class="tl">😴 خواب دیشب</span><b class="big">${fa(d.sl)}<small>ساعت</small></b><div class="step"><button data-a="sl" data-i="-1">−</button><button data-a="sl" data-i="1">+</button></div></div>
+<div class="tile" style="--t:#2EC4A0"><span class="tl">🚶 قدم زدن</span><b class="big">${fa(d.read)}<small>دقیقه</small></b><div class="step"><button data-a="read" data-i="-5">−</button><button data-a="read" data-i="5">+</button></div></div>
+<div class="tile wide med row ${d.med?'done':''}" style="--t:#FF7AA8" data-a="med" data-i="0"><span class="dot">${CK}</span><span class="tl">💊 دارو / ویتامین</span><small class="st">${d.med?'خورده شد':'هنوز نه'}</small></div></div>
+</div>
+<div class="card"><h2>🏠 کارهای خونه</h2>${c.map(k=>`<div class="row ${d.ch[k.id]?'done':''}" data-a="ch" data-i="${k.id}"><span class="dot">${CK}</span><span class="lb">${esc(k.x)}</span><button class="x" data-a="del" data-i="${k.id}">✕</button></div>`).join('')}
+<div class="add"><input type="text" id="newch" placeholder="کار جدید…"><button data-a="add">+</button></div></div>
+<div class="sticky"><b style="font-size:13px">📌 فردا یادم نره…</b><textarea data-f="nx" placeholder="یه یادآوری برای فردا">${esc(d.nx)}</textarea></div>`}
+function night(){const d=D(),p=pct(S.u);
+return `<div class="top"><div><h1>شیر شبانه 🌙</h1><div class="date">امروزت رو مرور کن</div></div>
+<div class="sw"><button class="me ${S.u==='me'?'on':''}" data-a="user" data-i="me">${nm.me}</button><button class="her ${S.u==='her'?'on':''}" data-a="user" data-i="her">${nm.her}</button></div></div>
+${ring(p,'var(--ac)')}
+<div class="card"><h2>حال امروزت چطور بود؟</h2><div class="moods">${MM.map((m,i)=>`<button class="${d.mood===i?'on':''}" data-a="mood" data-i="${i}">${m}</button>`).join('')}</div>
+<div class="lbl">سطح انرژی: ${fa(d.en)} از ۱۰</div><input type="range" min="1" max="10" value="${d.en}" data-f="en"></div>
+<div class="card"><h2>🙏 امروز بابت چی ممنونم؟</h2><div class="field"><input type="text" data-f="grat" value="${esc(d.grat)}" placeholder="امروز یه لبخند بخاطر…"></div></div>
+<div class="card"><h2>🌟 بهترین لحظه</h2><div class="field"><input type="text" data-f="best" value="${esc(d.best)}" placeholder="چی خوب بود؟"></div>
+<h2 style="margin-top:14px">🌧 سخت‌ترین لحظه</h2><div class="field"><input type="text" data-f="hard" value="${esc(d.hard)}" placeholder="چی اذیتت کرد؟"></div></div>
+<div class="card"><h2>📝 یه یادداشت برای ${nm[other()]}</h2><div class="tg">${NT.map((t,i)=>`<button class="${d.nt===i?'on':''}" data-a="nt" data-i="${i}">${t}</button>`).join('')}</div><div class="field"><textarea data-f="note" placeholder="بنویس…">${esc(d.note)}</textarea></div></div>
+<div class="btn" role="button" data-a="tab" data-i="together" style="display:grid;place-items:center">ادامه: خلاصه‌ی امروز ✨</div>`}
+const IC={flame:'M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z',sun:'M16 12a4 4 0 1 1-8 0a4 4 0 1 1 8 0M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41',moon:'M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z',briefcase:'M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16',droplet:'M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z',bed:'M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9',pill:'m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7ZM8.5 8.5l7 7',walk:'M22 12h-4l-3 9L9 3l-3 9H2',home:'m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10',heart:'M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z',sparkles:'m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z',star:'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z',rain:'M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2M16 14v6M8 14v6M12 16v6',pin:'M12 17v5M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z',mail:'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7',send:'m22 2-7 20-4-9-9-4ZM22 2 11 13',dl:'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3'};
+const EMO={'🔥':['flame','#FF8A3D'],'☀':['sun','#FFB020'],'🌙':['moon','#8B7CF6'],'💼':['briefcase','#5B8DEF'],'💧':['droplet','#3DA9FC'],'😴':['bed','#8B7CF6'],'💊':['pill','#FF7AA8'],'🚶':['walk','#2EC4A0'],'🏠':['home','#F59E5B'],'📌':['pin','#F5B800'],'🙏':['sparkles','#FF8FB1'],'🌟':['star','#FFC233'],'🌧':['rain','#7C8CF0'],'📝':['mail','#6C8CF5'],'💌':['mail','#FF6FA0'],'💞':['heart','#FF6FA0'],'📤':['send','#6C8CF5'],'✨':['sparkles','#B48CF0'],'✈':['send','#6C8CF5'],'🖼':['dl','#6C8CF5'],'😞':['f0'],'😕':['f1'],'😐':['f2'],'🙂':['f3'],'😄':['f4']};
+const FACE='M22 12a10 10 0 1 1-20 0a10 10 0 1 1 20 0',EYES='M9.6 10a.9.9 0 1 1-1.8 0a.9.9 0 1 1 1.8 0M16.2 10a.9.9 0 1 1-1.8 0a.9.9 0 1 1 1.8 0',FCOL=['#9AA5C0','#8FB1F0','#C3B2EE','#FFC85C','#FF8FA8'],MOUTH=['M8 17.5c1.2-2.4 6.8-2.4 8 0','M8.5 16.5c1.2-1.2 5.8-1.2 7 0','M8.5 15.5h7','M8 14c1.2 2.4 6.8 2.4 8 0','M7.5 13.5h9c0 3-2 5-4.5 5s-4.5-2-4.5-5z'];
+const ic=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="${IC[n]}"/></svg>`;
+const faceS=i=>`<svg viewBox="0 0 24 24"><path d="${FACE}" fill="${FCOL[i]}"/><path d="${EYES}" fill="#3B2F4F"/><path d="${MOUTH[i]}" fill="${i===4?'#fff':'none'}" stroke="#3B2F4F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const CK='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" pathLength="1"/></svg>';
+const emo=ch=>{const e=EMO[ch];if(!e)return null;if(e[0].length===2&&e[0][0]==='f')return `<span class="fc">${faceS(+e[0][1])}</span>`;return `<span class="ico" style="--c:${e[1]}">${ic(e[0])}</span>`};
+const ES=/([\u2600-\u27BF]|[\u{1F300}-\u{1FAFF}])\uFE0F?/u;
+function iconify(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),L=[];let n;while(n=w.nextNode())if(ES.test(n.nodeValue)&&n.parentNode.tagName!=='TEXTAREA')L.push(n);
+L.forEach(n=>{const f=document.createDocumentFragment();n.nodeValue.split(ES).forEach((t,i)=>{if(i%2){const h=emo(t);if(h){const x=document.createElement('span');x.innerHTML=h;f.appendChild(x.firstChild)}else f.appendChild(document.createTextNode(t))}else if(t)f.appendChild(document.createTextNode(t))});n.parentNode.replaceChild(f,n)})}
+let ENTER=false,POP=null;
+function post(){const a=$('#app');a.classList.toggle('enter',ENTER);[...a.children].forEach((e,i)=>e.style.setProperty('--i',i));ENTER=false;
+if(POP){const e=a.querySelector(`[data-a="${POP[0]}"][data-i="${POP[1]}"]`);if(e)e.classList.add('pop');POP=null}
+requestAnimationFrame(()=>requestAnimationFrame(()=>a.querySelectorAll('[data-d]').forEach(e=>e.style.strokeDasharray=e.dataset.d)))}
+function burst(x,y){for(let i=0;i<12;i++){const s=document.createElement('i'),a=i/12*6.283,d=40+Math.random()*36;s.className='bp';s.style.cssText=`left:${x}px;top:${y}px;--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px;background:${['#6C8CF5','#F58FA9','#B48CF0','#FFC85C','#7BD3B0'][i%5]}`;document.body.appendChild(s);setTimeout(()=>s.remove(),750)}}
+const LEAD=/^([\u2600-\u27BF]|[\u{1F300}-\u{1FAFF}])\uFE0F?\s*/u;
+function dIc(c,n,x,y,s,col,lw){c.save();c.translate(x,y);c.scale(s/24,s/24);c.strokeStyle=col;c.lineWidth=lw||2;c.lineCap='round';c.lineJoin='round';c.stroke(new Path2D(IC[n]));c.restore()}
+function faceC(c,i,cx,cy,r){c.save();c.translate(cx-r,cy-r);c.scale(r/12,r/12);c.fillStyle=FCOL[i];c.fill(new Path2D(FACE));c.fillStyle='#3B2F4F';c.fill(new Path2D(EYES));const m=new Path2D(MOUTH[i]);if(i===4){c.fillStyle='#fff';c.fill(m)}c.strokeStyle='#3B2F4F';c.lineWidth=1.6;c.lineCap='round';c.lineJoin='round';c.stroke(m);c.restore()}
+const NT=['تشکر','دلتنگی','تشویق','عذرخواهی'];
+let IMG=null,busy=0,tmr;
+function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()}
+function wrap(c,t,mw){const o=[];String(t).split('\n').forEach(p=>{let l='';p.split(' ').forEach(w=>{const k=l?l+' '+w:w;if(c.measureText(k).width>mw&&l){o.push(l);l=w}else l=k});o.push(l)});return o}
+function paint(c,W,H){
+const u=S.u,d=D(),ch=S.chores[u],ac=u==='me'?'#6C8CF5':'#F58FA9',tg='#B48CF0',p=pct(u),n=(S.names[u]||'').trim().slice(0,12),M=50,IW=W-2*M,R=W-M-40,TX='#2B2540',MU='#8C86A0';
+const DT=new Intl.DateTimeFormat('fa-IR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
+c.direction='rtl';c.textBaseline='alphabetic';c.textAlign='right';
+const ft=c.fillText.bind(c);c.fillText=function(t,x,y){const m=String(t).match(LEAD),e=m&&EMO[m[1]];if(!e)return ft(t,x,y);const fs=+(c.font.match(/(\d+)px/)||[0,30])[1],al=c.textAlign,fill=c.fillStyle,flat=fill==='#ffffff'||fill==='#6b5810',s=flat?fs*1.05:fs*1.5,rest=String(t).slice(m[0].length);
+let xr=x;if(al==='center')xr=x+(s+14+c.measureText(rest).width)/2;
+if(flat)dIc(c,e[0],xr-s,y-fs*.85,s,fill,2.2);else{c.save();c.fillStyle=e[1];rr(c,xr-s,y-fs*.96,s,s,s*.3);c.fill();c.restore();dIc(c,e[0],xr-s*.78,y-fs*.63,s*.56,'#fff',2.4)}
+c.textAlign='right';ft(rest,xr-s-14,y);c.textAlign=al};
+let g=c.createLinearGradient(0,0,0,H);g.addColorStop(0,'#FBF7F2');g.addColorStop(1,'#F1E8FA');c.fillStyle=g;c.fillRect(0,0,W,H);
+g=c.createLinearGradient(W,0,0,380);g.addColorStop(0,ac);g.addColorStop(1,tg);c.fillStyle=g;
+c.beginPath();c.moveTo(0,0);c.lineTo(W,0);c.lineTo(W,330);c.quadraticCurveTo(W/2,430,0,330);c.closePath();c.fill();
+c.fillStyle='rgba(255,255,255,.14)';[[960,70,140],[420,300,90],[40,60,110]].forEach(a=>{c.beginPath();c.arc(a[0],a[1],a[2],0,7);c.fill()});
+c.fillStyle='#fff';c.font='600 34px Vazirmatn';c.fillText('🌙 مرور شبانه',W-70,115);
+c.font='800 74px Vazirmatn';c.fillText('خلاصه‌ی روز'+(n?' '+n:''),W-70,210);
+c.font='400 36px Vazirmatn';c.fillText(DT,W-70,278);
+c.lineWidth=20;c.lineCap='round';c.strokeStyle='rgba(255,255,255,.3)';c.beginPath();c.arc(185,200,88,0,7);c.stroke();
+c.strokeStyle='#fff';c.beginPath();c.arc(185,200,88,-Math.PI/2,-Math.PI/2+p/100*Math.PI*2);c.stroke();
+c.textAlign='center';c.font='800 52px Vazirmatn';c.fillText(fa(p)+'٪',185,220);
+let y=420;
+const card=h=>{c.save();c.shadowColor='rgba(80,60,120,.13)';c.shadowBlur=40;c.shadowOffsetY=12;c.fillStyle='#fff';rr(c,M,y,IW,h,44);c.fill();c.restore()};
+const tw=(IW-40)/3,th=260,tint=[ac+'26','#DDEEFF','#E9DFFF'];
+tint.forEach((t,i)=>{c.fillStyle=t;rr(c,M+(2-i)*(tw+20),y,tw,th,44);c.fill()});
+const tc=i=>M+(2-i)*(tw+20)+tw/2,lab=(i,a,b)=>{c.fillStyle=TX;c.font='600 32px Vazirmatn';c.fillText(a,tc(i),y+178);c.fillStyle=MU;c.font='400 30px Vazirmatn';c.fillText(b,tc(i),y+222)};
+faceC(c,d.mood!=null?d.mood:2,tc(0),y+100,56);lab(0,d.mood!=null?['خیلی بد','بد','معمولی','خوب','عالی'][d.mood]:'حال روز','انرژی '+fa(d.en)+' از ۱۰');
+for(let i=0;i<8;i++){const x=tc(1)-100+(i%4)*54,cy=y+34+(i>3?66:0);if(i<d.w){c.fillStyle='#8CC4FF';rr(c,x,cy,38,50,10);c.fill()}c.strokeStyle='#6AA8F0';c.lineWidth=4;rr(c,x,cy,38,50,10);c.stroke()}
+lab(1,'آب',fa(d.w)+' از ۸ لیوان');
+dIc(c,'bed',tc(2)-50,y+50,100,'#8B7CF6',1.7);lab(2,'خواب',fa(d.sl)+' ساعت');
+y+=th+30;
+const cl=(title,cnt,items)=>{c.font='600 34px Vazirmatn';const tl=items.map(t=>wrap(c,t.t,IW-260)),hh=tl.map(l=>Math.max(68,l.length*50+18)),h=110+hh.reduce((a,b)=>a+b,0);card(h);
+c.textAlign='right';c.fillStyle=TX;c.font='800 38px Vazirmatn';c.fillText(title,R,y+68);
+if(cnt){c.textAlign='left';c.fillStyle=MU;c.font='600 32px Vazirmatn';c.fillText(cnt,M+40,y+68)}
+let ty=y+100;items.forEach((t,i)=>{const cy=ty+24;c.beginPath();
+if(t.d===null){c.arc(R-24,cy,9,0,7);c.fillStyle=ac;c.fill()}else{c.arc(R-24,cy,24,0,7);if(t.d){c.fillStyle=ac;c.fill();c.fillStyle='#fff';c.font='800 30px Vazirmatn';c.textAlign='center';c.fillText('✓',R-24,cy+11)}else{c.strokeStyle=ac;c.lineWidth=4;c.stroke()}}
+c.textAlign='right';c.font='600 34px Vazirmatn';c.fillStyle=t.d?MU:TX;tl[i].forEach((l,k)=>c.fillText(l,R-70,ty+36+k*50));
+if(t.x){c.textAlign='left';c.fillStyle=ac;c.font='800 32px Vazirmatn';c.fillText(t.x,M+40,ty+36)}
+ty+=hh[i]});y+=h+30};
+cl('☀️ روتین صبح',fa(d.m.filter(Boolean).length)+' از '+fa(MORN.length),MORN.map((l,i)=>({t:l,d:d.m[i]})));
+cl('💼 سه کار اصلی امروز',fa(d.t.filter(t=>t.d&&t.x.trim()).length)+' از '+fa(d.t.length),d.t.map(t=>({t:t.x.trim()||'—',d:t.d})));
+cl('💧 سلامتی','',[{t:'💧 آب',d:d.w>=8,x:fa(d.w)+' از ۸ لیوان'},{t:'😴 خواب دیشب',d:null,x:fa(d.sl)+' ساعت'},{t:'💊 دارو / ویتامین',d:d.med},{t:'🚶 قدم زدن / حرکت',d:d.read>0,x:fa(d.read)+' دقیقه'}]);
+if(ch.length)cl('🏠 کارهای خونه',fa(ch.filter(k=>d.ch[k.id]).length)+' از '+fa(ch.length),ch.map(k=>({t:k.x,d:d.ch[k.id]})));
+const it=[['🙏 قدردانی',d.grat],['🌟 بهترین لحظه',d.best],['🌧 سخت‌ترین لحظه',d.hard],['📌 فردا یادم نره',d.nx]].map(a=>[a[0],(a[1]||'').trim()||'—']);
+{c.font='400 36px Vazirmatn';const il=it.map(a=>wrap(c,a[1],IW-80)),h=50+il.reduce((a,l)=>a+50+l.length*58+24,0);card(h);let ty=y+30;
+it.forEach((a,i)=>{c.textAlign='right';c.fillStyle=MU;c.font='600 30px Vazirmatn';c.fillText(a[0],R,ty+36);c.fillStyle=TX;c.font='400 36px Vazirmatn';il[i].forEach((l,k)=>c.fillText(l,R,ty+90+k*58));ty+=50+il[i].length*58+24});y+=h+30}
+{c.font='400 36px Vazirmatn';const nl=wrap(c,(d.note||'').trim()||'—',IW-100),h=130+nl.length*60;
+c.save();c.translate(W/2,y+h/2);c.rotate(-.012);c.translate(-W/2,-(y+h/2));c.shadowColor='rgba(0,0,0,.15)';c.shadowBlur=30;c.shadowOffsetY=10;c.fillStyle='#FFF0A6';rr(c,M,y,IW,h,36);c.fill();c.shadowColor='transparent';
+c.fillStyle='#6b5810';c.textAlign='right';c.font='800 34px Vazirmatn';c.fillText('💌 '+(NT[d.nt]||'یه پیام کوچولو'),W-M-50,y+66);c.font='400 36px Vazirmatn';nl.forEach((l,k)=>c.fillText(l,W-M-50,y+130+k*60));c.restore();y+=h+30}
+c.textAlign='center';c.fillStyle='#B3ADC6';c.font='400 30px Vazirmatn';c.fillText('💞 دفترچه‌ی ما',W/2,y+45);
+return y+100}
+async function makeImg(){try{await Promise.all([400,600,800].map(w=>document.fonts.load(w+' 30px Vazirmatn','خلاصه ۱۲۳')))}catch(e){}
+const W=1080,s=document.createElement('canvas');s.width=W;s.height=4000;const H=Math.max(1350,paint(s.getContext('2d'),W,4000));
+const c=document.createElement('canvas');c.width=W;c.height=H;paint(c.getContext('2d'),W,H);
+return new Promise(r=>c.toBlob(r,'image/png'))}
+async function refresh(){if(S.tab!=='together')return;const my=++busy,b=await makeImg();if(my!==busy||S.tab!=='together')return;IMG=b;const e=document.getElementById('pv');if(e){if(e.dataset.u)URL.revokeObjectURL(e.dataset.u);const u=URL.createObjectURL(b);e.dataset.u=u;e.src=u}}
+function dl(){const a=document.createElement('a');a.href=URL.createObjectURL(IMG);a.download='our-day.png';document.body.appendChild(a);a.click();a.remove();toast('عکس ذخیره شد؛ توی تلگرام بفرستش')}
+function shareImg(){if(!IMG){toast('چند لحظه صبر کن…');return}const f=new File([IMG],'our-day.png',{type:'image/png'});
+if(navigator.canShare&&navigator.canShare({files:[f]}))navigator.share({files:[f]}).catch(()=>{});else dl()}
+function together(){const u=S.u;
+return `<div class="top"><div><h1>خلاصه‌ی امروز 📤</h1><div class="date">عکسش رو بساز و بفرست تلگرام</div></div>
+<div class="sw"><button class="me ${u==='me'?'on':''}" data-a="user" data-i="me">${nm.me}</button><button class="her ${u==='her'?'on':''}" data-a="user" data-i="her">${nm.her}</button></div></div>
+<div class="card" style="padding:12px"><img id="pv" alt="خلاصه‌ی روز" style="width:100%;display:block;border-radius:18px;min-height:240px;background:var(--bg)"></div>
+<div class="card"><h2>اسمت روی عکس</h2><div class="field"><input type="text" data-f="name" value="${esc(S.names[u]||'')}" placeholder="مثلاً علی"></div></div>
+<div class="btn" role="button" data-a="tg" style="display:grid;place-items:center">ارسال به تلگرام ✈️</div>
+<div class="btn" role="button" data-a="save" style="display:grid;place-items:center;margin-top:10px;background:var(--card);color:var(--tx);box-shadow:var(--sh)">ذخیره‌ی عکس 🖼</div>
+<div class="tiny">منوی اشتراک‌گذاری باز می‌شه، تلگرام و بعد چت رو انتخاب کن</div>`}
+function render(){document.body.dataset.u=S.u;document.body.dataset.tab=S.tab;
+$('#app').innerHTML=({today,night,together})[S.tab]();
+$('#nav').innerHTML=[['today','☀️','امروز'],['night','🌙','شب'],['together','📤','خلاصه']].map(t=>`<button class="${S.tab===t[0]?'on':''}" data-a="tab" data-i="${t[0]}"><span>${t[1]}</span>${t[2]}</button>`).join('');iconify($('#nav'));iconify($('#app'));post();save();if(S.tab==='together')setTimeout(refresh,30)}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('s');setTimeout(()=>e.classList.remove('s'),2200)}
+const buzz=()=>{try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,i=t.dataset.i,d=D(),x=Number(i),p0=pct(S.u);
+if(a==='tab'){S.tab=i;scrollTo(0,0)}
+else if(a==='user')S.u=i;
+else if(a==='m')d.m[x]=d.m[x]?0:1;
+else if(a==='t')d.t[x].d=d.t[x].d?0:1;
+else if(a==='w')d.w=d.w===x?x-1:x;
+else if(a==='sl')d.sl=Math.max(0,Math.min(14,d.sl+x));
+else if(a==='read')d.read=Math.max(0,d.read+x);
+else if(a==='med')d.med=d.med?0:1;
+else if(a==='ch')d.ch[x]=d.ch[x]?0:1;
+else if(a==='del'){e.stopPropagation();S.chores[S.u]=S.chores[S.u].filter(k=>k.id!==x)}
+else if(a==='add'){const v=$('#newch').value.trim();if(!v)return;S.chores[S.u].push({id:Date.now(),x:v})}
+else if(a==='mood')d.mood=x;
+else if(a==='nt')d.nt=x;
+else if(a==='tg'){shareImg();return}
+else if(a==='save'){if(IMG)dl();else toast('چند لحظه صبر کن…');return}
+buzz();if(['m','t','ch','med','w','mood'].includes(a)){POP=[a,i];burst(e.clientX,e.clientY)}if(a==='tab'||a==='user')ENTER=true;if(S.tab==='today'&&a!=='tab'&&a!=='user'&&p0<100&&pct(S.u)>=100)for(let k=0;k<6;k++)setTimeout(()=>burst(innerWidth*(.2+k*.12),innerHeight*.28),k*140);const y=scrollY;render();scrollTo(0,y)});
+document.addEventListener('input',e=>{const f=e.target.dataset.f;if(!f)return;const d=D(),v=e.target.value;
+if(f[0]==='t'&&f.length===2)d.t[+f[1]].x=v;else if(f==='name'){S.names[S.u]=v;save();clearTimeout(tmr);tmr=setTimeout(refresh,500);return}
+else if(f==='en'){d.en=+v;save();const l=e.target.previousElementSibling;if(l)l.textContent='سطح انرژی: '+fa(v)+' از ۱۰';return}
+else d[f]=v;save()});
+render();
+</script></body></html>
