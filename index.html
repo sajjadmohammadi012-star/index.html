@@ -570,7 +570,17 @@ html{scrollbar-width:none}::-webkit-scrollbar{display:none}
 .qah{margin-top:6px}
 .qah summary{cursor:pointer;font-weight:800;font-size:14px;padding:6px 2px;min-height:44px;box-sizing:border-box;display:flex;align-items:center}
 .qhh{font-size:12px;font-weight:800;opacity:.7;margin:12px 2px 6px}
-</style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="دفترچه‌ی ما"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💞%3C/text%3E%3C/svg%3E"></head><body data-u="me" data-tab="today">
+</style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="دفترچه‌ی ما"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💞%3C/text%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="OurJournal">
+<meta name="application-name" content="OurJournal">
+<meta name="theme-color" content="#6C8CF5">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+</head><body data-u="me" data-tab="today">
 <div class="toast" id="toast"></div>
 <div id="app"></div>
 <nav class="nav"><div id="nav"></div></nav>
@@ -1007,4 +1017,14 @@ render();
 </script><script>["gesturestart","gesturechange","gestureend"].forEach(n=>document.addEventListener(n,e=>e.preventDefault(),{passive:false}));document.addEventListener("touchmove",e=>{if(e.touches.length>1||(e.scale&&e.scale!==1))e.preventDefault()},{passive:false});document.addEventListener("dblclick",e=>e.preventDefault(),{passive:false});</script>
 <script>(function(){var a=document.createElement("div");a.id="aur";a.innerHTML="<i></i><i></i><i></i>";document.body.prepend(a);
 document.addEventListener("pointerdown",function(e){var b=e.target.closest(".btn,.nav button");if(!b||b.disabled)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,p=document.createElement("span");p.className="rp";p.style.cssText="width:"+s+"px;height:"+s+"px;left:"+(e.clientX-r.left-s/2)+"px;top:"+(e.clientY-r.top-s/2)+"px";b.appendChild(p);setTimeout(function(){p.remove()},650)},{passive:true})})();</script>
+
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register(new URL('./sw.js', document.baseURI)).catch(function (error) {
+      console.warn('OurJournal service worker registration failed:', error);
+    });
+  });
+}
+</script>
 </body></html>
