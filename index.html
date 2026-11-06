@@ -260,41 +260,334 @@ body .card.sync.sync{background:linear-gradient(135deg,var(--me),var(--tog) 50%,
 .pn .pq{line-height:2;font-size:15px;padding:14px 16px;border-radius:20px;background:color-mix(in srgb,var(--her) 12%,var(--card));border-inline-start:5px solid var(--her)}
 .bento+.card{margin-top:14px}
 .nav button{font-size:11.5px}
-</style></head><body data-u="me" data-tab="today">
+
+/* ===== v6: need, daily question, insights ===== */
+.nd{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.nd button{text-align:right;padding:14px 16px;border:0;border-radius:22px;font:inherit;color:var(--tx);cursor:pointer;background:color-mix(in srgb,var(--t) 12%,var(--card));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--t) 28%,transparent);transition:transform .25s,box-shadow .25s,background .25s}
+.nd button b{display:block;font-size:15px;font-weight:800}
+.nd button small{font-size:11.5px;color:var(--mut)}
+.nd button.on{color:#fff;transform:translateY(-3px);background:linear-gradient(145deg,var(--t),color-mix(in srgb,var(--t) 55%,#fff));box-shadow:0 16px 26px -12px var(--t),inset 0 1px 0 rgba(255,255,255,.4)}
+.nd button.on small{color:rgba(255,255,255,.85)}
+.nd button:last-child{grid-column:1/-1}
+body .card.nb.nb{display:flex;align-items:center;gap:16px;color:#fff;background:linear-gradient(135deg,var(--t),color-mix(in srgb,var(--t) 55%,#fff));box-shadow:0 24px 40px -18px var(--t),inset 0 1px 0 rgba(255,255,255,.4)}
+.nb small{display:block;font-size:12px;font-weight:700;opacity:.9}
+.nb b{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;font-size:24px;line-height:1.5}
+.np{flex:none;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:26px;background:rgba(255,255,255,.28);animation:pl 2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}100%{box-shadow:0 0 0 22px rgba(255,255,255,0)}}
+body .card.qc.qc{position:relative;overflow:hidden;color:#fff;background:linear-gradient(150deg,#2B2260,#4A2F8A 55%,#7B3F9E);box-shadow:0 30px 50px -22px #4A2F8A,inset 0 1px 0 rgba(255,255,255,.25)}
+.qq{position:absolute;top:-34px;inset-inline-end:14px;font:400 200px/1 Lalezar,serif;opacity:.13;pointer-events:none}
+.qt{display:inline-block;padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.16);font-size:12px;font-weight:700}
+.qc h3{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;font-size:26px;line-height:1.6;margin:12px 0 16px;position:relative}
+.qc .field{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22)}
+.qc textarea{color:#fff}.qc textarea::placeholder{color:rgba(255,255,255,.6)}
+.qc .btn{background:#fff;color:#3a2a7a;box-shadow:0 16px 26px -12px rgba(0,0,0,.45)}
+.qb{--c:var(--me);margin-top:10px;padding:14px 16px;border-radius:22px;background:rgba(255,255,255,.12);border-inline-start:5px solid var(--c)}
+.qb b{display:block;font-size:12px;opacity:.85;margin-bottom:4px}
+.qb p{margin:0;font-size:15px;line-height:1.9}
+.qb.lock p{filter:blur(6px);user-select:none}
+.rv{animation:rv .7s both}.r2{animation-delay:.5s}
+@keyframes rv{from{opacity:0;transform:translateY(16px) scale(.96)}}
+.qh{margin-top:12px;font-size:12.5px;opacity:.82}
+.ql{margin-top:8px;background:none;border:0;color:#fff;text-decoration:underline;opacity:.8;font:inherit;cursor:pointer}
+.ir{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
+.ir>span{flex:none;width:42px;height:42px;display:grid;place-items:center;border-radius:15px;background:color-mix(in srgb,var(--t) 16%,transparent)}
+.ir p,.ie p{margin:0;line-height:1.95;font-size:14.5px}
+.ib{height:8px;border-radius:9px;background:var(--line);margin:4px 0 12px;overflow:hidden}
+.ib i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--ac),var(--tog))}
+
+/* ===== v7: night ritual, sky, auto theme ===== */
+body[data-tab=night] .card{background:linear-gradient(180deg,rgba(48,43,84,.9),rgba(34,30,64,.75))}
+.wl{display:block;margin:12px 0 8px;font-size:13px;font-weight:700;color:var(--mut)}
+.wcs{display:flex;flex-wrap:wrap;gap:8px}
+.wc{border:0;font:inherit;font-size:13.5px;font-weight:700;padding:10px 14px;border-radius:99px;color:var(--tx);cursor:pointer;background:color-mix(in srgb,var(--ac) 12%,var(--card));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ac) 28%,transparent);transition:.2s}
+.wc.on{color:#fff;transform:translateY(-2px);background:linear-gradient(135deg,var(--ac),var(--tog));box-shadow:0 10px 18px -8px var(--ac)}
+.wrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wcol{--c:var(--me);margin-top:8px;padding:14px;border-radius:20px;background:color-mix(in srgb,var(--c) 14%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 40%,transparent)}
+.wrow .wcol{margin:0}
+.wcol b{display:block;margin-bottom:6px;font-size:14px;color:var(--c)}
+.wcol small{display:block;font-size:11px;color:var(--mut)}
+.wcol p{margin:2px 0 8px;font-size:14px;font-weight:700;line-height:1.7}
+.wcol.lockd p{filter:blur(6px)}
+.ql{margin-top:8px;background:none;border:0;color:var(--tx);text-decoration:underline;opacity:.75;font:inherit;cursor:pointer}
+body .card.lv.lv{display:flex;align-items:center;justify-content:space-between;gap:14px;color:#4a2a45;background:linear-gradient(135deg,#FFE3EC,#FFD2E1 55%,#F5C9F2);box-shadow:0 22px 36px -18px var(--her),inset 0 1px 0 #fff}
+.lv small{display:block;font-size:12px;font-weight:700;opacity:.7}
+.lv b{font-size:16px;line-height:1.7}
+.lv .dot{flex:none;width:46px;height:46px;border-color:#E3669A}
+.lv.done b{opacity:.55;text-decoration:line-through}
+.lv.done .dot{background:linear-gradient(135deg,#F58FA9,#E3669A)}
+.bd .field{transition:.3s}
+.bd.go .field{animation:rel 1.5s ease-in forwards}
+@keyframes rel{to{opacity:0;transform:translateY(-70px) scale(.92);filter:blur(12px)}}
+.rl{text-align:center;padding:8px 0}.rl p{font-weight:700;margin:0}
+.st{width:10px;height:10px;margin:0 auto 12px;border-radius:50%;background:#fff;box-shadow:0 0 26px 9px rgba(255,255,255,.55)}
+.bw{min-height:200px;display:grid;place-items:center}
+.bz{position:relative;width:120px;height:120px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;background:radial-gradient(circle at 35% 30%,#fff7,var(--ac) 45%,var(--tog));box-shadow:0 0 60px color-mix(in srgb,var(--ac) 65%,transparent)}
+.bz:not(.on):before{content:"آماده"}
+.bz span{position:absolute;opacity:0}
+.bz.on{animation:bz 8s ease-in-out infinite}
+.bz.on .bi{animation:bi 8s infinite}.bz.on .bo{animation:bo 8s infinite}
+@keyframes bz{0%,100%{transform:scale(.8)}50%{transform:scale(1.4)}}
+@keyframes bi{0%,45%{opacity:1}55%,100%{opacity:0}}
+@keyframes bo{0%,45%{opacity:0}55%,95%{opacity:1}100%{opacity:0}}
+.gin{margin-bottom:12px;padding:14px 16px;border-radius:20px;background:color-mix(in srgb,var(--her) 14%,transparent);border-inline-start:5px solid var(--her)}
+.gin small{font-weight:700;opacity:.8}.gin p{margin:4px 0 0;line-height:1.9}
+.gn .tg{flex-wrap:wrap;margin-bottom:10px}
+.cz{text-align:center}
+.cz b{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;font-size:24px}
+.cz p{margin:6px 0 16px;font-size:13.5px;color:var(--mut)}
+.mn{width:84px;height:84px;margin:0 auto 12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#E7E0FF 50%,#B9A9F7);box-shadow:0 0 50px 8px rgba(185,169,247,.4)}
+.cz.on .mn{animation:float 5s ease-in-out infinite alternate;box-shadow:0 0 70px 18px rgba(185,169,247,.6)}
+body .card.sky.sky{color:#fff;background:linear-gradient(160deg,#120E28,#2A1B52);box-shadow:0 30px 50px -22px #2A1B52,inset 0 1px 0 rgba(255,255,255,.15)}
+.sky svg{display:block;width:100%}
+.sky p{margin:6px 0 0;font-size:12.5px;opacity:.75}
+.mm{--c:var(--me);margin:10px 0;padding:6px 12px;border-inline-start:4px solid var(--c)}
+.mm small{font-weight:700;color:var(--c)}.mm p{margin:2px 0 0;line-height:1.8;font-size:14.5px}
+
+/* ===== v8: login gate, sync, backup ===== */
+#gate[hidden],#mdl[hidden],#lockb[hidden]{display:none!important}
+body.gated #app,body.gated .nav{visibility:hidden}
+#mdl{position:fixed;inset:0;z-index:400;display:grid;place-items:center;padding:24px;background:rgba(10,6,30,.6);backdrop-filter:blur(8px)}
+.mb{width:100%;max-width:340px;padding:26px 22px 18px;border-radius:30px;text-align:center;color:#F4F0FF;background:linear-gradient(160deg,#2B2260,#3A2A7A);box-shadow:0 40px 60px -20px #000,inset 0 1px 0 rgba(255,255,255,.2)}
+.mb h3{margin:0 0 6px;font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;font-size:26px}
+.mb p{margin:0 0 16px;line-height:1.9;color:#CFC8F2}
+.mr{display:grid;gap:6px}
+.top .sw{display:none!important}
+.lk{display:flex;align-items:center;margin:4px 0 14px}
+.lk i{flex:none;width:46px;height:46px;border-radius:50%;background:var(--c);box-shadow:0 10px 20px -8px var(--c)}
+.lk s{position:relative;flex:1;height:3px;border-radius:3px;opacity:.55;background:linear-gradient(90deg,var(--me),var(--her))}
+.lk s:after{content:"";position:absolute;top:-4px;width:11px;height:11px;border-radius:50%;background:#fff;box-shadow:0 0 12px var(--tog);animation:mv 2.4s ease-in-out infinite alternate}
+@keyframes mv{from{inset-inline-start:0}to{inset-inline-start:calc(100% - 11px)}}
+.sy2 p{margin:0 0 14px;font-size:14px;line-height:1.9;color:var(--mut)}
+.sy2 small{display:block;margin-top:12px;text-align:center;font-size:12px;color:var(--mut)}
+.bkr{display:grid;gap:10px}
+.bkr .alt{color:var(--ac);background:color-mix(in srgb,var(--ac) 14%,var(--card));box-shadow:none}
+
+/* ===== v9: premium gate ===== */
+
+/* ===== v10: redesigned gate ===== */
+#gate{position:fixed;inset:0;z-index:300;overflow:auto;-webkit-overflow-scrolling:touch;color:#F4F0FF;background:linear-gradient(180deg,#0D0922,#181040 50%,#2A1B52)}
+.gin2{--c1:#6C8CF5;--c2:#B48CF0;position:relative;z-index:2;min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding:calc(env(safe-area-inset-top,0px) + 76px) 22px calc(env(safe-area-inset-bottom,0px) + 36px)}
+.gin2.her{--c1:#F58FA9;--c2:#FFC27A}
+.gaur,.gst{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.gaur i{position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(80px);opacity:.5;animation:gdr 18s ease-in-out infinite alternate}
+.gaur i:nth-child(1){background:#5B78F0;top:-32vmax;right:-28vmax}
+.gaur i:nth-child(2){background:#A77CF0;bottom:-38vmax;left:-24vmax;animation-delay:-7s}
+.gaur i:nth-child(3){background:#F0709A;top:34%;left:-46vmax;opacity:.3;animation-delay:-11s}
+@keyframes gdr{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+.gst i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:#fff;opacity:.15;animation:gtw var(--d) ease-in-out infinite alternate;animation-delay:var(--l)}
+@keyframes gtw{to{opacity:.9;transform:scale(1.5)}}
+.gmoon{position:fixed;z-index:1;top:calc(env(safe-area-inset-top,0px) + 22px);left:26px;width:40px;height:40px;border-radius:50%;box-shadow:inset -13px -5px 0 0 #F2ECFF,0 0 30px rgba(220,205,255,.45);pointer-events:none}
+.glogo{display:grid;justify-items:center;gap:6px;text-align:center}
+.gheart{width:60px;height:60px;border-radius:21px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#6C8CF5,#B48CF0 50%,#F58FA9);box-shadow:0 18px 40px -10px #B48CF0,inset 0 1px 0 rgba(255,255,255,.5);animation:ghb 2.6s ease-in-out infinite}
+.gheart svg{width:32px;height:32px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.25))}
+@keyframes ghb{0%,100%{transform:scale(1)}50%{transform:scale(1.09) rotate(-4deg)}}
+.glogo h1{margin:8px 0 0;font:400 58px/1.15 Lalezar,Vazirmatn,sans-serif;background:linear-gradient(90deg,#A9BEFF,#E0C8FF,#FFC2D4,#A9BEFF);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gsh 6s linear infinite}
+@keyframes gsh{to{background-position:200% 0}}
+.glogo p{margin:0;color:#B9B2DC;font-size:14.5px}
+.gq{font:400 26px/1 Lalezar,Vazirmatn,sans-serif;color:#EDE8FF}
+.gps{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;max-width:420px}
+.gp{--sk1:#1C2894;--sk2:#4A66EE;--sk3:#6C8CF5;--c1:#6C8CF5;--c2:#B48CF0;position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;min-height:304px;padding:34px 8px 18px;border:0;border-radius:999px 999px 34px 34px;color:#fff;font:inherit;cursor:pointer;overflow:hidden;background:linear-gradient(180deg,var(--sk1),var(--sk2) 55%,var(--sk3));box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3),0 38px 50px -28px var(--c1);transition:transform .3s,box-shadow .3s}
+.gp.her{--sk1:#7E1B4F;--sk2:#DB4B80;--sk3:#E8588A;--c1:#F58FA9;--c2:#FFC27A}
+.gp:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.6px 1.6px at 22% 14%,#fffd,transparent),radial-gradient(1.2px 1.2px at 74% 9%,#fffb,transparent),radial-gradient(1.4px 1.4px at 86% 26%,#fff9,transparent),radial-gradient(1.2px 1.2px at 12% 32%,#fff8,transparent),radial-gradient(1.4px 1.4px at 56% 20%,#fffa,transparent)}
+.gp:after{content:"";position:absolute;left:50%;top:78px;width:190px;height:190px;margin-left:-95px;border-radius:50%;background:radial-gradient(rgba(255,255,255,.34),transparent 68%);pointer-events:none}
+.gp>*{position:relative;z-index:1}
+.gp b{margin-top:6px;font:400 30px/1.1 Lalezar,Vazirmatn,sans-serif;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+.glast{margin-top:-4px;font-size:11.5px;font-weight:700;opacity:.9}
+.gcta{margin-top:auto;display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:99px;font-size:13px;font-weight:800;background:rgba(255,255,255,.2);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);backdrop-filter:blur(8px)}
+.gcta svg{width:16px;height:16px}
+.gp:active{transform:scale(.97)}
+@media (hover:hover){.gp:hover{transform:translateY(-6px)}}
+.gp:focus-visible,.gb:focus-visible,.gl:focus-visible,.gback:focus-visible,.gt-e:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.gmid{position:absolute;left:calc(50% - 22px);top:calc(58% - 22px);z-index:3;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;pointer-events:none;background:linear-gradient(135deg,#6C8CF5,#F58FA9);box-shadow:0 0 0 5px #1A1242,0 10px 24px -6px #F58FA9;animation:gpul 2.4s ease-in-out infinite}
+.gmid svg{width:21px;height:21px}
+@keyframes gpul{50%{transform:scale(1.14)}}
+.gnote{display:flex;align-items:center;gap:7px;color:#9C95C9;font-size:12.5px;text-align:center}
+.gnote svg{width:15px;height:15px;flex:none}
+.gring{--z:120px;position:relative;width:var(--z);height:var(--z);flex:none;border-radius:50%;animation:gbob 4s ease-in-out infinite}
+.her .gring,.gring.her{animation-delay:-2s}
+.gring:before{content:"";position:absolute;inset:-7px;border-radius:50%;background:conic-gradient(var(--c1),var(--c2),#fff,var(--c1));animation:grot 6s linear infinite;filter:drop-shadow(0 0 14px var(--c1))}
+.gring.me{--c1:#6C8CF5;--c2:#B48CF0}.gring.her{--c1:#F58FA9;--c2:#FFC27A}
+.gavw{position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 0 0 3px rgba(255,255,255,.95)}
+.gavw.me{background:linear-gradient(160deg,#F1F5FF,#B3C4FF)}
+.gavw.her{background:linear-gradient(160deg,#FFF0F5,#FFC2D4)}
+.gavw svg{width:100%;height:100%;display:block}
+.eye{transform-box:fill-box;transform-origin:center;animation:gbl 5s infinite}
+@keyframes gbl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+@keyframes gbob{50%{transform:translateY(-6px)}}
+@keyframes grot{to{transform:rotate(360deg)}}
+.gt{display:grid;justify-items:center;gap:6px;text-align:center}
+.gt .gg{margin:14px 0 0;color:#BDB6E6;font-size:15px}
+.gt h2{margin:0;font:400 40px/1.15 Lalezar,Vazirmatn,sans-serif}
+.gt p{margin:10px 0 0;color:#BDB6E6;font-size:14.5px;line-height:1.8}
+.gf{display:grid;gap:12px;width:100%;max-width:360px;padding:18px;border-radius:32px;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.04));box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),0 34px 50px -30px #000;backdrop-filter:blur(18px)}
+.gw{position:relative;display:block}
+.gi{width:100%;height:58px;padding:0 52px;border:0;border-radius:20px;outline:0;font:inherit;font-size:16px;color:#fff;background:rgba(10,6,34,.38);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);transition:box-shadow .2s,background .2s}
+.gi::placeholder{color:rgba(255,255,255,.5)}
+.gi:focus{background:rgba(10,6,34,.5);box-shadow:inset 0 0 0 2px var(--c2),0 0 0 5px color-mix(in srgb,var(--c1) 32%,transparent)}
+.gi-i,.gt-e{position:absolute;top:50%;transform:translateY(-50%);width:24px;height:24px;color:#B9B2DC;display:grid;place-items:center}
+.gi-i{inset-inline-start:18px}
+.gt-e{inset-inline-end:16px;border:0;background:none;padding:0;cursor:pointer;border-radius:8px}
+.gi-i svg,.gt-e svg{width:22px;height:22px}
+.pm{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;margin:-2px 6px}
+.pm i{height:5px;border-radius:9px;background:rgba(255,255,255,.14);transition:background .3s}
+.pm[data-s="1"] i:nth-child(-n+1){background:#FF7A8A}.pm[data-s="2"] i:nth-child(-n+2){background:#FFB020}
+.pm[data-s="3"] i:nth-child(-n+3){background:#7BD88F}.pm[data-s="4"] i{background:#3DD6A3}
+.ge:empty{display:none}
+.ge{padding:10px 14px;border-radius:14px;text-align:center;font-size:13px;font-weight:700;color:#FFB6C4;background:rgba(255,92,122,.16);box-shadow:inset 0 0 0 1px rgba(255,120,150,.3)}
+.shake{animation:gshk .4s}
+@keyframes gshk{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+.gb{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:60px;border:0;border-radius:22px;font:inherit;font-size:17px;font-weight:800;color:#fff;cursor:pointer;background:linear-gradient(100deg,var(--c1,#6C8CF5),var(--c2,#B48CF0));box-shadow:0 20px 32px -12px var(--c1,#8B7CF6),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .2s}
+.gb svg{width:22px;height:22px}
+.gb:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-120%);animation:gshn 3.5s 1s ease-in-out infinite}
+@keyframes gshn{to{transform:translateX(120%)}}
+.gb:active{transform:scale(.97)}
+.gl{padding:10px 14px;border:0;background:none;color:#BDB6E6;font:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:12px}
+.gback{position:absolute;z-index:5;top:calc(env(safe-area-inset-top,0px) + 16px);inset-inline-start:18px;width:46px;height:46px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#fff;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);backdrop-filter:blur(12px);transition:transform .2s,background .2s}
+.gback svg{width:22px;height:22px}
+.gback:active{transform:scale(.92)}
+@media (hover:hover){.gback:hover{background:rgba(255,255,255,.2)}}
+.gin2.enter>*{animation:gin .7s cubic-bezier(.2,.9,.3,1) both}
+.gin2.enter>*:nth-child(2){animation-delay:.08s}.gin2.enter>*:nth-child(3){animation-delay:.16s}.gin2.enter>*:nth-child(4){animation-delay:.24s}
+.gin2.enter .gp:nth-child(2){animation:gin .8s .3s cubic-bezier(.2,.9,.3,1) both}
+@keyframes gin{from{opacity:0;transform:translateY(22px) scale(.97)}}
+@media (max-width:360px){.glogo h1{font-size:48px}.gp{min-height:280px}.gp b{font-size:26px}}
+@media (prefers-reduced-motion:reduce){#gate *,#gate *:before,#gate *:after{animation:none!important}}
+#lockb{position:fixed;z-index:60;top:calc(env(safe-area-inset-top,0px) + 14px);inset-inline-start:14px;width:44px;height:44px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:var(--tx);background:color-mix(in srgb,var(--card) 78%,transparent);backdrop-filter:blur(14px);box-shadow:var(--sh),inset 0 0 0 1px rgba(255,255,255,.5);transition:transform .2s}
+#lockb svg{width:22px;height:22px}
+#lockb:active{transform:scale(.9)}
+#lockb:focus-visible{outline:3px solid var(--me);outline-offset:3px}
+#app{padding-top:68px}
+</style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="دفترچه‌ی ما"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💞%3C/text%3E%3C/svg%3E"></head><body data-u="me" data-tab="today">
 <div class="toast" id="toast"></div>
 <div id="app"></div>
 <nav class="nav"><div id="nav"></div></nav>
+<div id="gate" hidden></div><div id="mdl" hidden></div>
+<button id="lockb" hidden aria-label="برگشت به انتخاب پروفایل" title="برگشت به انتخاب پروفایل"></button>
 <script>
 const $=s=>document.querySelector(s);
 const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
-const key=new Date().toISOString().slice(0,10);
+const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const key=ymd(new Date());
 const def=()=>({m:[0,0,0,0,0],t:[{x:'',d:0},{x:'',d:0},{x:'',d:0}],w:0,sl:7,med:0,read:0,ch:{},nx:'',grat:'',note:'',mood:null,en:5,best:'',hard:'',sent:0});
 let S={u:'me',tab:'today',names:{me:'سجاد',her:'ستایش'},chores:{me:[{id:1,x:'ظرف‌ها'},{id:2,x:'لباس‌شویی'},{id:3,x:'خرید'}],her:[{id:1,x:'ظرف‌ها'},{id:2,x:'تمیزکاری'},{id:3,x:'تماس با خانواده'}]},days:{}};
 try{const r=localStorage.getItem('duo1');if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
 S.names=Object.assign({me:'سجاد',her:'ستایش'},S.names);if(!S.names.me)S.names.me='سجاد';if(!S.names.her)S.names.her='ستایش';
 S.days[key]=S.days[key]||{me:def(),her:def()};
+S.pw=S.pw||{};if(S.ph&&S.dev){S.pw[S.dev]=S.pw[S.dev]||S.ph;delete S.ph}
+if(S.dev)S.u=S.dev;
 const save=()=>{try{localStorage.setItem('duo1',JSON.stringify(S))}catch(e){}};
 const D=u=>S.days[key][u||S.u];
 const other=()=>S.u==='me'?'her':'me';
 const nm={get me(){return S.names.me||'سجاد'},get her(){return S.names.her||'ستایش'}};
 const MM=['😞','😕','😐','🙂','😄'];
 const MORN=['بیدار شدن سر ساعت','مرتب کردن تخت','خوردن صبحانه','ورزش یا کشش (۱۰ دقیقه)','آماده شدن به‌موقع'];
-function pct(u){const d=D(u),c=S.chores[u];let tot=5+3+1+1+c.length,dn=d.m.filter(Boolean).length+d.t.filter(t=>t.d).length+(d.w>=8?1:0)+d.med+c.filter(k=>d.ch[k.id]).length;return Math.round(dn/tot*100)}
-function pdOf(k,u){const dd=S.days[k]&&S.days[k][u];if(!dd)return 0;const c=S.chores[u];const dn=dd.m.filter(Boolean).length+dd.t.filter(t=>t.d).length+(dd.w>=8?1:0)+dd.med+c.filter(q=>dd.ch[q.id]).length;return Math.round(dn/(10+c.length)*100)}
+function pct(u){const d=D(u);if(S.dev&&u!==S.dev&&d.pc!==undefined)return d.pc||0;const c=S.chores[u];let tot=5+3+1+1+c.length,dn=d.m.filter(Boolean).length+d.t.filter(t=>t.d).length+(d.w>=8?1:0)+d.med+c.filter(k=>d.ch[k.id]).length;return Math.round(dn/tot*100)}
+function pdOf(k,u){const dd=S.days[k]&&S.days[k][u];if(!dd)return 0;if(S.dev&&u!==S.dev&&dd.pc!==undefined)return dd.pc||0;const c=S.chores[u];const dn=dd.m.filter(Boolean).length+dd.t.filter(t=>t.d).length+(dd.w>=8?1:0)+dd.med+c.filter(q=>dd.ch[q.id]).length;return Math.round(dn/(10+c.length)*100)}
 function wk(){const u=S.u,L=[],wf=new Intl.DateTimeFormat('fa-IR',{weekday:'narrow'}),df=new Intl.DateTimeFormat('fa-IR',{day:'numeric'});
-for(let n=6;n>=0;n--){const dt=new Date(Date.now()-n*864e5);L.push([dt,pdOf(dt.toISOString().slice(0,10),u)])}
+for(let n=6;n>=0;n--){const dt=new Date(Date.now()-n*864e5);L.push([dt,pdOf(ymd(dt),u)])}
 let st=0;for(let i=6;i>=0;i--){if(L[i][1]>=60)st++;else if(i!==6)break}
 return [`<div class="wk">${L.map((a,i)=>`<div class="wd ${i===6?'now':''}"><span>${wf.format(a[0])}</span><i style="--p:${a[1]}"><b>${df.format(a[0])}</b></i></div>`).join('')}</div>`,st]}
 const ring=(p,c,s=150)=>`<div class="ring" style="width:${s}px"><svg width="${s}" height="${s}" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="60" cy="60" r="52" fill="none" stroke="${c}" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 327" data-d="${p*3.267} 327" style="transition:stroke-dasharray 1.1s cubic-bezier(.3,1.2,.5,1)"/></svg><b>${fa(p)}٪</b></div>`;
 const row=(a,i,l,on)=>`<div class="row ${on?'done':''}" data-a="${a}" data-i="${i}"><span class="dot">${CK}</span><span class="lb">${l}</span></div>`;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function greet(){const h=new Date().getHours();return h<5?'شب بخیر':h<12?'صبح بخیر':h<17?'ظهر بخیر':h<20?'عصر بخیر':'شب بخیر'}
-function today(){const d=D(),p=pct(S.u),c=S.chores[S.u],W=wk(),o=D(other()),PN=(o.note||'').trim()?`<div class="card pn"><h2>💌 پیام ${nm[other()]} برای تو<small>${NT[o.nt]||'پیام'}</small></h2><div class="pq">${esc(o.note)}</div></div>`:'';
+
+const NEED=[['گوش بده','فقط بشنو، راه‌حل نده','#6C8CF5','که گوش بدی'],['بغلم کن','یه بغل طولانی','#F58FA9','که بغلش کنی'],['تنهام بذار','کمی فضا می‌خوام','#8B7CF6','کمی تنها باشه'],['کمکم کن','یه بار رو ازم بردار','#2EC4A0','که کمکش کنی'],['سر به سرم بذار','می‌خوام بخندم','#FFA62B','که سر به سرش بذاری']];
+const QS=['امروز چی باعث شد بی‌دلیل لبخند بزنی؟','یه خاطره‌ی بامزه از بچگیت تعریف کن.','چه کار کوچیکی از من امروز حالت رو بهتر کرد؟','اگه فردا یه روز کاملاً آزاد داشتیم، دوست داشتی چیکار کنیم؟','چه چیزی از من هست که هنوز دوست داری بیشتر بشناسی؟','یه لحظه‌ی قشنگ از اوایل آشنایی‌مون که یادته؟','این هفته به چی بیشتر از همه افتخار می‌کنی؟','چه آهنگی الان بیشتر از همه یاد ما می‌افته؟','یه آرزوی کوچیک که می‌خوای باهم برآورده کنیم؟','چه چیزی امروز استرس‌ت رو بیشتر کرد و من چطور می‌تونم کمک کنم؟','یه عادت من که دوستش داری و شاید نگفتی؟','اگه می‌شد یه شب شام هرجای دنیا بخوریم، کجا؟','بزرگ‌ترین درسی که از این رابطه گرفتی چیه؟','چه چیزی باعث می‌شه کنار من احساس امنیت کنی؟','یه چیز جدید که دوست داری باهم امتحان کنیم؟','امروز از خودت چه چیزی رو دوست داشتی؟','چه حرفی هست که دوست داری بیشتر بشنوی؟','یه غذایی که بوش تو رو یاد خونه می‌ندازه؟','سه چیز کوچیک که امروز بابتش شاکری؟','چه لحظه‌ای از امروز دلت می‌خواست من کنارت بودم؟'];
+const needCard=d=>`<div class="card"><h2>💗 الان چی لازم دارم؟<small>${nm[other()]} می‌بینه</small></h2><div class="nd">${NEED.map((n,i)=>`<button class="${d.need===i?'on':''}" style="--t:${n[2]}" data-a="need" data-i="${i}"><b>${n[0]}</b><small>${n[1]}</small></button>`).join('')}</div></div>`;
+function qCard(d){const ot=other(),o=D(ot),u=S.u,q=QS[(Date.parse(key)/864e5|0)%QS.length],bub=(w,t,x)=>`<div class="qb ${x||''}" style="--c:var(--${w})"><b>${nm[w]}</b><p>${t}</p></div>`;let b;
+if(!d.qd)b=`<div class="field"><textarea data-f="qa" placeholder="جوابت رو بنویس… تا ثبت نکنی ${nm[ot]} نمی‌بینه">${esc(d.qa||'')}</textarea></div><button class="btn" data-a="qs" style="width:100%;margin-top:12px">ثبت جواب</button>`;
+else if(!o.qd)b=bub(u,esc(d.qa))+bub(ot,'••••• ••• ••••••','lock')+`<div class="qh">جواب ${nm[ot]} هنوز ثبت نشده. وقتی بنویسه، با هم رو می‌شه.</div><button class="ql" data-a="qe">ویرایش جواب من</button>`;
+else b=bub(u,esc(d.qa),'rv')+bub(ot,esc(o.qa),'rv r2')+`<div class="qh">دو تا جواب، یه دنیا شناخت 💞</div>`;
+return `<div class="card qc"><div class="qq">“</div><small class="qt">سؤال امشب</small><h3>${q}</h3>${b}</div>`}
+function insights(u){const R=Object.entries(S.days).map(([k,v])=>v[u]&&Object.assign({},v[u],{k})).filter(r=>r&&(r.mood!=null||pdOf(r.k,u)>0)),M=R.filter(r=>r.mood!=null),out=[];
+const df=(rows,t,v)=>{const A=rows.filter(t),B=rows.filter(r=>!t(r));if(A.length<2||B.length<2)return null;const m=x=>x.reduce((s,r)=>s+v(r),0)/x.length;return m(A)-m(B)};
+let x=df(M,r=>r.sl>=7,r=>r.mood);if(x>0)out.push(['😴','روزهایی که ۷ ساعت یا بیشتر می‌خوابی، حال‌وهوات حدود '+fa(Math.round(x/4*100))+'٪ بهتره.']);
+x=df(M,r=>r.w>=6,r=>r.mood);if(x>0)out.push(['💧','روزهایی که ۶ لیوان آب یا بیشتر می‌خوری، حال‌وهوات حدود '+fa(Math.round(x/4*100))+'٪ بهتره.']);
+x=df(R,r=>r.m.every(Boolean),r=>pdOf(r.k,u));if(x>0)out.push(['☀️','وقتی روتین صبح رو کامل می‌کنی، کل روزت '+fa(Math.round(x))+' امتیاز بهتر پیش می‌ره.']);
+if(R.length>=3){const g={};R.forEach(r=>{const w=new Date(r.k+'T12:00:00').getDay();(g[w]=g[w]||[]).push(pdOf(r.k,u))});const b=Object.entries(g).map(([w,a])=>[+w,a.reduce((s,v)=>s+v,0)/a.length]).sort((a,b)=>b[1]-a[1])[0];if(b&&b[1]>0)out.push(['🌟','قوی‌ترین روز هفته‌ات معمولاً '+new Intl.DateTimeFormat('fa-IR',{weekday:'long'}).format(new Date(2024,0,7+b[0]))+' بوده.'])}
+const cl=['#8B7CF6','#3DA9FC','#FFB020','#2EC4A0'];
+return `<div class="card ins"><h2>🔮 الگوهای تو<small>${fa(R.length)} روز داده</small></h2>${out.length?out.map((o,i)=>`<div class="ir" style="--t:${cl[['😴','💧','☀️','🌟'].indexOf(o[0])]}"><span>${o[0]}</span><p>${o[1]}</p></div>`).join(''):`<div class="ie"><div class="ib"><i style="width:${Math.min(100,R.length*20)}%"></i></div><p>هنوز داده‌ی کافی نیست. با ۴–۵ روز ثبت منظم، اینجا الگوهای خواب و آب و حال‌وهوات نشون داده می‌شه.</p></div>`}</div>`}
+
+function applyTheme(){const h=new Date().getHours();document.documentElement.dataset.theme=(h>=19||h<6)?'dark':'light'}setInterval(applyTheme,6e4);
+const WISH=['یه شب آروم و ساکت','یه گپ سبک و خنده‌دار','یه بغل طولانی','فیلم دیدن کنار هم','هرکی یه گوشه‌ی خودش'],ASK=['فقط بشنوی','بغلم کنی','دلداریم بدی','سر به سرم بذاری','بهم فضا بدی'],GNP=['شب‌بخیر عشقم، فردا هم کنارتم','ممنون که امروز بودی','خوابای قشنگ ببینی'],LV=['یه ویس ۱۰ ثانیه‌ای بفرست','براش چای یا قهوه بریز','یه تعریف مشخص ازش بکن','یه عکس قدیمیتون رو براش بفرست','۲ دقیقه بدون گوشی کنارش بشین','یه کار کوچیکش رو بی‌صدا انجام بده','بغلش کن و ۱۰ ثانیه نگه دار','یه پیام «به یادتم» بفرست','ازش بپرس امروز چی خوشحالش کرد','برای فردا یه سورپرایز کوچیک فکر کن'];
+const lvCard=d=>`<div class="card lv ${d.lv?'done':''}"><div><small>کار کوچیک عاشقانه‌ی امروز</small><b>${LV[(Date.parse(key)/864e5|0)%LV.length]}؛ برای ${nm[other()]}</b></div><button class="dot" data-a="lv" aria-label="انجام شد">${CK}</button></div>`;
+function wishCard(d){const ot=other(),o=D(ot),u=S.u,chip=(L,k,v)=>L.map((l,i)=>`<button class="wc ${v===i?'on':''}" data-a="${k}" data-i="${i}">${l}</button>`).join(''),
+col=(w,e)=>`<div class="wcol" style="--c:var(--${w})"><b>${nm[w]}</b><small>امشب دلم می‌خواد</small><p>${WISH[e.wish]}</p><small>از تو می‌خوام که</small><p>${ASK[e.ask]}</p></div>`;let b;
+if(!d.ws)b=`<small class="wl">امشب دلم می‌خواد…</small><div class="wcs">${chip(WISH,'wish',d.wish)}</div><small class="wl">و از تو می‌خوام که…</small><div class="wcs">${chip(ASK,'ask',d.ask)}</div><button class="btn" data-a="ws" style="margin-top:14px;opacity:${d.wish!=null&&d.ask!=null?1:.45}">بفرست برای ${nm[ot]}</button>`;
+else if(!o.ws)b=col(u,d)+`<div class="wcol lockd" style="--c:var(--${ot})"><b>${nm[ot]}</b><p>••••• ••• ••••</p></div><div class="qh">وقتی ${nm[ot]} هم انتخاب کنه، با هم رو می‌شه.</div><button class="ql" data-a="we">تغییر انتخاب من</button>`;
+else b=`<div class="wrow rv">${col(u,d)}${col(ot,o)}</div><div class="qh">امشب همدیگه رو بهتر می‌فهمید 💞</div>`;
+return `<div class="card wsh"><h2>🌙 نسخه‌ی امشب ما</h2>${b}</div>`}
+const burdenCard=d=>`<div class="card bd"><h2>🍃 بار امروز رو زمین بذار</h2>${d.rel?`<div class="rl"><div class="st"></div><p>رها شد. امشب سبک‌تری ✦</p><button class="ql" data-a="rel2">یه چیز دیگه</button></div>`:`<div class="field"><textarea placeholder="هرچی ذهنت رو مشغول کرده بنویس. ذخیره نمی‌شه و با رها کردنش محو می‌شه…"></textarea></div><button class="btn" data-a="rel" style="margin-top:12px">رها کن</button>`}</div>`;
+const breathCard=()=>`<div class="card br"><h2>🌀 تنفس ۴–۴ قبل خواب</h2><div class="bw"><div id="brz" class="bz"><span class="bi">دم</span><span class="bo">بازدم</span></div></div><button class="btn" data-a="br">شروع تنفس</button></div>`;
+function gnCard(d){const ot=other(),o=D(ot);return `<div class="card gn"><h2>💌 شب‌بخیر برای ${nm[ot]}</h2>${(o.gn||'').trim()?`<div class="gin"><small>شب‌بخیر از ${nm[ot]}</small><p>${esc(o.gn)}</p></div>`:''}<div class="tg">${GNP.map((g,i)=>`<button data-a="gnp" data-i="${i}">${g}</button>`).join('')}</div><div class="field"><input type="text" data-f="gn" value="${esc(d.gn||'')}" placeholder="یا خودت بنویس…"></div></div>`}
+const closeCard=d=>`<div class="card cz ${d.closed?'on':''}"><div class="mn"></div><b>${d.closed?'روزت بسته شد':'آماده‌ای روزت رو ببندی؟'}</b><p>${d.closed?'یه ستاره برای امشب روشن شد. شب‌بخیر ✦':'با بستن روز، یه ستاره به آسمان مشترکتون اضافه می‌شه.'}</p><button class="btn" data-a="cl">${d.closed?'بازش کن':'روزم رو می‌بندم'}</button></div>`;
+function sky(){const ds=Object.entries(S.days).sort((a,b)=>a[0]<b[0]?-1:1),Hh=(i,m)=>Math.abs(Math.sin(i*m)*43758.5453)%1,P=i=>[24+Hh(i,12.9898)*272,22+Hh(i,78.233)*136],pts=[];let ln='',st='',n=0;
+ds.forEach(([k,v],i)=>{const a=v.me.closed,b=v.her.closed;if(!a&&!b)return;const [x,y]=P(i+1);if(a&&b){n++;pts.push([x,y]);st+=`<circle cx="${x}" cy="${y}" r="11" fill="#B9A9F7" opacity=".22"/><circle cx="${x}" cy="${y}" r="3.6" fill="#fff"/>`}else st+=`<circle cx="${x}" cy="${y}" r="1.8" fill="#fff" opacity=".5"/>`});
+for(let i=1;i<pts.length;i++)ln+=`M${pts[i-1][0]} ${pts[i-1][1]}L${pts[i][0]} ${pts[i][1]}`;
+return `<div class="card sky"><h2>✨ آسمان ما<small>${fa(n)} ستاره</small></h2><svg viewBox="0 0 320 180"><path d="${ln}" fill="none" stroke="#B9A9F7" stroke-opacity=".35" stroke-dasharray="2 4"/>${st}</svg><p>${n?'هر شبی که هر دو روزتون رو ببندید، یه ستاره‌ی تازه روشن می‌شه.':'هنوز ستاره‌ای نیست. شب‌ها «روزم رو می‌بندم» رو بزنید تا اولین ستاره روشن بشه.'}</p></div>`}
+function moments(){const df=new Intl.DateTimeFormat('fa-IR',{weekday:'long'}),rows=[];for(let i=0;i<7;i++){const dt=new Date(Date.now()-i*864e5),k=ymd(dt);['me','her'].forEach(w=>{const t=((S.days[k]&&S.days[k][w]&&S.days[k][w].best)||'').trim();if(t)rows.push(`<div class="mm" style="--c:var(--${w})"><small>${df.format(dt)} · ${nm[w]}</small><p>${esc(t)}</p></div>`)})}
+return `<div class="card"><h2>🌟 بهترین لحظه‌های هفته</h2>${rows.length?rows.join(''):'<p class="ie" style="margin:0;color:var(--mut)">هنوز لحظه‌ای ثبت نشده. بهترین لحظه‌ی هر روز رو توی تب شب بنویس.</p>'}</div>`}
+
+/* ---------- login / sync / backup ---------- */
+let UN=false,G={p:null,err:''},FAIL=0,FT=0,PEND=null,hid=0;
+const SF=['mood','best','note','nt','gn','qa','qd','ws','wish','ask','closed','lv'];
+const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const dec=t=>{t=t.replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(t+'='.repeat((4-t.length%4)%4)))))};
+try{if(location.hash.startsWith('#sync=')){PEND=dec(location.hash.slice(6));history.replaceState(null,'',location.pathname+location.search)}}catch(e){PEND=null}
+async function H(p){const b=new TextEncoder().encode(p+'|duo-journal');if(window.crypto&&crypto.subtle){const h=await crypto.subtle.digest('SHA-256',b);return [...new Uint8Array(h)].map(x=>x.toString(16).padStart(2,'0')).join('')}let h=5381;for(const c of p)h=(h*33)^c.charCodeAt(0);return 'f'+(h>>>0)}
+const AV={me:`<svg viewBox="0 0 120 120" aria-hidden="true"><g><rect x="29" y="68" width="10" height="30" rx="5" fill="#2C3A9E"/><rect x="81" y="68" width="10" height="30" rx="5" fill="#2C3A9E"/><circle cx="34" cy="99" r="5.2" fill="#fff"/><circle cx="86" cy="99" r="5.2" fill="#fff"/><rect x="44" y="92" width="15" height="21" rx="5" fill="#1B2670"/><rect x="61" y="92" width="15" height="21" rx="5" fill="#1B2670"/><path d="M35 94V80q0-15 15-17h20q15 2 15 17v14z" fill="#2C3A9E"/><path d="M51 62h18l-9 18z" fill="#fff"/><path d="M50 62l10 20-13 5z" fill="#4A5FD6"/><path d="M70 62L60 82l13 5z" fill="#4A5FD6"/><path d="M57.5 66h5l-1 4h-3z" fill="#9DB4FF"/><path d="M58 70h4l3 17-5 5-5-5z" fill="#9DB4FF"/><circle cx="60" cy="42" r="25" fill="#fff"/><g class="eye"><ellipse cx="50" cy="40" rx="3.3" ry="4.4" fill="#263184"/><circle cx="51.2" cy="38.6" r="1.2" fill="#fff"/></g><g class="eye"><ellipse cx="70" cy="40" rx="3.3" ry="4.4" fill="#263184"/><circle cx="71.2" cy="38.6" r="1.2" fill="#fff"/></g><ellipse cx="42" cy="50" rx="5" ry="3" fill="#6C8CF5" opacity=".28"/><ellipse cx="78" cy="50" rx="5" ry="3" fill="#6C8CF5" opacity=".28"/><path d="M49 49q11 14 22 0z" fill="#263184"/><path d="M54 55.5q6-4 12 0q-6 4.5-12 0z" fill="#9DB4FF"/></g></svg>`,
+her:`<svg viewBox="0 0 120 120" aria-hidden="true"><g><rect x="37" y="68" width="8" height="22" rx="4" fill="#fff"/><rect x="75" y="68" width="8" height="22" rx="4" fill="#fff"/><rect x="51" y="106" width="6" height="9" rx="3" fill="#fff"/><rect x="63" y="106" width="6" height="9" rx="3" fill="#fff"/><path d="M46 66q14-5 28 0l-2 19H48z" fill="#D63D74"/><path d="M53 63q7 7 14 0" fill="#fff"/><rect x="47" y="82" width="26" height="5" rx="2.5" fill="#A5245A"/><path d="M47 86h26l18 21q-8 6-16 1-7 5-15 0-8 5-15 0-8 5-16-1z" fill="#E8588A"/><path d="M54 87l-9 20M60 87v22M66 87l9 20" stroke="#fff" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/><circle cx="60" cy="43" r="24" fill="#fff"/><path d="M60 19L47 11v15zM60 19l13-8v15z" fill="#D63D74"/><circle cx="60" cy="19" r="4" fill="#A5245A"/><g class="eye"><ellipse cx="50" cy="42" rx="3.3" ry="4.4" fill="#7A1F4D"/><circle cx="51.2" cy="40.6" r="1.2" fill="#fff"/></g><g class="eye"><ellipse cx="70" cy="42" rx="3.3" ry="4.4" fill="#7A1F4D"/><circle cx="71.2" cy="40.6" r="1.2" fill="#fff"/></g><ellipse cx="42" cy="52" rx="5" ry="3" fill="#F58FA9" opacity=".4"/><ellipse cx="78" cy="52" rx="5" ry="3" fill="#F58FA9" opacity=".4"/><path d="M50 50q10 13 20 0z" fill="#7A1F4D"/><path d="M54.5 56q5.500-3.500 11 0q-5.500 4-11 0z" fill="#FF9DB8"/></g></svg>`};
+const IK={lock:'<rect x="4" y="11" width="16" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',eye:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-6 8-6s7 1.5 8 6"/>',go:'<path d="M19 12H5M11 6l-6 6 6 6"/>',back:'<path d="M5 12h14M13 6l6 6-6 6"/>'};
+const ik=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IK[n]}</svg>`;
+const grt=()=>{const h=new Date().getHours();return h<5?'شب بخیر':h<12?'صبح بخیر':h<17?'ظهر بخیر':h<20?'عصر بخیر':'شب بخیر'};
+const pic=(w,z)=>`<div class="gring ${w}" style="--z:${z}px"><div class="gavw ${w}">${AV[w]}</div></div>`;
+const fld=(id,ic,ph,ex)=>`<label class="gw"><span class="gi-i">${ik(ic)}</span><input class="gi" id="${id}" ${ex||''} placeholder="${ph}">${id!=='gn'?`<button type="button" class="gt-e" data-g="tog" aria-label="نمایش رمز">${ik('eye')}</button>`:''}</label>`;
+function gate(){const g=$('#gate');g.hidden=false;document.body.classList.add('gated');$('#lockb').hidden=true;
+S.pw=S.pw||{};if(S.ph&&S.dev){S.pw[S.dev]=S.pw[S.dev]||S.ph;delete S.ph}
+const w=G.p,scr=!w?'pick':(S.pw[w]?'login:':'make:')+w,ent=scr!==G.scr;G.scr=scr;
+const rnd=n=>{let x=n*9301+49297;x=(x*233280)%233280;return x/233280};
+const fx='<div class="gaur"><i></i><i></i><i></i></div><div class="gst">'+[...Array(44)].map((_,i)=>`<i style="--x:${(rnd(i+1)*100).toFixed(1)}%;--y:${(rnd(i+90)*100).toFixed(1)}%;--s:${(1+rnd(i+40)*2).toFixed(1)}px;--d:${(2+rnd(i+7)*4).toFixed(1)}s;--l:-${(rnd(i+3)*5).toFixed(1)}s"></i>`).join('')+'</div><div class="gmoon"></div>';
+const heart='<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.5 1 5.4 3 1.9-2 3.4-3 5.4-3 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z" fill="currentColor"/></svg>';
+const back=`<button class="gback" data-g="back" aria-label="برگشت به انتخاب پروفایل">${ik('back')}</button>`;
+let h;
+if(!w)h=`<div class="glogo"><div class="gheart">${heart}</div><h1>دفترچه‌ی ما</h1><p>یه گوشه‌ی کوچیک و قشنگ برای دو نفر</p></div><div class="gq">کی هستی؟</div><div class="gps">${['me','her'].map(k=>`<button class="gp ${k}" data-g="pick" data-w="${k}">${pic(k,116)}<b>${esc(S.names[k])}</b>${S.dev===k&&S.pw[k]?'<small class="glast">آخرین ورود</small>':''}<span class="gcta">${S.pw[k]?'ورود':'ساختن پروفایل'}${ik('go')}</span></button>`).join('')}<span class="gmid">${heart}</span></div><small class="gnote">${ik('lock')}<span>هر پروفایل رمز مخصوص خودش رو داره</span></small>`;
+else if(!S.pw[w])h=`${back}<div class="gt">${pic(w,124)}<h2>خوش اومدی، ${esc(S.names[w])}</h2><p>اسمت رو بنویس و یه رمز مخصوص خودت بساز.</p></div><div class="gf">${fld('gn','user','اسمت','value="'+esc(S.names[w])+'" maxlength="12"')}${fld('g1','lock','رمز (حداقل ۴ کاراکتر)','type="password" autocomplete="new-password"')}<div class="pm" id="pm"><i></i><i></i><i></i><i></i></div>${fld('g2','lock','تکرار رمز','type="password" autocomplete="new-password"')}<div class="ge" role="alert">${G.err}</div><button class="gb" data-g="make"><span>ساختن و ورود</span>${ik('go')}</button></div><button class="gl" data-g="back">انتخاب پروفایل دیگه</button>`;
+else h=`${back}<div class="gt">${pic(w,148)}<p class="gg">${grt()}</p><h2>${esc(S.names[w])}</h2></div><div class="gf">${fld('g1','lock','رمزت رو بزن','type="password" autocomplete="current-password"')}<div class="ge" role="alert">${G.err}</div><button class="gb" data-g="go"><span>ورود</span>${ik('go')}</button></div><button class="gl" data-g="back">انتخاب پروفایل دیگه</button>`;
+g.innerHTML=fx+'<div class="gin2 '+(w||'')+(ent?' enter':'')+'">'+h+'</div>';g.scrollTop=0;const i=g.querySelector('#g1');if(i&&w&&S.pw[w])i.focus()}
+$('#gate').addEventListener('input',e=>{if(e.target.id!=='g1')return;const p=$('#pm');if(!p)return;const v=e.target.value;let n=v.length>=4?1:0;if(v.length>=6)n=2;if(v.length>=8&&/\d/.test(v))n=3;if(v.length>=10&&/[a-zA-Z]/.test(v)&&/\d/.test(v))n=4;p.dataset.s=n});
+$('#gate').addEventListener('keydown',e=>{if(e.key==='Enter'){const b=$('#gate .gb');if(b)b.click()}});
+$('#gate').addEventListener('click',async e=>{const t=e.target.closest('[data-g]');if(!t)return;const a=t.dataset.g,g=$('#gate');
+const bad=m=>{G.err=m;const x=g.querySelector('.ge');if(x)x.textContent=m;const f=g.querySelector('.gf');if(f){f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake')}};
+if(a==='tog'){g.querySelectorAll('.gw input').forEach(i=>{if(i.id!=='gn')i.type=i.type==='password'?'text':'password'})}
+else if(a==='pick'){G.p=t.dataset.w;G.err='';gate()}
+else if(a==='back'){G.p=null;G.err='';gate()}
+else if(a==='make'){const n=g.querySelector('#gn').value.trim(),p1=g.querySelector('#g1').value,p2=g.querySelector('#g2').value;
+if(!n)return bad('اسمت رو بنویس');if(p1.length<4)return bad('رمز باید حداقل ۴ کاراکتر باشه');if(p1!==p2)return bad('دو رمز یکی نیست');
+S.names[G.p]=n;S.pw[G.p]=await H(p1);if(S.dev!==G.p)S.tab='today';S.dev=G.p;S.u=G.p;save();UN=true;G={p:null,err:''};render()}
+else if(a==='go'){if(Date.now()<FT)return bad('چند لحظه صبر کن و دوباره امتحان کن');const i=g.querySelector('#g1');
+if(await H(i.value)===S.pw[G.p]){if(S.dev!==G.p)S.tab='today';S.dev=G.p;S.u=G.p;UN=true;FAIL=0;G={p:null,err:''};render()}
+else{FAIL++;let m='رمز درست نیست';if(FAIL>=5){FT=Date.now()+3e4;FAIL=0;m='۵ بار اشتباه؛ ۳۰ ثانیه صبر کن'}bad(m);i.value='';i.focus()}}});
+$('#lockb').onclick=()=>{UN=false;G={p:null,err:''};render()};
+document.addEventListener('visibilitychange',()=>{if(document.hidden){hid=Date.now();return}if(ymd(new Date())!==key){location.reload();return}if(UN&&Date.now()-hid>12e4){UN=false;G={p:S.dev,err:''};render()}});
+function modal(h,ok){const m=$('#mdl');m.innerHTML=`<div class="mb">${h}<div class="mr"><button class="gb" data-m="ok">تایید</button><button class="gl" data-m="no">بعداً</button></div></div>`;m.hidden=false;m.onclick=e=>{const t=e.target.closest('[data-m]');if(!t)return;m.hidden=true;if(t.dataset.m==='ok')ok()}}
+function buildSync(){const d={};for(let i=0;i<7;i++){const k=ymd(new Date(Date.now()-i*864e5)),x=S.days[k]&&S.days[k][S.dev];if(!x)continue;const o={pc:pdOf(k,S.dev)};SF.forEach(f=>{if(x[f]!==undefined&&x[f]!==null&&x[f]!=='')o[f]=x[f]});d[k]=o}return{f:S.dev,n:S.names[S.dev],d}}
+async function sendSync(){const u=location.href.split('#')[0]+'#sync='+enc(buildSync());
+try{if(navigator.share){await navigator.share({title:'دفترچه‌ی ما',text:'به‌روزرسانی امروز از '+S.names[S.dev],url:u});return}}catch(e){if(e&&e.name==='AbortError')return}
+try{await navigator.clipboard.writeText(u);toast('لینک کپی شد؛ برای '+S.names[other()]+' بفرست')}catch(e){prompt('این لینک رو برای پارتنرت بفرست:',u)}}
+function applySync(p){const o=p.f;for(const [k,v] of Object.entries(p.d||{})){if(!/^\d{4}-\d{2}-\d{2}$/.test(k))continue;S.days[k]=S.days[k]||{me:def(),her:def()};const t=S.days[k][o],c={};['pc',...SF].forEach(f=>{if(v[f]!==undefined)c[f]=typeof v[f]==='string'?v[f].slice(0,600):v[f]});Object.assign(t,c)}
+if(p.n)S.names[o]=String(p.n).slice(0,12);S.rcv=Date.now();save()}
+function askSync(p){if(!p||(p.f!=='me'&&p.f!=='her')||p.f===S.dev){toast('این لینک مال خودته یا معتبر نیست');return}
+const n=Object.keys(p.d||{}).length;modal(`<h3>پیام تازه از ${esc(p.n||'پارتنرت')}</h3><p>${fa(n)} روز به‌روزرسانی رسیده. وارد برنامه‌ش کنم؟</p>`,()=>{applySync(p);render();toast('دریافت شد 💞')})}
+const syncCard=()=>`<div class="card sy2"><h2>💞 همگام با ${nm[other()]}</h2><div class="lk"><i style="--c:var(--me)"></i><s></s><i style="--c:var(--her)"></i></div><p>خلاصه‌ی روزت رو برای ${nm[other()]} بفرست. با یه لمس روی لینک، توی گوشی اون وارد می‌شه و فقط جای «تو» می‌شینه؛ داده‌های خودش دست‌نخورده می‌مونه.</p><button class="btn" data-a="snd">ارسال برای ${nm[other()]}</button><small>${S.rcv?'آخرین دریافت: '+new Intl.DateTimeFormat('fa-IR',{weekday:'long',hour:'numeric',minute:'numeric'}).format(S.rcv):'هنوز چیزی از '+nm[other()]+' نرسیده'}</small></div>`;
+const bkCard=()=>`<div class="card"><h2>📌 پشتیبان داده‌ها</h2><p class="ie" style="margin:0 0 12px;color:var(--mut);line-height:1.9;font-size:14px">داده‌ها روی همین گوشی ذخیره می‌شن. هفته‌ای یه بار یه فایل پشتیبان بگیر تا اگه مرورگر پاک شد، همه‌چیز برگرده.</p><div class="bkr"><button class="btn" data-a="bke">گرفتن فایل پشتیبان</button><button class="btn alt" data-a="bki">بازیابی از فایل</button></div><input id="bkf" type="file" accept="application/json,.json" hidden></div>`;
+document.addEventListener('change',e=>{if(e.target.id!=='bkf')return;const f=e.target.files[0];e.target.value='';if(!f)return;f.text().then(t=>{try{const o=JSON.parse(t);if(!o||!o.days||!o.names)throw 0;modal('<h3>بازیابی پشتیبان</h3><p>همه‌ی داده‌های فعلی این گوشی با فایل جایگزین می‌شن. ادامه بدم؟</p>',()=>{localStorage.setItem('duo1',JSON.stringify(o));location.reload()})}catch(_){toast('فایل پشتیبان معتبر نیست')}})});
+function today(){const d=D(),p=pct(S.u),c=S.chores[S.u],W=wk(),o=D(other()),PN=(o.note||'').trim()?`<div class="card pn"><h2>💌 پیام ${nm[other()]} برای تو<small>${NT[o.nt]||'پیام'}</small></h2><div class="pq">${esc(o.note)}</div></div>`:'',NB=o.need!=null&&NEED[o.need]?`<div class="card nb" style="--t:${NEED[o.need][2]}"><div class="np">♥</div><div><small>پیام بی‌کلام از ${nm[other()]}</small><b>امروز دوست داره ${NEED[o.need][3]}</b></div></div>`:'';
 const dt=new Intl.DateTimeFormat('fa-IR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
 return `<div class="top"><div class="sw wide">${['me','her'].map(k=>`<button class="${k} ${S.u===k?'on':''}" data-a="user" data-i="${k}">${nm[k]}</button>`).join('')}</div></div>
 <div class="hero"><i class="b1"></i><i class="b2"></i><div class="ht"><small>${dt}</small><h1>${greet()}، ${nm[S.u]}</h1><p>${p>=100?'روزت کامل شد، آفرین':p>=80?'یه قدم تا کامل شدن':p>=40?'داری عالی پیش می‌ری':p>0?'شروع خوبیه، ادامه بده':'بزن بریم، روز قشنگی در پیش داره'}</p><div class="pc"><span class="pd" style="background:var(--${other()})"></span>${nm[other()]} تا الان ${fa(pct(other()))}٪ پیش رفته</div>${W[1]>0?`<div class="pc sk">🔥 ${fa(W[1])} روز پشت‌سرهم</div>`:''}</div>${ring(p,'#fff',112)}</div>
 ${W[0]}
-${PN}<div class="card c-m"><h2>☀️ روتین صبح <small>${fa(d.m.filter(Boolean).length)}/۵</small></h2><div class="seg">${d.m.map(v=>`<i class="${v?'on':''}"></i>`).join('')}</div>${MORN.map((l,i)=>row('m',i,l,d.m[i])).join('')}</div>
+${PN}${lvCard(d)}<div class="card c-m"><h2>☀️ روتین صبح <small>${fa(d.m.filter(Boolean).length)}/۵</small></h2><div class="seg">${d.m.map(v=>`<i class="${v?'on':''}"></i>`).join('')}</div>${MORN.map((l,i)=>row('m',i,l,d.m[i])).join('')}</div>
 <div class="card"><h2>💼 سه کار اصلی امروز</h2>${d.t.map((t,i)=>`<div class="row ${t.d?'done':''}" style="cursor:default"><span class="dot" data-a="t" data-i="${i}" style="cursor:pointer">${CK}</span><input class="tk lb" type="text" data-f="t${i}" value="${esc(t.x)}" placeholder="کار شماره ${fa(i+1)}…"></div>`).join('')}</div>
 <div class="card"><h2>🩺 سلامتی</h2><div class="bento"><div class="tile wide" style="--t:#3DA9FC"><div class="th"><span class="tl">💧 آب</span><b class="big">${fa(d.w)}<small>از ۸ لیوان</small></b></div><div class="cups">${[...Array(8)].map((_,i)=>`<button class="cup ${i<d.w?'f':''}" data-a="w" data-i="${i+1}"></button>`).join('')}</div></div>
 <div class="tile" style="--t:#8B7CF6"><span class="tl">😴 خواب دیشب</span><b class="big">${fa(d.sl)}<small>ساعت</small></b><div class="step"><button data-a="sl" data-i="-1">−</button><button data-a="sl" data-i="1">+</button></div></div>
@@ -308,15 +601,17 @@ function night(){const d=D(),p=pct(S.u);
 return `<div class="top"><div><h1>شیر شبانه 🌙</h1><div class="date">امروزت رو مرور کن</div></div>
 <div class="sw"><button class="me ${S.u==='me'?'on':''}" data-a="user" data-i="me">${nm.me}</button><button class="her ${S.u==='her'?'on':''}" data-a="user" data-i="her">${nm.her}</button></div></div>
 ${ring(p,'var(--ac)')}
-<div class="card"><h2>حال امروزت چطور بود؟</h2><div class="moods">${MM.map((m,i)=>`<button class="${d.mood===i?'on':''}" data-a="mood" data-i="${i}">${m}</button>`).join('')}</div>
-<div class="lbl">سطح انرژی: ${fa(d.en)} از ۱۰</div><input type="range" min="1" max="10" value="${d.en}" data-f="en"></div>
+<div class="card"><h2>حال امروزت چطور بود؟</h2><div class="moods">${MM.map((m,i)=>`<button class="${d.mood===i?'on':''}" data-a="mood" data-i="${i}">${m}</button>`).join('')}</div></div>
 <div class="card"><h2>🙏 امروز بابت چی ممنونم؟</h2><div class="field"><input type="text" data-f="grat" value="${esc(d.grat)}" placeholder="امروز یه لبخند بخاطر…"></div></div>
+${qCard(d)}
+${wishCard(d)}
 <div class="card"><h2>🌟 بهترین لحظه</h2><div class="field"><input type="text" data-f="best" value="${esc(d.best)}" placeholder="چی خوب بود؟"></div>
 <h2 style="margin-top:14px">🌧 سخت‌ترین لحظه</h2><div class="field"><input type="text" data-f="hard" value="${esc(d.hard)}" placeholder="چی اذیتت کرد؟"></div></div>
 <div class="card"><h2>📝 یه یادداشت برای ${nm[other()]}</h2><div class="tg">${NT.map((t,i)=>`<button class="${d.nt===i?'on':''}" data-a="nt" data-i="${i}">${t}</button>`).join('')}</div><div class="field"><textarea data-f="note" placeholder="بنویس…">${esc(d.note)}</textarea></div></div>
+${burdenCard(d)}${breathCard()}${gnCard(d)}${closeCard(d)}${syncCard()}
 <div class="btn" role="button" data-a="tab" data-i="together" style="display:grid;place-items:center">ادامه: خلاصه‌ی امروز ✨</div>`}
-const IC={chart:'M3 3v18h18M8 17v-6M13 17V7M18 17v-3',palette:'M12 22a10 10 0 1 1 10-10c0 3-2 4-4 4h-2a2 2 0 0 0-1 3.7c.6.4.8 1.2.4 1.9A3 3 0 0 1 12 22zM7.5 11h.01M10.5 7h.01M15.5 8h.01',flame:'M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z',sun:'M16 12a4 4 0 1 1-8 0a4 4 0 1 1 8 0M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41',moon:'M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z',briefcase:'M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16',droplet:'M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z',bed:'M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9',pill:'m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7ZM8.5 8.5l7 7',walk:'M22 12h-4l-3 9L9 3l-3 9H2',home:'m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10',heart:'M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z',sparkles:'m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z',star:'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z',rain:'M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2M16 14v6M8 14v6M12 16v6',pin:'M12 17v5M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z',mail:'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7',send:'m22 2-7 20-4-9-9-4ZM22 2 11 13',dl:'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3'};
-const EMO={'📊':['chart','#6C8CF5'],'🎨':['palette','#F58FA9'],'🔥':['flame','#FF8A3D'],'☀':['sun','#FFB020'],'🌙':['moon','#8B7CF6'],'💼':['briefcase','#5B8DEF'],'💧':['droplet','#3DA9FC'],'😴':['bed','#8B7CF6'],'💊':['pill','#FF7AA8'],'🚶':['walk','#2EC4A0'],'🏠':['home','#F59E5B'],'📌':['pin','#F5B800'],'🙏':['sparkles','#FF8FB1'],'🌟':['star','#FFC233'],'🌧':['rain','#7C8CF0'],'📝':['mail','#6C8CF5'],'💌':['mail','#FF6FA0'],'💞':['heart','#FF6FA0'],'📤':['send','#6C8CF5'],'✨':['sparkles','#B48CF0'],'✈':['send','#6C8CF5'],'🖼':['dl','#6C8CF5'],'😞':['f0'],'😕':['f1'],'😐':['f2'],'🙂':['f3'],'😄':['f4']};
+const IC={wind:'M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2',chart:'M3 3v18h18M8 17v-6M13 17V7M18 17v-3',palette:'M12 22a10 10 0 1 1 10-10c0 3-2 4-4 4h-2a2 2 0 0 0-1 3.7c.6.4.8 1.2.4 1.9A3 3 0 0 1 12 22zM7.5 11h.01M10.5 7h.01M15.5 8h.01',flame:'M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z',sun:'M16 12a4 4 0 1 1-8 0a4 4 0 1 1 8 0M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41',moon:'M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z',briefcase:'M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16',droplet:'M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z',bed:'M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9',pill:'m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7ZM8.5 8.5l7 7',walk:'M22 12h-4l-3 9L9 3l-3 9H2',home:'m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10',heart:'M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z',sparkles:'m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z',star:'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z',rain:'M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2M16 14v6M8 14v6M12 16v6',pin:'M12 17v5M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z',mail:'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7',send:'m22 2-7 20-4-9-9-4ZM22 2 11 13',dl:'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3'};
+const EMO={'🍃':['wind','#4FC3A1'],'🌀':['wind','#6C8CF5'],'📊':['chart','#6C8CF5'],'🎨':['palette','#F58FA9'],'🔥':['flame','#FF8A3D'],'☀':['sun','#FFB020'],'🌙':['moon','#8B7CF6'],'💼':['briefcase','#5B8DEF'],'💧':['droplet','#3DA9FC'],'😴':['bed','#8B7CF6'],'💊':['pill','#FF7AA8'],'🚶':['walk','#2EC4A0'],'🏠':['home','#F59E5B'],'📌':['pin','#F5B800'],'🙏':['sparkles','#FF8FB1'],'🌟':['star','#FFC233'],'🌧':['rain','#7C8CF0'],'📝':['mail','#6C8CF5'],'💌':['mail','#FF6FA0'],'💞':['heart','#FF6FA0'],'📤':['send','#6C8CF5'],'✨':['sparkles','#B48CF0'],'✈':['send','#6C8CF5'],'🖼':['dl','#6C8CF5'],'😞':['f0'],'😕':['f1'],'😐':['f2'],'🙂':['f3'],'😄':['f4']};
 const FACE='M22 12a10 10 0 1 1-20 0a10 10 0 1 1 20 0',EYES='M9.6 10a.9.9 0 1 1-1.8 0a.9.9 0 1 1 1.8 0M16.2 10a.9.9 0 1 1-1.8 0a.9.9 0 1 1 1.8 0',FCOL=['#9AA5C0','#8FB1F0','#C3B2EE','#FFC85C','#FF8FA8'],MOUTH=['M8 17.5c1.2-2.4 6.8-2.4 8 0','M8.5 16.5c1.2-1.2 5.8-1.2 7 0','M8.5 15.5h7','M8 14c1.2 2.4 6.8 2.4 8 0','M7.5 13.5h9c0 3-2 5-4.5 5s-4.5-2-4.5-5z'];
 const ic=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="${IC[n]}"/></svg>`;
 const faceS=i=>`<svg viewBox="0 0 24 24"><path d="${FACE}" fill="${FCOL[i]}"/><path d="${EYES}" fill="#3B2F4F"/><path d="${MOUTH[i]}" fill="${i===4?'#fff':'none'}" stroke="#3B2F4F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -365,7 +660,7 @@ const glass=h=>{c.save();c.shadowColor='rgba(0,0,0,.35)';c.shadowBlur=50;c.shado
 const tw=(IW-40)/3,th=270,TC=[ac,'#4DB3FF','#9B8CFF'],tx=i=>M+(2-i)*(tw+20),tc=i=>tx(i)+tw/2;
 TC.forEach((t,i)=>{const q=c.createLinearGradient(0,y,0,y+th);q.addColorStop(0,t+'4D');q.addColorStop(1,t+'14');c.fillStyle=q;rr(c,tx(i),y,tw,th,44);c.fill();c.strokeStyle=t+'66';c.lineWidth=2;rr(c,tx(i),y,tw,th,44);c.stroke()});
 const lab=(i,a,b)=>{c.textAlign='center';c.fillStyle=TX;c.font='700 32px Vazirmatn';c.fillText(a,tc(i),y+182);c.fillStyle=MU;c.font='400 30px Vazirmatn';c.fillText(b,tc(i),y+226);c.textAlign='right'};
-faceC(c,d.mood!=null?d.mood:2,tc(0),y+100,58);lab(0,d.mood!=null?['خیلی بد','بد','معمولی','خوب','عالی'][d.mood]:'حال روز','انرژی '+fa(d.en)+' از ۱۰');
+faceC(c,d.mood!=null?d.mood:2,tc(0),y+100,58);lab(0,d.mood!=null?['خیلی بد','بد','معمولی','خوب','عالی'][d.mood]:'حال روز','حال امروز');
 for(let i=0;i<8;i++){const x=tc(1)-100+(i%4)*54,cy2=y+34+(i>3?66:0);if(i<d.w){c.fillStyle='#8CC4FF';rr(c,x,cy2,38,50,10);c.fill()}c.strokeStyle='#6AA8F0';c.lineWidth=4;rr(c,x,cy2,38,50,10);c.stroke()}
 lab(1,'آب',fa(d.w)+' از ۸ لیوان');
 dIc(c,'bed',tc(2)-50,y+50,100,'#B9AEFF',1.7);lab(2,'خواب',fa(d.sl)+' ساعت');
@@ -406,7 +701,7 @@ function shareImg(){if(!IMG){toast('چند لحظه صبر کن…');return}cons
 if(navigator.canShare&&navigator.canShare({files:[f]}))navigator.share({files:[f]}).catch(()=>{});else dl()}
 
 const PAL=[['#6C8CF5','#F58FA9','#B48CF0'],['#FF8A5B','#F25C84','#FFB347'],['#2BB3C0','#5B8DEF','#7C5CFA'],['#3FBF8F','#E8A33D','#2E9CCA']];
-function stats(){const u=S.u,L=[...Array(7)].map((_,i)=>{const dt=new Date(Date.now()-(6-i)*864e5);return{dt,k:dt.toISOString().slice(0,10)}}),wf=new Intl.DateTimeFormat('fa-IR',{weekday:'narrow'}),
+function stats(){const u=S.u,L=[...Array(7)].map((_,i)=>{const dt=new Date(Date.now()-(6-i)*864e5);return{dt,k:ymd(dt)}}),wf=new Intl.DateTimeFormat('fa-IR',{weekday:'narrow'}),
 M=L.map(x=>pdOf(x.k,'me')),H=L.map(x=>pdOf(x.k,'her')),av=a=>Math.round(a.reduce((s,v)=>s+v,0)/a.length),sync=av([av(M),av(H)]),
 rows=L.map(x=>S.days[x.k]&&S.days[x.k][u]).filter(Boolean),
 am=k=>rows.length?String(Math.round(rows.reduce((s,r)=>s+r[k],0)/rows.length*10)/10).replace('.','٫'):'—',
@@ -418,7 +713,7 @@ return `<div class="top"><div><h1>آمار ما 📊</h1><div class="date">هف�
 <div class="card"><h2>پیشرفت روزانه<small class="lg"><span><i style="--c:var(--me)"></i>${nm.me}</span><span><i style="--c:var(--her)"></i>${nm.her}</span></small></h2><svg class="ch" viewBox="0 0 320 150"><path d="M0 118H320M0 66H320M0 13H320" fill="none" stroke-dasharray="3 5" style="stroke:var(--line)"/>${bars}</svg></div>
 <div class="bento"><div class="tile" style="--t:#3DA9FC"><span class="tl">💧 میانگین آب</span><b class="big">${fa(am('w'))}<small>لیوان</small></b></div><div class="tile" style="--t:#8B7CF6"><span class="tl">😴 میانگین خواب</span><b class="big">${fa(am('sl'))}<small>ساعت</small></b></div><div class="tile" style="--t:#FFB020"><span class="tl">🌟 روز کامل</span><b class="big">${fa(full)}<small>از ۷ روز</small></b></div><div class="tile" style="--t:#FF7AA8"><span class="tl">✨ بهترین روز</span><b class="big">${fa(best)}<small>٪</small></b></div></div>
 <div class="card" style="margin-top:14px"><h2>حال و هوای هفته</h2><div class="mrow"><b>${nm.me}</b>${mo('me')}</div><div class="mrow"><b>${nm.her}</b>${mo('her')}</div></div>
-<div class="card"><h2>🎨 ظاهر برنامه</h2><div class="pal">${PAL.map((p,i)=>`<button class="${(S.pal||0)===i?'on':''}" data-a="pal" data-i="${i}" aria-label="پالت ${fa(i+1)}" style="background:linear-gradient(135deg,${p[0]},${p[2]} 55%,${p[1]})"></button>`).join('')}</div><div class="tg">${[['auto','خودکار'],['light','روشن'],['dark','تیره']].map(t=>`<button class="${(S.th||'auto')===t[0]?'on':''}" data-a="th" data-i="${t[0]}">${t[1]}</button>`).join('')}</div></div>`}
+${insights(u)}${syncCard()}${sky()}${moments()}${bkCard()}`}
 function together(){const u=S.u;
 return `<div class="top"><div><h1>خلاصه‌ی امروز 📤</h1><div class="date">عکسش رو بساز و بفرست تلگرام</div></div>
 <div class="sw"><button class="me ${u==='me'?'on':''}" data-a="user" data-i="me">${nm.me}</button><button class="her ${u==='her'?'on':''}" data-a="user" data-i="her">${nm.her}</button></div></div>
@@ -427,7 +722,7 @@ return `<div class="top"><div><h1>خلاصه‌ی امروز 📤</h1><div class
 <div class="btn" role="button" data-a="tg" style="display:grid;place-items:center">ارسال به تلگرام ✈️</div>
 <div class="btn" role="button" data-a="save" style="display:grid;place-items:center;margin-top:10px;background:var(--card);color:var(--tx);box-shadow:var(--sh)">ذخیره‌ی عکس 🖼</div>
 <div class="tiny">منوی اشتراک‌گذاری باز می‌شه، تلگرام و بعد چت رو انتخاب کن</div>`}
-function render(){document.body.dataset.u=S.u;document.body.dataset.pal=S.pal||0;if(S.th&&S.th!=='auto')document.documentElement.dataset.theme=S.th;else document.documentElement.removeAttribute('data-theme');document.body.dataset.tab=S.tab;
+function render(){if(!S.dev||!UN){gate();return}$('#gate').hidden=true;document.body.classList.remove('gated');$('#lockb').hidden=false;$('#lockb').innerHTML=ik('back');if(PEND){const p=PEND;PEND=null;setTimeout(()=>askSync(p),500)}document.body.dataset.u=S.u;document.body.dataset.pal=S.pal||0;applyTheme();document.body.dataset.tab=S.tab;
 $('#app').innerHTML=({today,night,stats,together})[S.tab]();
 $('#nav').innerHTML=[['today','☀️','امروز'],['night','🌙','شب'],['stats','📊','آمار'],['together','📤','خلاصه']].map(t=>`<button class="${S.tab===t[0]?'on':''}" data-a="tab" data-i="${t[0]}"><span>${t[1]}</span>${t[2]}</button>`).join('');iconify($('#nav'));iconify($('#app'));post();save();if(S.tab==='together')setTimeout(refresh,30)}
 function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('s');setTimeout(()=>e.classList.remove('s'),2200)}
@@ -446,6 +741,21 @@ else if(a==='del'){e.stopPropagation();S.chores[S.u]=S.chores[S.u].filter(k=>k.i
 else if(a==='add'){const v=$('#newch').value.trim();if(!v)return;S.chores[S.u].push({id:Date.now(),x:v})}
 else if(a==='mood')d.mood=x;
 else if(a==='nt')d.nt=x;
+else if(a==='snd'){sendSync();return}
+else if(a==='bke'){const b=new Blob([JSON.stringify(S)],{type:'application/json'}),l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='our-journal-backup-'+key+'.json';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(l.href),5e3);toast('فایل پشتیبان ساخته شد');return}
+else if(a==='bki'){$('#bkf').click();return}
+else if(a==='wish')d.wish=d.wish===x?null:x;
+else if(a==='ask')d.ask=d.ask===x?null:x;
+else if(a==='ws'){if(d.wish!=null&&d.ask!=null)d.ws=1}
+else if(a==='we')d.ws=0;
+else if(a==='lv'){d.lv=d.lv?0:1;if(d.lv)burst(innerWidth/2,innerHeight*.3)}
+else if(a==='gnp')d.gn=GNP[x];
+else if(a==='br'){document.getElementById('brz').classList.toggle('on');t.classList.toggle('on');t.textContent=t.classList.contains('on')?'توقف':'شروع تنفس';return}
+else if(a==='rel'){const el=t.closest('.card'),ta=el&&el.querySelector('textarea');if(ta&&ta.value.trim()&&!d.rel){el.classList.add('go');d.rel=1;save();setTimeout(render,1600)}return}
+else if(a==='rel2')d.rel=0;
+else if(a==='cl'){d.closed=d.closed?0:1;if(d.closed)for(let k=0;k<7;k++)setTimeout(()=>burst(innerWidth*(.15+k*.12),innerHeight*.3),k*130)}
+else if(a==='qs'){if((d.qa||'').trim())d.qd=1}
+else if(a==='qe')d.qd=0;
 else if(a==='pal')S.pal=x;
 else if(a==='th')S.th=i;
 else if(a==='tg'){shareImg();return}
