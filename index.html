@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>OurJournal</title>
+<title>دفترچه‌ی ما</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Lalezar&display=swap" rel="stylesheet">
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#FBF7F2;--card:#fff;--tx:#2B2540;--mut:#8C86A0;--line:#EFE8F5;--sh:0 6px 24px rgba(80,60,120,.08);--me:#6C8CF5;--her:#F58FA9;--ok:#7BD3B0;--tog:#B48CF0}
@@ -548,7 +548,29 @@ html{scrollbar-width:none}::-webkit-scrollbar{display:none}
 .enimg.miss img{display:none}.enimg.miss .enm{display:block}
 .endl{display:flex;align-items:center;justify-content:center;text-decoration:none;margin-bottom:12px;min-height:48px;font-size:15px;width:100%;box-sizing:border-box}
 .enst{margin:10px 2px 0;font-size:12.5px;line-height:1.9;opacity:.75}
-</style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="OurJournal"><meta name="application-name" content="OurJournal"><meta name="theme-color" content="#6C8CF5"><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png"><link rel="icon" type="image/svg+xml" href="./icons/favicon.svg"><link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png"></head><body data-u="me" data-tab="today">
+.qabox{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.qabox h3{margin:0 0 10px;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.qabox h3 small{font-size:11.5px;font-weight:800;color:var(--ac)}
+.qar{background:color-mix(in srgb,var(--ac) 7%,var(--bg));border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px}
+.qar.t{background:color-mix(in srgb,#F58FA9 10%,var(--bg))}
+.qar>small,.qaa>small{display:block;font-size:11.5px;font-weight:800;opacity:.65;margin-bottom:4px}
+.qat{margin:0 0 8px;font-size:15px;line-height:1.9;white-space:pre-wrap;word-break:break-word}
+.qaa{background:var(--card);border-radius:12px;padding:8px 12px;margin:6px 0}
+.qaa p{margin:0;font-size:14.5px;line-height:1.9;white-space:pre-wrap;word-break:break-word}
+.qaw{font-size:12px;opacity:.65;margin-inline-start:8px}
+.qab{border:0;background:transparent;color:var(--ac);font:inherit;font-size:12.5px;font-weight:800;cursor:pointer;padding:6px 4px;min-height:36px}
+.qar .btn{width:100%;margin-top:6px;min-height:44px}
+.qmk{display:flex;gap:8px;margin-top:8px}
+.qmk button{flex:1;min-height:44px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:inherit;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+.qmk button.on.ok{background:#2fa87a;border-color:#2fa87a;color:#fff}
+.qmk button.on.no{background:#e0566b;border-color:#e0566b;color:#fff}
+.qv{display:inline-block;font-size:12.5px;font-weight:800;padding:4px 10px;border-radius:99px}
+.qv.ok{background:color-mix(in srgb,#2fa87a 18%,transparent);color:#1f8a60}
+.qv.no{background:color-mix(in srgb,#e0566b 16%,transparent);color:#c13a50}
+.qah{margin-top:6px}
+.qah summary{cursor:pointer;font-weight:800;font-size:14px;padding:6px 2px;min-height:44px;box-sizing:border-box;display:flex;align-items:center}
+.qhh{font-size:12px;font-weight:800;opacity:.7;margin:12px 2px 6px}
+</style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="دفترچه‌ی ما"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💞%3C/text%3E%3C/svg%3E"></head><body data-u="me" data-tab="today">
 <div class="toast" id="toast"></div>
 <div id="app"></div>
 <nav class="nav"><div id="nav"></div></nav>
@@ -564,7 +586,7 @@ let S={u:'me',tab:'today',names:{me:'سجاد',her:'ستایش'},chores:{me:[{id
 try{const r=localStorage.getItem('duo1');if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
 S.names=Object.assign({me:'سجاد',her:'ستایش'},S.names);if(!S.names.me)S.names.me='سجاد';if(!S.names.her)S.names.her='ستایش';
 S.days[key]=S.days[key]||{me:def(),her:def()};
-S.pw=S.pw||{};S.en=S.en||{};['me','her'].forEach(u=>{const e=S.en[u];S.en[u]=e&&Number.isFinite(e.c)&&e.c>=0?{c:Math.floor(e.c),h:(e.h&&typeof e.h==='object')?e.h:{}}:{c:0,h:{}}});if(S.ph&&S.dev){S.pw[S.dev]=S.pw[S.dev]||S.ph;delete S.ph}
+S.qa=S.qa||{};['me','her'].forEach(u=>{S.qa[u]=qaClean(S.qa[u])});S.pw=S.pw||{};S.en=S.en||{};['me','her'].forEach(u=>{const e=S.en[u];S.en[u]=e&&Number.isFinite(e.c)&&e.c>=0?{c:Math.floor(e.c),h:(e.h&&typeof e.h==='object')?e.h:{}}:{c:0,h:{}}});if(S.ph&&S.dev){S.pw[S.dev]=S.pw[S.dev]||S.ph;delete S.ph}
 if(S.dev)S.u=S.dev;
 const GHK='duo-gh';let GH=null;try{GH=JSON.parse(localStorage.getItem(GHK))||null}catch(e){}
 let GS={st:'idle',msg:'',t:0},ghT=0,ghSha=null,ghLast=null,ghPL='',ghIn=false,ghFor=null,ghPB=false,ghTB=false,ghDirty=false;
@@ -683,13 +705,14 @@ else{FAIL++;let m='رمز درست نیست';if(FAIL>=5){FT=Date.now()+3e4;FAIL=
 $('#lockb').onclick=()=>{UN=false;G={p:null,err:''};render()};
 document.addEventListener('visibilitychange',()=>{if(document.hidden){hid=Date.now();return}if(ymd(new Date())!==key){location.reload();return}if(UN&&Date.now()-hid>12e4){UN=false;G={p:S.dev,err:''};render()}});
 function modal(h,ok){const m=$('#mdl');m.innerHTML=`<div class="mb">${h}<div class="mr"><button class="gb" data-m="ok">تایید</button><button class="gl" data-m="no">بعداً</button></div></div>`;m.hidden=false;m.onclick=e=>{const t=e.target.closest('[data-m]');if(!t)return;m.hidden=true;if(t.dataset.m==='ok')ok()}}
-function buildSync(n,wb){n=n||7;const d={};for(let i=0;i<n;i++){const k=ymd(new Date(Date.now()-i*864e5)),x=S.days[k]&&S.days[k][S.dev];if(!x)continue;const o={pc:pdOf(k,S.dev)};SF.forEach(f=>{if(x[f]!==undefined&&x[f]!==null&&x[f]!=='')o[f]=x[f]});d[k]=o}const R={f:S.dev,n:S.names[S.dev],d};if(S.en&&S.en[S.dev])R.en=S.en[S.dev];if(wb&&S.dev==='me'&&S.bank)R.bk=S.bank;return R}
+function buildSync(n,wb){n=n||7;const d={};for(let i=0;i<n;i++){const k=ymd(new Date(Date.now()-i*864e5)),x=S.days[k]&&S.days[k][S.dev];if(!x)continue;const o={pc:pdOf(k,S.dev)};SF.forEach(f=>{if(x[f]!==undefined&&x[f]!==null&&x[f]!=='')o[f]=x[f]});d[k]=o}const R={f:S.dev,n:S.names[S.dev],d};if(S.en&&S.en[S.dev])R.en=S.en[S.dev];{const qo=qaOut(wb);if(qo)R.qa=qo}if(wb&&S.dev==='me'&&S.bank)R.bk=S.bank;return R}
 async function sendSync(){const u=location.href.split('#')[0]+'#sync='+enc(buildSync());
 try{if(navigator.share){await navigator.share({title:'دفترچه‌ی ما',text:'به‌روزرسانی امروز از '+S.names[S.dev],url:u});return}}catch(e){if(e&&e.name==='AbortError')return}
 try{await navigator.clipboard.writeText(u);toast('لینک کپی شد؛ برای '+S.names[other()]+' بفرست')}catch(e){prompt('این لینک رو برای پارتنرت بفرست:',u)}}
 function applySync(p){const o=p.f;for(const [k,v] of Object.entries(p.d||{})){if(!/^\d{4}-\d{2}-\d{2}$/.test(k))continue;S.days[k]=S.days[k]||{me:def(),her:def()};const t=S.days[k][o],c={};['pc',...SF].forEach(f=>{if(v[f]!==undefined)c[f]=typeof v[f]==='string'?v[f].slice(0,600):v[f]});Object.assign(t,c)}
 if(o==='me'&&p.bk&&Array.isArray(p.bk.q)&&Array.isArray(p.bk.l)&&p.bk.q.length&&p.bk.q.length===p.bk.l.length&&/^\d{4}-\d{2}-\d{2}$/.test(p.bk.s)&&(!S.bank||p.bk.v>S.bank.v))S.bank={q:p.bk.q.map(x=>String(x).slice(0,300)),l:p.bk.l.map(x=>String(x).slice(0,300)),s:p.bk.s,v:+p.bk.v||0};
 if(p.en&&typeof p.en.c==='number'&&S.en[o])S.en[o]=enClean(p.en);
+if(p.qa&&S.qa[o]){const c=qaClean(p.qa);['q','a','m'].forEach(f=>Object.assign(S.qa[o][f],c[f]))}
 if(p.n)S.names[o]=String(p.n).slice(0,12);S.rcv=Date.now();save()}
 function askSync(p){if(!p||(p.f!=='me'&&p.f!=='her')||p.f===S.dev){toast('این لینک مال خودته یا معتبر نیست');return}
 const n=Object.keys(p.d||{}).length;modal(`<h3>پیام تازه از ${esc(p.n||'پارتنرت')}</h3><p>${fa(n)} روز به‌روزرسانی رسیده. وارد برنامه‌ش کنم؟</p>`,()=>{applySync(p);render();toast('دریافت شد 💞')})}
@@ -712,11 +735,11 @@ let r=await ghF('/contents/'+f,{method:'PUT',body:body()});
 if(r.status===409||r.status===422){const g=await ghGet(f);ghSha=g?g.sha:null;r=await ghF('/contents/'+f,{method:'PUT',body:body()})}
 if(!r.ok)throw{s:r.status};const j=await r.json();ghSha=j.content.sha;ghLast=k;ghSet('ok')}catch(e){ghSet('err',e)}ghPB=false}
 function ghRestore(p){let c=0;for(const [k,v] of Object.entries(p.d||{})){if(!/^\d{4}-\d{2}-\d{2}$/.test(k))continue;S.days[k]=S.days[k]||{me:def(),her:def()};const t=S.days[k][S.dev];SF.forEach(f=>{const cur=t[f];if((cur===undefined||cur===null||cur===''||cur===0)&&v[f]!==undefined&&v[f]!==null&&v[f]!==''&&v[f]!==0){t[f]=typeof v[f]==='string'?v[f].slice(0,600):v[f];c++}})}return c}
-async function ghPull(){const ot=S.dev==='me'?'her':'me',g=await ghGet(ot+'.json');if(!g||!g.d||g.d.f!==ot)return false;const k=JSON.stringify(g.d.d)+'|'+g.d.n+'|'+JSON.stringify(g.d.en||0);if(k===ghPL)return false;ghPL=k;applySync(g.d);return true}
+async function ghPull(){const ot=S.dev==='me'?'her':'me',g=await ghGet(ot+'.json');if(!g||!g.d||g.d.f!==ot)return false;const k=JSON.stringify(g.d.d)+'|'+g.d.n+'|'+JSON.stringify(g.d.en||0)+'|'+JSON.stringify(g.d.qa||0);if(k===ghPL)return false;ghPL=k;applySync(g.d);return true}
 function ghRefresh(){const a=document.activeElement;if(a&&/INPUT|TEXTAREA/.test(a.tagName)){ghDirty=true;return}const y=scrollY;render();scrollTo(0,y)}
 document.addEventListener('focusout',()=>{if(ghDirty)setTimeout(()=>{const a=document.activeElement;if(!ghDirty||(a&&/INPUT|TEXTAREA/.test(a.tagName)))return;ghDirty=false;ghRefresh()},300)});
 async function ghTick(man){if(!GH||!UN||!S.dev||ghTB)return;if(!navigator.onLine){ghSet('off');return}ghTB=true;ghSet('busy');let rs=0,ch=false;
-try{if(!ghIn){const g=await ghGet(S.dev+'.json');if(g){ghSha=g.sha;if(g.d&&g.d.f===S.dev){rs=ghRestore(g.d);if(g.d.en&&typeof g.d.en.c==='number'&&g.d.en.c>S.en[S.dev].c){S.en[S.dev]=enClean(g.d.en);rs++}if(rs)save();else{const{t,...rest}=g.d;ghLast=JSON.stringify(rest)}}}ghIn=true}
+try{if(!ghIn){const g=await ghGet(S.dev+'.json');if(g){ghSha=g.sha;if(g.d&&g.d.f===S.dev){rs=ghRestore(g.d);if(g.d.en&&typeof g.d.en.c==='number'&&g.d.en.c>S.en[S.dev].c){S.en[S.dev]=enClean(g.d.en);rs++}if(g.d.qa&&qaRestore(S.dev,g.d.qa))rs++;if(rs)save();else{const{t,...rest}=g.d;ghLast=JSON.stringify(rest)}}}ghIn=true}
 ch=await ghPull();ghTB=false;await ghPush();ghSet('ok');if(man)toast('همگام شد ✓');else if(ch)toast('چیز تازه‌ای از '+nm[other()]+' رسید');if(ch||rs)ghRefresh()}
 catch(e){ghSet('err',e)}ghTB=false}
 setInterval(()=>{if(GH&&UN&&!document.hidden)ghTick()},25000);
@@ -756,7 +779,35 @@ return `<div class="card en"><h2>🇬🇧 تمرین زبان انگلیسی<sma
 <a class="btn alt endl" href="${src}" download="OurJournal-page-${pg}.jpg">⬇️ دانلود این صفحه</a>
 ${row('enk',0,'من امروز این صفحه رو خوندم و یاد گرفتم',mine)}
 <div class="row ${theirs?'done':''}" style="cursor:default"><span class="dot">${CK}</span><span class="lb">${nm[o]} هم خوند و یاد گرفت</span></div>
-<p class="enst">${msg}</p></div>`}
+<p class="enst">${msg}</p>${qaBox(st,u,o)}</div>`}
+/* ---------- English Q&A box (stage 4) ---------- */
+let QD={};
+function qaClean(e){const o={q:{},a:{},m:{}};if(!e||typeof e!=='object')return o;['q','a'].forEach(f=>{const x=e[f];if(x&&typeof x==='object')for(const [k,v] of Object.entries(x))if(/^\d{1,6}$/.test(k)&&typeof v==='string'&&v.trim())o[f][k]=v.slice(0,300)});if(e.m&&typeof e.m==='object')for(const [k,v] of Object.entries(e.m))if(/^\d{1,6}$/.test(k)&&(v===1||v===2))o.m[k]=v;return o}
+function qaOut(wb){const E=S.qa&&S.qa[S.dev];if(!E)return null;const min=wb?0:Math.max(0,enState().L-10),o={q:{},a:{},m:{}};let n=0;['q','a','m'].forEach(f=>Object.entries(E[f]).forEach(([k,v])=>{if(+k>=min){o[f][k]=v;n++}}));return n?o:null}
+function qaRestore(u,p){const c=qaClean(p),E=S.qa[u];let n=0;['q','a','m'].forEach(f=>{for(const [k,v] of Object.entries(c[f]))if(E[f][k]===undefined){E[f][k]=v;n++}});return n}
+function qaItem(L,u,o,cur){const Q=S.qa[u],R=S.qa[o],mq=Q.q[L],ma=R.a[L],mm=Q.m[L],tq=R.q[L],ta=Q.a[L],tm=R.m[L],
+tx=(f,v,ph)=>`<div class="field"><textarea data-f="${f}" data-l="${L}" rows="2" maxlength="300" placeholder="${ph}">${esc(v)}</textarea></div>`,
+edQ=QD['q'+L]!==undefined||(!mq&&cur),edA=QD['a'+L]!==undefined||(tq&&!ta);let h='';
+if(edQ||mq){h+=`<div class="qar"><small>سؤال تو از ${nm[o]}</small>`;
+if(edQ){h+=tx('qaq',QD['q'+L]||'','یه سؤال از همین صفحه برای '+nm[o]+' بنویس… (مثلاً: «این کلمه یعنی چی؟»)')+`<button class="btn" data-a="qsend" data-i="${L}">ارسال سؤال</button>`+(mq?`<button class="qab" data-a="qx" data-f="q" data-i="${L}">انصراف</button>`:'')}
+else{h+=`<p class="qat">${esc(mq)}</p>`;
+if(!ma)h+=`<button class="qab" data-a="qedit" data-i="${L}">ویرایش سؤال</button><span class="qaw">منتظر جواب ${nm[o]}…</span>`;
+else h+=`<div class="qaa"><small>جواب ${nm[o]}</small><p>${esc(ma)}</p></div><div class="qmk"><button class="${mm===1?'on ok':''}" data-a="qmk" data-v="1" data-i="${L}">✓ درسته</button><button class="${mm===2?'on no':''}" data-a="qmk" data-v="2" data-i="${L}">✗ غلطه</button></div>`}
+h+='</div>'}
+if(tq){h+=`<div class="qar t"><small>سؤال ${nm[o]} برای تو</small><p class="qat">${esc(tq)}</p>`;
+if(edA){h+=tx('qaa',QD['a'+L]||'','جوابت رو بنویس…')+`<button class="btn" data-a="asend" data-i="${L}">ارسال جواب</button>`+(ta?`<button class="qab" data-a="qx" data-f="a" data-i="${L}">انصراف</button>`:'')}
+else{h+=`<div class="qaa"><small>جواب تو</small><p>${esc(ta)}</p></div>`;
+if(tm)h+=`<span class="qv ${tm===1?'ok':'no'}">${nm[o]} گفت: ${tm===1?'درسته ✓':'غلطه ✗'}</span>`;
+else h+=`<button class="qab" data-a="aedit" data-i="${L}">ویرایش جواب</button><span class="qaw">منتظر بررسی ${nm[o]}…</span>`}
+h+='</div>'}
+else if(cur)h+=`<div class="qar t"><small>سؤال ${nm[o]} برای تو</small><p class="qaw" style="margin:0">${nm[o]} هنوز برای این صفحه سؤالی ننوشته.</p></div>`;
+return h}
+function qaBox(st,u,o){const E=S.qa[u],P=S.qa[o],Ls=new Set([...Object.keys(E.q),...Object.keys(P.q)].map(Number)),
+pend=Object.keys(P.q).filter(k=>!E.a[k]).length,old=[...Ls].filter(k=>k!==st.L).sort((a,b)=>b-a),
+pgOf=L=>'صفحه '+fa(EN_FIRST+L%EN_N)+(L>=EN_N?' · دور '+fa(Math.floor(L/EN_N)+1):'');
+let h=`<div class="qabox"><h3>❓ سؤال‌وجواب این صفحه${pend?`<small>🔔 ${fa(pend)} سؤال منتظر جواب توئه</small>`:''}</h3>${qaItem(st.L,u,o,true)}`;
+if(old.length){const sh=old.slice(0,40);h+=`<details class="qah"><summary>📚 تاریخچه‌ی سؤال‌ها (${fa(old.length)} صفحه)</summary>${sh.map(L=>`<div class="qhh">${pgOf(L)}</div>${qaItem(L,u,o,false)}`).join('')}${old.length>sh.length?`<p class="enst">فقط ${fa(sh.length)} مورد آخر نشون داده شده.</p>`:''}</details>`}
+return h+'</div>'}
 function today(){const d=D(),p=pct(S.u),W=wk(),o=D(other()),PN=(o.note||'').trim()?`<div class="card pn"><h2>💌 پیام ${nm[other()]} برای تو<small>${NT[o.nt]||'پیام'}</small></h2><div class="pq">${esc(o.note)}</div></div>`:'',NB=o.need!=null&&NEED[o.need]?`<div class="card nb" style="--t:${NEED[o.need][2]}"><div class="np">♥</div><div><small>پیام بی‌کلام از ${nm[other()]}</small><b>امروز دوست داره ${NEED[o.need][3]}</b></div></div>`:'';
 const dt=new Intl.DateTimeFormat('fa-IR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
 return `<div class="top"><div class="sw wide">${['me','her'].map(k=>`<button class="${k} ${S.u===k?'on':''}" data-a="user" data-i="${k}">${nm[k]}</button>`).join('')}</div></div>
@@ -928,6 +979,10 @@ else if(a==='ask'){d.ask=d.ask===x?null:x;if(d.ask!=null){d.ax='';WO.ask=0}}
 else if(a==='ws'){if((d.wish!=null||(d.wx||'').trim())&&(d.ask!=null||(d.ax||'').trim()))d.ws=1;else{toast('از هر دو بخش یکی انتخاب کن یا خودت بنویس');return}}
 else if(a==='we')d.ws=0;
 else if(a==='enk'){if(!enToggle())return;const z=enState();if(z.me&&z.her){for(let k=0;k<6;k++)setTimeout(()=>burst(innerWidth*(.2+k*.12),innerHeight*.3),k*130)}}
+else if(a==='qsend'||a==='asend'){const u0=S.dev||S.u,f=a==='qsend'?'q':'a',t0=(QD[f+x]||'').trim();if(!t0){toast(f==='q'?'اول سؤالت رو بنویس':'اول جوابت رو بنویس');return}S.qa[u0][f][x]=t0.slice(0,300);delete QD[f+x];save();toast(f==='q'?'سؤال فرستاده شد ✓':'جواب فرستاده شد ✓')}
+else if(a==='qedit'||a==='aedit'){const u0=S.dev||S.u,f=a==='qedit'?'q':'a';QD[f+x]=S.qa[u0][f][x]||''}
+else if(a==='qx'){delete QD[t.dataset.f+x]}
+else if(a==='qmk'){const u0=S.dev||S.u,v=+t.dataset.v;if(S.qa[u0].m[x]===v)delete S.qa[u0].m[x];else S.qa[u0].m[x]=v;save()}
 else if(a==='lv'){d.lv=d.lv?0:1;if(d.lv)burst(innerWidth/2,innerHeight*.3)}
 else if(a==='gnp')d.gn=GNP[x];
 else if(a==='br'){brStart();return}
@@ -945,18 +1000,10 @@ document.addEventListener('input',e=>{const f=e.target.dataset.f;if(!f)return;co
 if(f[0]==='t'&&f.length===2)d.t[+f[1]].x=v;else if(f==='name'){S.names[S.u]=v;save();clearTimeout(tmr);tmr=setTimeout(refresh,500);return}
 else if(f==='en'){d.en=+v;save();const l=e.target.previousElementSibling;if(l)l.textContent='سطح انرژی: '+fa(v)+' از ۱۰';return}
 else if(f==='wx'||f==='ax'){d[f]=v;if(v.trim()){d[f==='wx'?'wish':'ask']=null;const p=e.target.closest('.field').previousElementSibling;if(p)p.querySelectorAll('.on').forEach(z=>z.classList.remove('on'))}}
+else if(f==='qaq'||f==='qaa'){QD[(f==='qaq'?'q':'a')+e.target.dataset.l]=v;return}
 else d[f]=v;save()});
 render();
 </script><script>["gesturestart","gesturechange","gestureend"].forEach(n=>document.addEventListener(n,e=>e.preventDefault(),{passive:false}));document.addEventListener("touchmove",e=>{if(e.touches.length>1||(e.scale&&e.scale!==1))e.preventDefault()},{passive:false});document.addEventListener("dblclick",e=>e.preventDefault(),{passive:false});</script>
 <script>(function(){var a=document.createElement("div");a.id="aur";a.innerHTML="<i></i><i></i><i></i>";document.body.prepend(a);
 document.addEventListener("pointerdown",function(e){var b=e.target.closest(".btn,.nav button");if(!b||b.disabled)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,p=document.createElement("span");p.className="rp";p.style.cssText="width:"+s+"px;height:"+s+"px;left:"+(e.clientX-r.left-s/2)+"px;top:"+(e.clientY-r.top-s/2)+"px";b.appendChild(p);setTimeout(function(){p.remove()},650)},{passive:true})})();</script>
-<script>
-if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register(new URL('./sw.js', document.baseURI)).catch(function (error) {
-      console.warn('OurJournal service worker registration failed:', error);
-    });
-  });
-}
-</script>
 </body></html>
