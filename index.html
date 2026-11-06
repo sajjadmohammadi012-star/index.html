@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>دفترچه‌ی ما</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&family=Lalezar&display=swap" rel="stylesheet">
 <style>
@@ -34,7 +34,7 @@ h1{font-size:22px;font-weight:800;margin:0}
 .done .dot:after{content:"✓"}
 .done .lb{opacity:.45;text-decoration:line-through}
 .lb{flex:1;font-size:15px}
-input[type=text],textarea{width:100%;border:0;background:transparent;font:inherit;color:inherit;font-size:15px;padding:10px 0;outline:0}
+input[type=text],textarea{width:100%;border:0;background:transparent;font:inherit;color:inherit;font-size:16px;padding:10px 0;outline:0}
 textarea{resize:none;min-height:70px;line-height:1.9}
 .field{background:var(--bg);border-radius:16px;padding:4px 14px;margin-top:8px}
 .tk{flex:1;border-bottom:0}
@@ -474,6 +474,65 @@ body.gated #app,body.gated .nav{visibility:hidden}
 .gm a{color:#B9CBFF}
 .gm .gfm{display:grid;gap:10px;margin-bottom:12px}
 .gm .gb[disabled]{opacity:.6}
+html,body,*{touch-action:pan-y}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.wcs{max-height:none}.wsh .field{margin:10px 0 0}.wsh .field input{padding:8px 0}
+.msgc .mh{margin:-2px 0 10px;font-size:13px;color:var(--mut)}.msgc .btn{width:100%}
+.bz.on,.bz.on .bi,.bz.on .bo{animation-delay:var(--dl,0ms)!important}.bz.done:not(.on):before{content:"✓"}.bz.done{box-shadow:0 0 60px color-mix(in srgb,var(--ac) 65%,transparent)}
+.brc{text-align:center;font-size:13px;color:var(--mut);margin:6px 0 12px}.brm{text-align:center;font-weight:700;line-height:1.9;margin:8px 0 4px}.br .btn[disabled]{opacity:.6;pointer-events:none}
+
+/* ===== v3 glow-up ===== */
+#aur{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+#aur i{position:absolute;width:62vmax;height:62vmax;border-radius:50%;filter:blur(70px);opacity:.34;mix-blend-mode:normal;will-change:transform;animation:aur 22s ease-in-out infinite alternate}
+#aur i:nth-child(1){background:var(--me);top:-22vmax;right:-18vmax}
+#aur i:nth-child(2){background:var(--her);bottom:-26vmax;left:-20vmax;animation-duration:27s;animation-delay:-8s}
+#aur i:nth-child(3){background:var(--ac);width:40vmax;height:40vmax;top:38%;left:30%;opacity:.2;animation-duration:31s;animation-delay:-14s}
+[data-theme=dark] #aur i{opacity:.22}body[data-tab=night] #aur i{opacity:.28}
+@keyframes aur{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-9vmax,7vmax,0) scale(1.15)}100%{transform:translate3d(8vmax,-6vmax,0) scale(.92)}}
+.top h1{background:linear-gradient(100deg,var(--tx) 20%,var(--ac),var(--her),var(--tx) 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:hshine 7s ease-in-out infinite alternate}
+@keyframes hshine{to{background-position:100% 0}}
+.card{position:relative;transition:transform .35s cubic-bezier(.2,.9,.3,1.3),box-shadow .35s;border:1px solid color-mix(in srgb,var(--ac) 14%,rgba(255,255,255,.5))}
+.card:active{transform:scale(.985)}
+.card h2{letter-spacing:-.2px}
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn:not(.alt):not([disabled])::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%);transform:translateX(-120%);animation:shn 4.5s ease-in-out infinite}
+@keyframes shn{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.btn:active{transform:scale(.95)!important}
+.rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:rp .6s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+.nav div{animation:navin .7s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes navin{from{transform:translateY(90px);opacity:0}}
+.nav button{position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.9,.3,1.6),background .3s,color .3s}
+.nav button.on{transform:translateY(-3px) scale(1.06)}
+.nav button.on .ico,.nav button.on .fc{animation:nbounce .7s cubic-bezier(.2,.9,.3,1.5)}
+@keyframes nbounce{0%{transform:scale(.6) rotate(-14deg)}60%{transform:scale(1.25) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+.ring{animation:rfl 6s ease-in-out infinite alternate}
+@keyframes rfl{to{transform:translateY(-5px)}}
+.ring svg{filter:drop-shadow(0 6px 14px color-mix(in srgb,var(--ac) 45%,transparent))}
+.tile{transition:transform .3s cubic-bezier(.2,.9,.3,1.5),box-shadow .3s}.tile:active{transform:scale(.95) rotate(-1deg)}
+.row{transition:transform .25s cubic-bezier(.2,.9,.3,1.5),background .3s,opacity .3s}.row.done .lb{opacity:.55;text-decoration:line-through;text-decoration-thickness:2px}
+.moods button,.wc,.tg button{transition:transform .25s cubic-bezier(.2,.9,.3,1.6),background .25s,border-color .25s,color .25s,box-shadow .25s}
+.moods button:active,.wc:active,.tg button:active{transform:scale(.9)}
+.moods button.on,.wc.on,.tg button.on{box-shadow:0 8px 20px -6px var(--ac);animation:wig .5s}
+@keyframes wig{30%{transform:scale(1.15) rotate(-5deg)}60%{transform:scale(.97) rotate(3deg)}}
+.cup{transition:transform .3s cubic-bezier(.2,.9,.3,1.6)}.cup.f{animation:wig .5s}
+#toast{background:color-mix(in srgb,var(--card) 70%,transparent)!important;color:var(--tx)!important;backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);border:1px solid color-mix(in srgb,var(--ac) 30%,transparent);box-shadow:0 14px 34px -10px var(--ac)}
+.pn,.nb{animation:fl 5s ease-in-out infinite alternate}@keyframes fl{to{transform:translateY(-3px)}}
+.field{transition:transform .25s}.field:focus-within{transform:translateY(-1px)}
+::selection{background:color-mix(in srgb,var(--ac) 35%,transparent)}
+html{scrollbar-width:none}::-webkit-scrollbar{display:none}
+@media (prefers-reduced-motion:reduce){#aur i,.top h1,.ring,.pn,.nb,.btn::after{animation:none!important}}
+
+/* gate: same smooth hover for both profile cards */
+.gin2.enter .gp,.gin2.enter .gp:nth-child(2){animation-fill-mode:backwards}
+.gp,.gp:nth-child(2){transition:transform .7s cubic-bezier(.22,.8,.3,1),box-shadow .7s ease}
+.gp:active{transition-duration:.2s}
+.sgb{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:2px}
+.sg{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font:700 13px inherit;font-family:inherit;padding:9px 16px;border-radius:99px;color:#fff;background:linear-gradient(135deg,var(--ac),var(--tog));box-shadow:0 10px 20px -10px var(--ac)}
+.sg:after{content:"";width:7px;height:7px;border-inline-end:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) translateY(-2px);transition:transform .3s}.sg.op:after{transform:rotate(-135deg) translateY(-1px)}
+.sgs{font-size:12.5px;font-weight:700;padding:8px 12px;border-radius:99px;background:color-mix(in srgb,var(--ac) 14%,transparent);color:var(--tx)}
+.sgp{margin-top:12px;padding:12px;border-radius:20px;background:color-mix(in srgb,var(--ac) 8%,transparent);animation:sgin .35s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes sgin{from{opacity:0;transform:translateY(-8px) scale(.97)}}
+.rnw{border:1px solid color-mix(in srgb,var(--ac) 40%,transparent)}.rnw p{margin:0 0 12px;font-size:14px;line-height:1.9;color:var(--mut)}.rnw .bke{color:#E5484D;font-weight:700}.bku{display:grid;place-items:center;cursor:pointer}
 </style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="دفترچه‌ی ما"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💞%3C/text%3E%3C/svg%3E"></head><body data-u="me" data-tab="today">
 <div class="toast" id="toast"></div>
 <div id="app"></div>
@@ -512,9 +571,9 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 function greet(){const h=new Date().getHours();return h<5?'شب بخیر':h<12?'صبح بخیر':h<17?'ظهر بخیر':h<20?'عصر بخیر':'شب بخیر'}
 
 const NEED=[['گوش بده','فقط بشنو، راه‌حل نده','#6C8CF5','که گوش بدی'],['بغلم کن','یه بغل طولانی','#F58FA9','که بغلش کنی'],['تنهام بذار','کمی فضا می‌خوام','#8B7CF6','کمی تنها باشه'],['کمکم کن','یه بار رو ازم بردار','#2EC4A0','که کمکش کنی'],['سر به سرم بذار','می‌خوام بخندم','#FFA62B','که سر به سرش بذاری']];
-const QS=['امروز چی باعث شد بی‌دلیل لبخند بزنی؟','یه خاطره‌ی بامزه از بچگیت تعریف کن.','چه کار کوچیکی از من امروز حالت رو بهتر کرد؟','اگه فردا یه روز کاملاً آزاد داشتیم، دوست داشتی چیکار کنیم؟','چه چیزی از من هست که هنوز دوست داری بیشتر بشناسی؟','یه لحظه‌ی قشنگ از اوایل آشنایی‌مون که یادته؟','این هفته به چی بیشتر از همه افتخار می‌کنی؟','چه آهنگی الان بیشتر از همه یاد ما می‌افته؟','یه آرزوی کوچیک که می‌خوای باهم برآورده کنیم؟','چه چیزی امروز استرس‌ت رو بیشتر کرد و من چطور می‌تونم کمک کنم؟','یه عادت من که دوستش داری و شاید نگفتی؟','اگه می‌شد یه شب شام هرجای دنیا بخوریم، کجا؟','بزرگ‌ترین درسی که از این رابطه گرفتی چیه؟','چه چیزی باعث می‌شه کنار من احساس امنیت کنی؟','یه چیز جدید که دوست داری باهم امتحان کنیم؟','امروز از خودت چه چیزی رو دوست داشتی؟','چه حرفی هست که دوست داری بیشتر بشنوی؟','یه غذایی که بوش تو رو یاد خونه می‌ندازه؟','سه چیز کوچیک که امروز بابتش شاکری؟','چه لحظه‌ای از امروز دلت می‌خواست من کنارت بودم؟'];
+const QS=["امروز کدوم لحظه‌ت یه‌دفعه یاد من افتادی؟", "یه چیز کوچیک که امروز حالت رو خوب کرد چی بود؟", "وقتی اولین بار من رو دیدی، چی به ذهنت رسید؟", "الان دلت چه غذایی می‌خواد که من هم کنارت بودم و باهم می‌خوردیم؟", "یه عادت من که بی‌اختیار دوستش داری چیه؟", "این هفته چیزی بود که دلت می‌خواست همون لحظه برام تعریف کنی ولی نشد؟", "اگه امشب می‌تونستیم ده دقیقه کنار هم باشیم، دوست داشتی چیکار کنیم؟", "یه خاطره‌ی بامزه از بچگیت که کمتر کسی می‌دونه چیه؟", "این روزها کدوم آهنگ بیشتر از همه یاد من می‌ندازدت؟", "توی روزهای سخت، چی دلت رو آروم می‌کنه؟", "کدوم جای شهرت رو دوست داری یه روز من رو ببری و نشونم بدی؟", "یه چیزی که از من یاد گرفتی و شاید خودم خبر ندارم؟", "امروز از خودت چی رو دوست داشتی؟", "یه شب بی‌برنامه‌ی ایده‌آل برای تو چه شکلیه؟", "دلتنگی برات چه شکلیه؟ توی چه ساعتی از روز بیشتر میاد سراغت؟", "یه جمله‌ای که من گفتم و هنوز یادته کدومه؟", "اگه فردا یه روز کامل آزاد داشتیم، تماس‌هامون رو چطور می‌چیدیم؟", "کدوم ویژگی خودت رو دوست داری من بیشتر بشناسم؟", "یه ترس کوچیک داری که کمتر کسی ازش خبر داره؟", "کدوم کار من توی این فاصله بیشتر از همه حالت رو خوب می‌کنه؟", "یه چیزی هست که دلت بخواد برای اولین بار باهم تجربه‌اش کنیم؟", "روز دیدارمون رو چطور تصور می‌کنی؟ از لحظه‌ی اول تا آخر شب.", "بزرگ‌ترین چیزی که این فاصله بهت یاد داده چیه؟", "اگه می‌شد یه روز توی زندگی عادیت هم باشم، دوست داشتی کدوم قسمتش رو ببینم؟", "دلت می‌خواد ده سال دیگه کجا نشسته باشیم و چی بخوریم؟", "چه چیزی از دور بودن اذیتت می‌کنه که تا حالا نگفتی؟", "کدوم روز رابطه‌مون رو برای دوباره زندگی کردن انتخاب می‌کنی؟", "چه چیز کوچیکی از من دلت می‌خواد هر روز داشته باشی؟", "این هفته از چی بیشتر از همه خسته شدی؟", "غیر از من، کی بیشتر از همه می‌خندونتت؟", "اگه می‌تونستی یه نامه به خودت پنج سال پیش بنویسی، چی توش بود؟", "چی توی من هست که باعث شده بهم اعتماد کنی؟", "یه کاری هست که همیشه می‌خواستی بکنی و هنوز شروعش نکردی؟", "دوست داری تولدت رو چه‌جوری بگذرونیم، حتی از دور؟", "کدوم صحنه‌ی فیلم یا سریال یاد ما می‌ندازدت؟", "اولین چیزی که توی من دیدی و دلت رو برد چی بود؟", "یه چیزی هست که دلت بخواد راحت‌تر بهم بگی؟", "دلت می‌خواد وقتی بالاخره کنار هم زندگی کنیم، صبح‌ها چه شکلی باشه؟", "توی این رابطه کدوم ویژگی خودت رو بهتر کردی؟", "از امروزت یه لحظه رو توصیف کن که دلت می‌خواد من هم دیده بودمش.", "اگه یه ماه هیچ مسئولیتی نداشتی، کجا می‌رفتی؟ من رو هم می‌بردی؟", "این روزها بیشتر دلت می‌خواد چه حرفی از من بشنوی؟", "فکر می‌کنی چرا من و تو به هم رسیدیم؟", "یه خاطره‌ی تلخ که حالا بهش می‌خندی چیه؟", "توی خونه‌ی آینده‌مون کدوم گوشه مال خودت باشه؟", "این هفته کدوم کار من باعث شد حس کنی دوستت دارم؟", "چی رو مدام برای بعد می‌ذاری و باید همین هفته انجامش بدی؟", "اگه یه جمله بهت می‌گفتم که کل روزت عوض بشه، اون جمله چی بود؟", "توی تماس‌هامون کدوم لحظه رو بیشتر از همه دوست داری؟", "دوست داری یه روز چه کار ساده‌ای رو باهم بکنیم، مثل خرید یا پیاده‌روی بی‌هدف؟", "اگه جای من بودی، الان به تو چی می‌گفتی؟", "این هفته چی باعث شد بخندی تا اشکت دربیاد؟", "یه راز کوچیک که دوست داری امشب بگی چیه؟", "دلت می‌خواد اولین چیزی که روز دیدار بهم می‌گی چی باشه؟", "بعد از قطع شدن تماس‌هامون چه حسی برات می‌مونه؟", "توی این رابطه بیشتر از همه به چی افتخار می‌کنی؟", "اگه امروز می‌خواستم سورپرایزت کنم، دلت چی می‌خواست؟", "دوست داری کدوم آدم زندگیت رو بیشتر بشناسم و چرا؟", "جایی که توش احساس امنیت می‌کنی کجاست؟", "بهترین و بدترین قسمت صبح‌های تو چیه؟", "دلت می‌خواد توی کدوم بخش زندگیت بیشتر باشم؟", "از بین خاطره‌های ما، کدوم رو قاب می‌کنی؟", "امشب بدون فکر کردن بگو، از ته دلت چی می‌خوای؟", "یه سال دیگه دوست داری چه چیزی عوض شده باشه؟", "چی باعث شد حتی توی فاصله از رابطه‌مون ناامید نشی؟", "دلت می‌خواد توی کدوم لحظه‌ی سخت کنارت بودم و نبودم؟", "اگه فقط سه کلمه برای توصیف ما داشتی، کدوم‌ها بود؟", "چه قولی دلت می‌خواد بهم بدی و چه قولی ازم می‌خوای؟", "یه کار خیلی کوچیک که من می‌کنم و تو بی‌صدا قدرش رو می‌دونی چیه؟", "این هفته‌ها چه چیزی از خودت رو بیشتر شناختی؟"];
 const needCard=d=>`<div class="card"><h2>💗 الان چی لازم دارم؟<small>${nm[other()]} می‌بینه</small></h2><div class="nd">${NEED.map((n,i)=>`<button class="${d.need===i?'on':''}" style="--t:${n[2]}" data-a="need" data-i="${i}"><b>${n[0]}</b><small>${n[1]}</small></button>`).join('')}</div></div>`;
-function qCard(d){const ot=other(),o=D(ot),u=S.u,q=QS[(Date.parse(key)/864e5|0)%QS.length],bub=(w,t,x)=>`<div class="qb ${x||''}" style="--c:var(--${w})"><b>${nm[w]}</b><p>${t}</p></div>`;let b;
+function qCard(d){const ot=other(),o=D(ot),u=S.u,q=BQ()[DI()%BQ().length],bub=(w,t,x)=>`<div class="qb ${x||''}" style="--c:var(--${w})"><b>${nm[w]}</b><p>${t}</p></div>`;let b;
 if(!d.qd)b=`<div class="field"><textarea data-f="qa" placeholder="جوابت رو بنویس… تا ثبت نکنی ${nm[ot]} نمی‌بینه">${esc(d.qa||'')}</textarea></div><button class="btn" data-a="qs" style="width:100%;margin-top:12px">ثبت جواب</button>`;
 else if(!o.qd)b=bub(u,esc(d.qa))+bub(ot,'••••• ••• ••••••','lock')+`<div class="qh">جواب ${nm[ot]} هنوز ثبت نشده. وقتی بنویسه، با هم رو می‌شه.</div><button class="ql" data-a="qe">ویرایش جواب من</button>`;
 else b=bub(u,esc(d.qa),'rv')+bub(ot,esc(o.qa),'rv r2')+`<div class="qh">دو تا جواب، یه دنیا شناخت 💞</div>`;
@@ -529,16 +588,31 @@ const cl=['#8B7CF6','#3DA9FC','#FFB020','#2EC4A0'];
 return `<div class="card ins"><h2>🔮 الگوهای تو<small>${fa(R.length)} روز داده</small></h2>${out.length?out.map((o,i)=>`<div class="ir" style="--t:${cl[['😴','💧','☀️','🌟'].indexOf(o[0])]}"><span>${o[0]}</span><p>${o[1]}</p></div>`).join(''):`<div class="ie"><div class="ib"><i style="width:${Math.min(100,R.length*20)}%"></i></div><p>هنوز داده‌ی کافی نیست. با ۴–۵ روز ثبت منظم، اینجا الگوهای خواب و آب و حال‌وهوات نشون داده می‌شه.</p></div>`}</div>`}
 
 function applyTheme(){const h=new Date().getHours();document.documentElement.dataset.theme=(h>=19||h<6)?'dark':'light'}setInterval(applyTheme,6e4);
-const WISH=['یه شب آروم و ساکت','یه گپ سبک و خنده‌دار','یه بغل طولانی','فیلم دیدن کنار هم','هرکی یه گوشه‌ی خودش'],ASK=['فقط بشنوی','بغلم کنی','دلداریم بدی','سر به سرم بذاری','بهم فضا بدی'],GNP=['شب‌بخیر عشقم، فردا هم کنارتم','ممنون که امروز بودی','خوابای قشنگ ببینی'],LV=['یه ویس ۱۰ ثانیه‌ای بفرست','براش چای یا قهوه بریز','یه تعریف مشخص ازش بکن','یه عکس قدیمیتون رو براش بفرست','۲ دقیقه بدون گوشی کنارش بشین','یه کار کوچیکش رو بی‌صدا انجام بده','بغلش کن و ۱۰ ثانیه نگه دار','یه پیام «به یادتم» بفرست','ازش بپرس امروز چی خوشحالش کرد','برای فردا یه سورپرایز کوچیک فکر کن'];
-const lvCard=d=>`<div class="card lv ${d.lv?'done':''}"><div><small>کار کوچیک عاشقانه‌ی امروز</small><b>${LV[(Date.parse(key)/864e5|0)%LV.length]}؛ برای ${nm[other()]}</b></div><button class="dot" data-a="lv" aria-label="انجام شد">${CK}</button></div>`;
-function wishCard(d){const ot=other(),o=D(ot),u=S.u,chip=(L,k,v)=>L.map((l,i)=>`<button class="wc ${v===i?'on':''}" data-a="${k}" data-i="${i}">${l}</button>`).join(''),
-col=(w,e)=>`<div class="wcol" style="--c:var(--${w})"><b>${nm[w]}</b><small>امشب دلم می‌خواد</small><p>${WISH[e.wish]}</p><small>از تو می‌خوام که</small><p>${ASK[e.ask]}</p></div>`;let b;
-if(!d.ws)b=`<small class="wl">امشب دلم می‌خواد…</small><div class="wcs">${chip(WISH,'wish',d.wish)}</div><small class="wl">و از تو می‌خوام که…</small><div class="wcs">${chip(ASK,'ask',d.ask)}</div><button class="btn" data-a="ws" style="margin-top:14px;opacity:${d.wish!=null&&d.ask!=null?1:.45}">بفرست برای ${nm[ot]}</button>`;
+const WISH=['یه تماس تصویری آروم و طولانی','فیلم دیدن آنلاین باهم','چایی یا قهوه کنار هم پای تماس تصویری','شام خوردن باهم پای تماس','حرف زدن از ته دل','کلی خندیدن باهم','آهنگ گوش دادن هم‌زمان','بازی آنلاین دونفره','خاطره تعریف کردن','نقشه کشیدن برای روز دیدارمون','ویس‌های طولانی رد و بدل کردن','عکس‌های قدیمیمون رو باهم نگاه کردن','برای هم کتاب یا شعر خوندن','تا خوابم ببره باهام تو تماس بمونی','یه شب آروم و ساکت','سر به سر گذاشتن'],ASK=['فقط بشنوی','بهم بگی دوستم داری','ازم بپرسی امروزم چطور بود','باهام صبور باشی','تشویقم کنی','آروم‌تر باهام حرف بزنی','کمکم کنی فکرم رو خالی کنم','یه ویس برام بفرستی','یه عکس یا ویدیوی کوچیک از امروزت بفرستی','تا خوابم ببره باهام تو تماس بمونی','دلداریم بدی','بهم فضا بدی','یه پیام قشنگ برام بنویسی','از روز دیدارمون برام بگی','یه آهنگ برام بفرستی'],GNP=['شب‌بخیر عشقم، فردا هم کنارتم','ممنون که امروز بودی','خوابای قشنگ ببینی'],LV=["یه ویس ۳۰ ثانیه‌ای بفرست و فقط بگو الان داری چیکار می‌کنی.", "یه عکس از چیزی که الان جلوی چشمته بفرست، بدون هیچ توضیحی.", "امشب ده دقیقه تماس بگیر و فقط از اتفاق‌های کوچیک امروز بگو.", "آهنگی که امروز تو سرته رو بفرست و بگو چرا.", "یه پیام صبح‌بخیر بذار که فردا صبح وقتی بیدار شد ببینه.", "یه چیز خوب که ازش دیدی رو دقیق و مشخص بهش بگو.", "امشب هر دو یه چایی یا قهوه بریزید و نیم‌ساعت تماس تصویری بزنید.", "یه عکس از لیست کارهات بفرست و بگو کدومش رو دوست نداری.", "یه جمله‌ی عاشقانه‌ی کوتاه بنویس که فقط مال خودتون باشه.", "ازش بخواه یه آهنگ بفرسته و تا آخرش گوش بده.", "توی تماس امشب هر دو سه چیزی که بابتش شاکرید بگید.", "یه خاطره‌ی قدیمیتون رو توی یه ویس تعریف کن.", "یه استیکر یا میم بامزه بفرست که یاد اون بیفتی.", "یه فیلم رو هماهنگ شروع کنید و وسطش نظرتون رو بنویسید.", "صبح زود یه عکس از آسمون اونجایی که هستی بفرست.", "یه نامه‌ی کوتاه دست‌نویس بنویس و عکسش رو بفرست.", "بپرس امروز چی خورده و خودت هم بگو، حتی اگه ساده باشه.", "سه تا چیز که توش دوست داری رو توی یه پیام بنویس.", "یه بازی آنلاین ساده باهم بازی کنید، مثلاً حدس کلمه یا شطرنج.", "یه ویس آروم بفرست و فقط بگو دلم برات تنگ شده.", "امشب تا وقتی خوابش ببره تماس رو باز نگه دارید.", "اسم یه جایی که دوست داری باهم بریم رو بنویس و دلیلش رو بگو.", "یه ویدیوی ۱۰ ثانیه‌ای از اتفاق بامزه‌ی امروزت بفرست.", "درباره‌ی یه روز عادی‌مون توی آینده یه پاراگراف بنویس.", "یه پلی‌لیست کوچیک ۵ آهنگی براش بساز و بفرست.", "یه سؤال بپرس که تا حالا نپرسیدی.", "هر دو یه عکس از میزتون بفرستید و بخندید.", "برای آخر هفته یه قرار آنلاین مشخص بذارید، با ساعت و برنامه.", "اگه خسته‌ست، یه پیام تشویق بنویس که واقعاً بهش اعتقاد داری.", "یه دستور یا عکس از غذای مورد علاقه‌ش بفرست.", "اگه می‌شه، یه سفارش کوچیک آنلاین براش بذار، مثل شیرینی یا گل.", "یه ویس بفرست که داری براش آواز می‌خونی، حتی اگه بد باشه.", "توی تماس امشب هر کدوم یه چیز جدید که امروز یاد گرفتید بگید.", "چند تا عکس قدیمی‌تون رو پیدا کنید و باهم نگاهشون کنید.", "یه جمله از کتاب یا فیلمی که دوست داری براش بفرست.", "ازش بخواه یه دقیقه چشماش رو ببنده و تو براش یه ویس آروم بفرست.", "یه پیام محبت‌آمیز به یکی از نزدیکانش یا دوست خودت بده و بهش بگو.", "هر دو یه کار عقب‌افتاده رو انجام بدید و توی تماس بگید.", "همین الان یه سلفی بدون فیلتر بفرست.", "از یه کار دستی یا نوشته‌ی اون بخواه و ازش تعریف کن.", "یه انیمیشن کوتاه رو بی‌صدا باهم ببینید و بعد داستانش رو حدس بزنید.", "تا پنج‌شنبه یه سورپرایز کوچیک آنلاین برنامه‌ریزی کن.", "صبح بعد از بیدار شدن، قبل از هر چیز یه پیام ساده براش بنویس.", "یه آشپزی ساده رو باهم پای تماس انجام بدید.", "یه ویس یک‌دقیقه‌ای بفرست و فقط از روزی که گذروندی بگو.", "از یه لحظه‌ی خوب این هفته یه عکس یا اسکرین‌شات بفرست.", "هر دو یه لیست کوتاه از کارهایی بنویسید که روز دیدار می‌خواید انجام بدید.", "یه مستند یا ویدیوی آموزشی باهم ببینید.", "براش یه جمله بنویس که نشون بده چقدر بهش دقت می‌کنی.", "یه خاطره از اولین هفته‌ی آشناییتون براش بنویس.", "یه آهنگ قدیمی که یاد دوران قبل از آشنایی‌تون می‌ندازدت بفرست.", "هر دو یه عکس از امروز بفرستید و حدس بزنید دیگری کجاست.", "یه برنامه‌ی کوچیک برای روز دیدارتون بنویس و بفرست.", "سه تا «قانون مخفی» بامزه برای دوستی خودتون بنویس.", "امشب توی تماس ده دقیقه فقط به صدای هم گوش بدید، بدون حرف.", "یه چیز کوچیک که بهش علاقه داره رو یاد بگیر و بهش بگو.", "اگه می‌شه، یه گل یا هدیه‌ی کوچیک سفارش بده که فردا درِ خونه‌ش برسه.", "یه ویس دو‌دقیقه‌ای با صدای آروم بفرست که قبل خواب گوش بده.", "یه چالش کوچیک بذار، مثلاً عکس یه چیز آبی‌رنگ.", "از شبی که اولین بار حرف زدید یه چیز یادآوری کن.", "یه فیلم مشترک ببینید و آخرش امتیاز بدید.", "سه چیزی که این هفته بابتش به خودت افتخار می‌کنی رو براش بفرست.", "امشب یه تماس کامل داشته باشید، بدون سرک کشیدن به چیز دیگه‌ای.", "یه نامه‌ی کوتاه برای یه سال بعدتون بنویس.", "یه ویس ضبط کن و توش یه قول مشخص بده.", "یه عکس از جایی که می‌خوای روز دیدار بریم بفرست.", "امشب یه بازی آنلاین دونفره رو تا آخر بازی کنید.", "یه کارت یا تصویر دیجیتال براش بساز و بفرست.", "توی تماس هر کدوم یه آرزوی کوچیک برای ماه بعد بگید.", "امشب بگو چقدر ازش ممنونی و دلیل مشخصش رو بنویس."];
+const lvCard=d=>`<div class="card lv ${d.lv?'done':''}"><div><small>کار کوچیک عاشقانه‌ی امروز</small><b>${BL()[DI()%BL().length]}؛ برای ${nm[other()]}</b></div><button class="dot" data-a="lv" aria-label="انجام شد">${CK}</button></div>`;
+function wishCard(d){const sug=(k,L,v)=>`<div class="sgb"><button class="sg ${WO[k]?'op':''}" data-a="wo" data-i="${k}">پیشنهادی‌ها</button>${v!=null&&!(d[k==='wish'?'wx':'ax']||'').trim()?`<span class="sgs">✓ ${L[v]}</span>`:''}</div>`,pan=(k,L,v)=>WO[k]?`<div class="wcs sgp">${chip(L,k,v)}</div>`:'',ot=other(),o=D(ot),u=S.u,tx=(L,i,x)=>(x||'').trim()?esc(x):(L[i]||'—'),chip=(L,k,v)=>L.map((l,i)=>`<button class="wc ${v===i?'on':''}" data-a="${k}" data-i="${i}">${l}</button>`).join(''),
+col=(w,e)=>`<div class="wcol" style="--c:var(--${w})"><b>${nm[w]}</b><small>امشب دلم می‌خواد</small><p>${tx(WISH,e.wish,e.wx)}</p><small>از تو می‌خوام که</small><p>${tx(ASK,e.ask,e.ax)}</p></div>`,ok=e=>(e.wish!=null||(e.wx||'').trim())&&(e.ask!=null||(e.ax||'').trim());let b;
+if(!d.ws)b=`<small class="wl">امشب دلم می‌خواد…</small>${sug('wish',WISH,d.wish)}<div class="field"><input type="text" data-f="wx" value="${esc(d.wx||'')}" placeholder="یا خودت بنویس…"></div>${pan('wish',WISH,d.wish)}<small class="wl">و از تو می‌خوام که…</small>${sug('ask',ASK,d.ask)}<div class="field"><input type="text" data-f="ax" value="${esc(d.ax||'')}" placeholder="یا خودت بنویس…"></div>${pan('ask',ASK,d.ask)}<button class="btn" data-a="ws" style="margin-top:14px;opacity:${ok(d)?1:.55}">بفرست برای ${nm[ot]}</button>`;
 else if(!o.ws)b=col(u,d)+`<div class="wcol lockd" style="--c:var(--${ot})"><b>${nm[ot]}</b><p>••••• ••• ••••</p></div><div class="qh">وقتی ${nm[ot]} هم انتخاب کنه، با هم رو می‌شه.</div><button class="ql" data-a="we">تغییر انتخاب من</button>`;
 else b=`<div class="wrow rv">${col(u,d)}${col(ot,o)}</div><div class="qh">امشب همدیگه رو بهتر می‌فهمید 💞</div>`;
 return `<div class="card wsh"><h2>🌙 نسخه‌ی امشب ما</h2>${b}</div>`}
 const burdenCard=d=>`<div class="card bd"><h2>🍃 بار امروز رو زمین بذار</h2>${d.rel?`<div class="rl"><div class="st"></div><p>رها شد. امشب سبک‌تری ✦</p><button class="ql" data-a="rel2">یه چیز دیگه</button></div>`:`<div class="field"><textarea placeholder="هرچی ذهنت رو مشغول کرده بنویس. ذخیره نمی‌شه و با رها کردنش محو می‌شه…"></textarea></div><button class="btn" data-a="rel" style="margin-top:12px">رها کن</button>`}</div>`;
-const breathCard=()=>`<div class="card br"><h2>🌀 تنفس ۴–۴ قبل خواب</h2><div class="bw"><div id="brz" class="bz"><span class="bi">دم</span><span class="bo">بازدم</span></div></div><button class="btn" data-a="br">شروع تنفس</button></div>`;
+const WO={wish:0,ask:0};
+const BQ=()=>S.bank?S.bank.q:QS,BL=()=>S.bank?S.bank.l:LV,BS=()=>S.bank?S.bank.s:'2026-11-07';
+const DI=()=>Math.max(0,Math.round((Date.parse(key)-Date.parse(BS()))/864e5));
+let BK={st:0,q:[],l:[],err:''};
+function bankText(){const q=BQ(),l=BL(),d=['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنجشنبه','جمعه'];let o='بانک سؤال و کار روزانه ('+q.length+' روز)\nاگه این فایل رو به هوش مصنوعی می‌دی، بگو: «این‌ها رو تکرار نکن و '+q.length+' مورد جدید با همین فرمت بساز؛ هر روز یه سؤال و یه کار، مخصوص رابطه‌ی از راه دور.»\nفرمت رو عوض نکن: هر روز یه خط «سؤال:» و یه خط «کار:».\n';for(let w=0;w*7<q.length;w++){o+='\n===== هفته '+(w+1)+' =====\n';for(let k=0;k<7&&w*7+k<q.length;k++){const n=w*7+k;o+='\n'+d[k]+' (روز '+(n+1)+')\n  سؤال: '+q[n]+'\n  کار: '+l[n]+'\n'}}return o}
+function renewCard(){if(S.u!=='me'||DI()<BQ().length-1)return '';const n=BQ().length;let b;
+if(BK.st===1)b=`<p>فایل خونده شد: <b>${fa(BK.q.length)}</b> سؤال و <b>${fa(BK.l.length)}</b> کار (${fa(BK.q.length/7)} هفته). با تأیید، از فردا جایگزین می‌شن و برای ${nm.her} هم خودکار می‌رسن.</p><div class="bkr"><button class="btn" data-a="bkok">تأیید و جایگزین کن</button><button class="btn alt" data-a="bkno">لغو</button></div>`;
+else b=`<p>امروز آخرین روز ${fa(n)} سؤال و کاره. لیست رو دانلود کن و به هوش مصنوعی بده تا موارد جدید بسازه، بعد فایل جدید رو همین‌جا آپلود کن.</p>${BK.err?`<p class="bke">${BK.err}</p>`:''}<div class="bkr"><button class="btn" data-a="bkdl">دانلود لیست ${fa(n)} روز</button><label class="btn alt bku">آپلود فایل جدید<input type="file" id="bkup" accept=".txt,text/plain" hidden></label></div>`;
+return `<div class="card rnw"><h2>🔔 وقت تمدید پیام‌هاست</h2>${b}</div>`}
+document.addEventListener('change',e=>{if(e.target.id!=='bkup')return;const f=e.target.files&&e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const tx=String(r.result),q=[],l=[];tx.split(/\r?\n/).forEach(s=>{let m=s.match(/^\s*سؤال\s*:\s*(.+?)\s*$/);if(m)q.push(m[1].slice(0,300));m=s.match(/^\s*کار\s*:\s*(.+?)\s*$/);if(m)l.push(m[1].slice(0,300))});
+if(!q.length||q.length!==l.length||q.length%7){BK.st=0;BK.err='فایل درست خونده نشد. تعداد سؤال‌ها و کارها باید برابر و مضربی از ۷ باشه ('+fa(q.length)+' سؤال، '+fa(l.length)+' کار). فرمت «سؤال:» و «کار:» رو دست نزن.'}else{BK={st:1,q,l,err:''}}const y=scrollY;render();scrollTo(0,y)};r.readAsText(f,'utf-8')});
+const BR={st:0,t:0,id:0,iv:0},BRN=5,BRC=8000;
+const breathCard=()=>{const e=BR.st===1?Date.now()-BR.t:0,n=Math.min(BRN,Math.floor(e/BRC)+1);return `<div class="card br"><h2>🌀 ۵ تنفس قبل خواب</h2><div class="bw"><div id="brz" class="bz ${BR.st===1?'on':BR.st===2?'done':''}" style="--dl:-${e%BRC}ms"><span class="bi">دم</span><span class="bo">بازدم</span></div></div>${BR.st===2?`<p class="brm">آفرین، کارت عالی بود! ✦<br>امشب تنفس‌هات رو درست انجام دادی. آروم و سبک بخواب.</p>`:''}<div id="brc" class="brc">${BR.st===1?'دم و بازدم '+fa(n)+' از '+fa(BRN):BR.st===2?'':'۵ بار دم و بازدم، خودش تموم می‌شه'}</div><button class="btn" data-a="br" ${BR.st===1?'disabled':''}>${BR.st===1?'در حال تنفس…':BR.st===2?'یه دور دیگه':'شروع تنفس'}</button></div>`};
+function brStart(){if(BR.st===1)return;clearTimeout(BR.id);clearInterval(BR.iv);BR.st=1;BR.t=Date.now();const y=scrollY;render();scrollTo(0,y);
+BR.iv=setInterval(()=>{const el=document.getElementById('brc');if(!el||BR.st!==1)return;el.textContent='دم و بازدم '+fa(Math.min(BRN,Math.floor((Date.now()-BR.t)/BRC)+1))+' از '+fa(BRN)},1000);
+BR.id=setTimeout(()=>{clearInterval(BR.iv);BR.st=2;buzz();if(S.tab==='night'){const y=scrollY;render();scrollTo(0,y)}toast('آفرین! تنفست تموم شد ✓')},BRN*BRC)}
 function gnCard(d){const ot=other(),o=D(ot);return `<div class="card gn"><h2>💌 شب‌بخیر برای ${nm[ot]}</h2>${(o.gn||'').trim()?`<div class="gin"><small>شب‌بخیر از ${nm[ot]}</small><p>${esc(o.gn)}</p></div>`:''}<div class="tg">${GNP.map((g,i)=>`<button data-a="gnp" data-i="${i}">${g}</button>`).join('')}</div><div class="field"><input type="text" data-f="gn" value="${esc(d.gn||'')}" placeholder="یا خودت بنویس…"></div></div>`}
 const closeCard=d=>`<div class="card cz ${d.closed?'on':''}"><div class="mn"></div><b>${d.closed?'روزت بسته شد':'آماده‌ای روزت رو ببندی؟'}</b><p>${d.closed?'یه ستاره برای امشب روشن شد. شب‌بخیر ✦':'با بستن روز، یه ستاره به آسمان مشترکتون اضافه می‌شه.'}</p><button class="btn" data-a="cl">${d.closed?'بازش کن':'روزم رو می‌بندم'}</button></div>`;
 function sky(){const ds=Object.entries(S.days).sort((a,b)=>a[0]<b[0]?-1:1),Hh=(i,m)=>Math.abs(Math.sin(i*m)*43758.5453)%1,P=i=>[24+Hh(i,12.9898)*272,22+Hh(i,78.233)*136],pts=[];let ln='',st='',n=0;
@@ -550,7 +624,7 @@ return `<div class="card"><h2>🌟 بهترین لحظه‌های هفته</h2>$
 
 /* ---------- login / sync / backup ---------- */
 let UN=false,G={p:null,err:''},FAIL=0,FT=0,PEND=null,hid=0;
-const SF=['mood','best','note','nt','gn','qa','qd','ws','wish','ask','closed','lv'];
+const SF=['mood','best','note','nt','gn','qa','qd','ws','wish','ask','closed','lv','wx','ax'];
 const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const dec=t=>{t=t.replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(decodeURIComponent(escape(atob(t+'='.repeat((4-t.length%4)%4)))))};
 try{if(location.hash.startsWith('#sync=')){PEND=dec(location.hash.slice(6));history.replaceState(null,'',location.pathname+location.search)}}catch(e){PEND=null}
@@ -561,40 +635,70 @@ const IK={lock:'<rect x="4" y="11" width="16" height="10" rx="3"/><path d="M8 11
 const ik=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IK[n]}</svg>`;
 const grt=()=>{const h=new Date().getHours();return h<5?'شب بخیر':h<12?'صبح بخیر':h<17?'ظهر بخیر':h<20?'عصر بخیر':'شب بخیر'};
 const pic=(w,z)=>`<div class="gring ${w}" style="--z:${z}px"><div class="gavw ${w}">${AV[w]}</div></div>`;
-const fld=(id,ic,ph,ex)=>`<label class="gw"><span class="gi-i">${ik(ic)}</span><input class="gi" id="${id}" ${ex||''} placeholder="${ph}">${id!=='gn'?`<button type="button" class="gt-e" data-g="tog" aria-label="نمایش رمز">${ik('eye')}</button>`:''}</label>`;
+const fld=(id,ic,ph,ex)=>`<label class="gw"><span class="gi-i">${ik(ic)}</span><input class="gi" id="${id}" ${ex||''} placeholder="${ph}">${id!=='gn'&&id!=='gr1'?`<button type="button" class="gt-e" data-g="tog" aria-label="نمایش رمز">${ik('eye')}</button>`:''}</label>`;
+let AU={d:null,t:0,ld:0,off:0,err:''};
+const hA=x=>(AU.d&&AU.d[x])||'';
+const auReset=()=>{delete S.au;AU={d:null,t:0,ld:0,off:0,err:''}};
+async function authLoad(){if(AU.ld)return;AU.ld=1;
+try{if(!navigator.onLine)throw{s:0};const g=await ghGet('auth.json');AU.d=(g&&g.d&&typeof g.d==='object')?g.d:{};AU.err='';AU.off=0;AU.t=Date.now();S.au=AU.d;save()}
+catch(e){if(!AU.d){if(S.au){AU.d=S.au;AU.off=1}else AU.err=e&&e.s?ghErr(e.s):'اینترنت یا دسترسی به گیت‌هاب مشکل داره'}else AU.off=1}
+AU.ld=0}
+async function authMake(w,h){for(let i=0;i<3;i++){const g=await ghGet('auth.json'),d=(g&&g.d&&typeof g.d==='object')?g.d:{};
+if(d[w]){AU.d=d;S.au=d;AU.off=0;return false}
+d[w]=h;const r=await ghF('/contents/auth.json',{method:'PUT',body:JSON.stringify({message:'auth',content:b64(JSON.stringify(d)),...(g?{sha:g.sha}:{})})});
+if(r.ok){AU.d=d;S.au=d;AU.off=0;return true}
+if(r.status!==409&&r.status!==422)throw{s:r.status}}
+throw{s:409}}
 function gate(){const g=$('#gate');ghFor=null;ghIn=false;g.hidden=false;document.body.classList.add('gated');$('#lockb').hidden=true;
 S.pw=S.pw||{};if(S.ph&&S.dev){S.pw[S.dev]=S.pw[S.dev]||S.ph;delete S.ph}
-const w=G.p,scr=!w?'pick':(S.pw[w]?'login:':'make:')+w,ent=scr!==G.scr;G.scr=scr;
+const st=!GH?'conn':(AU.d===null?(AU.err?'aerr':'load'):'ok'),w=st==='ok'?G.p:null,scr=st!=='ok'?st:(!w?'pick':(hA(w)?'login:':'make:')+w),ent=scr!==G.scr;G.scr=scr;
 const rnd=n=>{let x=n*9301+49297;x=(x*233280)%233280;return x/233280};
 const fx='<div class="gaur"><i></i><i></i><i></i></div><div class="gst">'+[...Array(44)].map((_,i)=>`<i style="--x:${(rnd(i+1)*100).toFixed(1)}%;--y:${(rnd(i+90)*100).toFixed(1)}%;--s:${(1+rnd(i+40)*2).toFixed(1)}px;--d:${(2+rnd(i+7)*4).toFixed(1)}s;--l:-${(rnd(i+3)*5).toFixed(1)}s"></i>`).join('')+'</div><div class="gmoon"></div>';
 const heart='<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2 0 3.5 1 5.4 3 1.9-2 3.4-3 5.4-3 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21z" fill="currentColor"/></svg>';
 const back=`<button class="gback" data-g="back" aria-label="برگشت به انتخاب پروفایل">${ik('back')}</button>`;
 let h;
-if(!w)h=`<div class="glogo"><div class="gheart">${heart}</div><h1>دفترچه‌ی ما</h1><p>یه گوشه‌ی کوچیک و قشنگ برای دو نفر</p></div><div class="gq">کی هستی؟</div><div class="gps">${['me','her'].map(k=>`<button class="gp ${k}" data-g="pick" data-w="${k}">${pic(k,116)}<b>${esc(S.names[k])}</b>${S.dev===k&&S.pw[k]?'<small class="glast">آخرین ورود</small>':''}<span class="gcta">${S.pw[k]?'ورود':'ساختن پروفایل'}${ik('go')}</span></button>`).join('')}<span class="gmid">${heart}</span></div><small class="gnote">${ik('lock')}<span>هر پروفایل رمز مخصوص خودش رو داره</span></small>`;
-else if(!S.pw[w])h=`${back}<div class="gt">${pic(w,124)}<h2>خوش اومدی، ${esc(S.names[w])}</h2><p>اسمت رو بنویس و یه رمز مخصوص خودت بساز.</p></div><div class="gf">${fld('gn','user','اسمت','value="'+esc(S.names[w])+'" maxlength="12"')}${fld('g1','lock','رمز (حداقل ۴ کاراکتر)','type="password" autocomplete="new-password"')}<div class="pm" id="pm"><i></i><i></i><i></i><i></i></div>${fld('g2','lock','تکرار رمز','type="password" autocomplete="new-password"')}<div class="ge" role="alert">${G.err}</div><button class="gb" data-g="make"><span>ساختن و ورود</span>${ik('go')}</button></div><button class="gl" data-g="back">انتخاب پروفایل دیگه</button>`;
+if(st==='conn')h=`<div class="glogo"><div class="gheart">${heart}</div><h1>دفترچه‌ی ما</h1><p>یه بار به ریپوی خصوصی گیت‌هاب وصل شو تا رمزها و داده‌ها بین دو گوشی مشترک باشه</p></div><div class="gf">${fld('gr1','link','username/repo','dir="ltr" autocapitalize="off" autocorrect="off" spellcheck="false"')}${fld('gk1','lock','github_pat_…','type="password" dir="ltr" autocomplete="off" autocapitalize="off" spellcheck="false"')}<div class="ge" role="alert">${G.err}</div><button class="gb" data-g="conn"><span>اتصال و ادامه</span>${ik('go')}</button></div><small class="gnote">${ik('lock')}<span>توکن فقط توی مرورگر همین گوشی می‌مونه</span></small>`;
+else if(st==='load')h=`<div class="glogo"><div class="gheart">${heart}</div><h1>دفترچه‌ی ما</h1><p>یه لحظه…</p></div>`;
+else if(st==='aerr')h=`<div class="glogo"><div class="gheart">${heart}</div><h1>دفترچه‌ی ما</h1></div><div class="gf"><div class="ge" role="alert">${esc(AU.err)}</div><button class="gb" data-g="retry"><span>امتحان دوباره</span>${ik('go')}</button></div><button class="gl" data-g="reconn">تغییر ریپو یا توکن</button>`;
+else if(!w)h=`<div class="glogo"><div class="gheart">${heart}</div><h1>دفترچه‌ی ما</h1><p>یه گوشه‌ی کوچیک و قشنگ برای دو نفر</p></div><div class="gq">کی هستی؟</div><div class="gps">${['me','her'].map(k=>`<button class="gp ${k}" data-g="pick" data-w="${k}">${pic(k,116)}<b>${esc(S.names[k])}</b>${S.dev===k&&S.pw[k]?'<small class="glast">آخرین ورود</small>':''}<span class="gcta">${hA(k)?'ورود':'ساختن پروفایل'}${ik('go')}</span></button>`).join('')}<span class="gmid">${heart}</span></div><small class="gnote">${ik('lock')}<span>هر پروفایل رمز مخصوص خودش رو داره</span></small>`;
+else if(!hA(w))h=`${back}<div class="gt">${pic(w,124)}<h2>خوش اومدی، ${esc(S.names[w])}</h2><p>اسمت رو بنویس و یه رمز مخصوص خودت بساز. این رمز برای همه‌ی گوشی‌ها ثبت می‌شه و بعدش فقط خودت می‌تونی وارد این پروفایل بشی.</p></div><div class="gf">${fld('gn','user','اسمت','value="'+esc(S.names[w])+'" maxlength="12"')}${fld('g1','lock','رمز (حداقل ۴ کاراکتر)','type="password" autocomplete="new-password"')}<div class="pm" id="pm"><i></i><i></i><i></i><i></i></div>${fld('g2','lock','تکرار رمز','type="password" autocomplete="new-password"')}<div class="ge" role="alert">${G.err}</div><button class="gb" data-g="make"><span>ساختن و ورود</span>${ik('go')}</button></div><button class="gl" data-g="back">انتخاب پروفایل دیگه</button>`;
 else h=`${back}<div class="gt">${pic(w,148)}<p class="gg">${grt()}</p><h2>${esc(S.names[w])}</h2></div><div class="gf">${fld('g1','lock','رمزت رو بزن','type="password" autocomplete="current-password"')}<div class="ge" role="alert">${G.err}</div><button class="gb" data-g="go"><span>ورود</span>${ik('go')}</button></div><button class="gl" data-g="back">انتخاب پروفایل دیگه</button>`;
-g.innerHTML=fx+'<div class="gin2 '+(w||'')+(ent?' enter':'')+'">'+h+'</div>';g.scrollTop=0;const i=g.querySelector('#g1');if(i&&w&&S.pw[w])i.focus()}
+g.innerHTML=fx+'<div class="gin2 '+(w||'')+(ent?' enter':'')+'">'+h+'</div>';g.scrollTop=0;const i=g.querySelector('#g1');if(i&&w&&hA(w))i.focus();if(st==='load'&&!AU.ld)authLoad().then(()=>gate())}
 $('#gate').addEventListener('input',e=>{if(e.target.id!=='g1')return;const p=$('#pm');if(!p)return;const v=e.target.value;let n=v.length>=4?1:0;if(v.length>=6)n=2;if(v.length>=8&&/\d/.test(v))n=3;if(v.length>=10&&/[a-zA-Z]/.test(v)&&/\d/.test(v))n=4;p.dataset.s=n});
 $('#gate').addEventListener('keydown',e=>{if(e.key==='Enter'){const b=$('#gate .gb');if(b)b.click()}});
 $('#gate').addEventListener('click',async e=>{const t=e.target.closest('[data-g]');if(!t)return;const a=t.dataset.g,g=$('#gate');
 const bad=m=>{G.err=m;const x=g.querySelector('.ge');if(x)x.textContent=m;const f=g.querySelector('.gf');if(f){f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake')}};
-if(a==='tog'){g.querySelectorAll('.gw input').forEach(i=>{if(i.id!=='gn')i.type=i.type==='password'?'text':'password'})}
-else if(a==='pick'){G.p=t.dataset.w;G.err='';gate()}
+if(a==='tog'){g.querySelectorAll('.gw input').forEach(i=>{if(i.id!=='gn'&&i.id!=='gr1')i.type=i.type==='password'?'text':'password'})}
+else if(a==='conn'){const repo=g.querySelector('#gr1').value.trim().replace(/^https?:\/\/github\.com\//i,'').replace(/\.git$/,'').replace(/\/+$/,''),token=g.querySelector('#gk1').value.trim();
+if(!/^[\w.-]+\/[\w.-]+$/.test(repo))return bad('آدرس ریپو رو به شکل username/repo بنویس');if(token.length<20)return bad('توکن رو کامل بچسبون');
+const sp=t.querySelector('span');sp.textContent='در حال تست…';t.disabled=true;
+try{const r=await ghF('',0,{repo,token});if(!r.ok){bad(ghErr(r.status));return}const j=await r.json();
+if(!j.private){bad('این ریپو عمومیه و همه می‌تونن داده‌هاتون رو ببینن. یه ریپوی Private بساز.');return}
+if(j.permissions&&!j.permissions.push){bad('توکن اجازه‌ی نوشتن نداره (باید Contents ← Read and write باشه)');return}
+GH={repo,token};try{localStorage.setItem(GHK,JSON.stringify(GH))}catch(x){}auReset();G={p:null,err:''};ghFor=null;ghIn=false;ghSha=null;ghLast=null;ghPL='';gate()}
+catch(x){bad('اینترنت یا دسترسی به گیت‌هاب مشکل داره')}finally{sp.textContent='اتصال و ادامه';t.disabled=false}}
+else if(a==='retry'){AU.err='';gate()}
+else if(a==='reconn'){try{localStorage.removeItem(GHK)}catch(x){}GH=null;auReset();G={p:null,err:''};gate()}
+else if(a==='pick'){G.p=t.dataset.w;G.err='';await authLoad();gate()}
 else if(a==='back'){G.p=null;G.err='';gate()}
 else if(a==='make'){const n=g.querySelector('#gn').value.trim(),p1=g.querySelector('#g1').value,p2=g.querySelector('#g2').value;
 if(!n)return bad('اسمت رو بنویس');if(p1.length<4)return bad('رمز باید حداقل ۴ کاراکتر باشه');if(p1!==p2)return bad('دو رمز یکی نیست');
-S.names[G.p]=n;S.pw[G.p]=await H(p1);if(S.dev!==G.p)S.tab='today';S.dev=G.p;S.u=G.p;save();UN=true;G={p:null,err:''};render()}
+const hh=await H(p1);t.disabled=true;let ok;try{ok=await authMake(G.p,hh)}catch(x){t.disabled=false;return bad(x&&x.s?ghErr(x.s):'اینترنت لازمه؛ وصل شو و دوباره امتحان کن')}
+if(!ok){G.err='این پروفایل قبلاً رمز گرفته. رمزش رو بزن.';gate();return}
+S.names[G.p]=n;S.pw[G.p]=hh;if(S.dev!==G.p)S.tab='today';S.dev=G.p;S.u=G.p;save();UN=true;G={p:null,err:''};render()}
 else if(a==='go'){if(Date.now()<FT)return bad('چند لحظه صبر کن و دوباره امتحان کن');const i=g.querySelector('#g1');
-if(await H(i.value)===S.pw[G.p]){if(S.dev!==G.p)S.tab='today';S.dev=G.p;S.u=G.p;UN=true;FAIL=0;G={p:null,err:''};render()}
+const hv=await H(i.value);await authLoad();if(!hA(G.p)){G.err='';gate();return}
+if(hv===hA(G.p)){S.pw[G.p]=hv;if(S.dev!==G.p)S.tab='today';S.dev=G.p;S.u=G.p;UN=true;FAIL=0;G={p:null,err:''};save();render()}
 else{FAIL++;let m='رمز درست نیست';if(FAIL>=5){FT=Date.now()+3e4;FAIL=0;m='۵ بار اشتباه؛ ۳۰ ثانیه صبر کن'}bad(m);i.value='';i.focus()}}});
 $('#lockb').onclick=()=>{UN=false;G={p:null,err:''};render()};
 document.addEventListener('visibilitychange',()=>{if(document.hidden){hid=Date.now();return}if(ymd(new Date())!==key){location.reload();return}if(UN&&Date.now()-hid>12e4){UN=false;G={p:S.dev,err:''};render()}});
 function modal(h,ok){const m=$('#mdl');m.innerHTML=`<div class="mb">${h}<div class="mr"><button class="gb" data-m="ok">تایید</button><button class="gl" data-m="no">بعداً</button></div></div>`;m.hidden=false;m.onclick=e=>{const t=e.target.closest('[data-m]');if(!t)return;m.hidden=true;if(t.dataset.m==='ok')ok()}}
-function buildSync(n){n=n||7;const d={};for(let i=0;i<n;i++){const k=ymd(new Date(Date.now()-i*864e5)),x=S.days[k]&&S.days[k][S.dev];if(!x)continue;const o={pc:pdOf(k,S.dev)};SF.forEach(f=>{if(x[f]!==undefined&&x[f]!==null&&x[f]!=='')o[f]=x[f]});d[k]=o}return{f:S.dev,n:S.names[S.dev],d}}
+function buildSync(n,wb){n=n||7;const d={};for(let i=0;i<n;i++){const k=ymd(new Date(Date.now()-i*864e5)),x=S.days[k]&&S.days[k][S.dev];if(!x)continue;const o={pc:pdOf(k,S.dev)};SF.forEach(f=>{if(x[f]!==undefined&&x[f]!==null&&x[f]!=='')o[f]=x[f]});d[k]=o}const R={f:S.dev,n:S.names[S.dev],d};if(wb&&S.dev==='me'&&S.bank)R.bk=S.bank;return R}
 async function sendSync(){const u=location.href.split('#')[0]+'#sync='+enc(buildSync());
 try{if(navigator.share){await navigator.share({title:'دفترچه‌ی ما',text:'به‌روزرسانی امروز از '+S.names[S.dev],url:u});return}}catch(e){if(e&&e.name==='AbortError')return}
 try{await navigator.clipboard.writeText(u);toast('لینک کپی شد؛ برای '+S.names[other()]+' بفرست')}catch(e){prompt('این لینک رو برای پارتنرت بفرست:',u)}}
 function applySync(p){const o=p.f;for(const [k,v] of Object.entries(p.d||{})){if(!/^\d{4}-\d{2}-\d{2}$/.test(k))continue;S.days[k]=S.days[k]||{me:def(),her:def()};const t=S.days[k][o],c={};['pc',...SF].forEach(f=>{if(v[f]!==undefined)c[f]=typeof v[f]==='string'?v[f].slice(0,600):v[f]});Object.assign(t,c)}
+if(o==='me'&&p.bk&&Array.isArray(p.bk.q)&&Array.isArray(p.bk.l)&&p.bk.q.length&&p.bk.q.length===p.bk.l.length&&/^\d{4}-\d{2}-\d{2}$/.test(p.bk.s)&&(!S.bank||p.bk.v>S.bank.v))S.bank={q:p.bk.q.map(x=>String(x).slice(0,300)),l:p.bk.l.map(x=>String(x).slice(0,300)),s:p.bk.s,v:+p.bk.v||0};
 if(p.n)S.names[o]=String(p.n).slice(0,12);S.rcv=Date.now();save()}
 function askSync(p){if(!p||(p.f!=='me'&&p.f!=='her')||p.f===S.dev){toast('این لینک مال خودته یا معتبر نیست');return}
 const n=Object.keys(p.d||{}).length;modal(`<h3>پیام تازه از ${esc(p.n||'پارتنرت')}</h3><p>${fa(n)} روز به‌روزرسانی رسیده. وارد برنامه‌ش کنم؟</p>`,()=>{applySync(p);render();toast('دریافت شد 💞')})}
@@ -611,7 +715,7 @@ return '<i class="gdot"></i><span>متصل'+(tm?' · آخرین همگام‌س�
 function ghSet(st,e){GS.st=st;GS.msg=e?(e.s?ghErr(e.s):'اینترنت یا دسترسی به گیت‌هاب مشکل داره'):'';if(st==='ok')GS.t=Date.now();const x=$('#ghst');if(x){x.className='ghst'+(st==='err'?' e':'');x.innerHTML=ghSt()}}
 function ghSched(){if(!GH||!UN||!S.dev||!ghIn)return;clearTimeout(ghT);ghT=setTimeout(()=>ghPush().catch(()=>{}),3500)}
 async function ghPush(){if(!GH||!UN||!S.dev)return;if(ghPB){clearTimeout(ghT);ghT=setTimeout(()=>ghPush().catch(()=>{}),2000);return}
-const o=buildSync(21),k=JSON.stringify(o);if(k===ghLast)return;ghPB=true;
+const o=buildSync(21,1),k=JSON.stringify(o);if(k===ghLast)return;ghPB=true;
 try{const f=S.dev+'.json',body=()=>JSON.stringify({message:'sync '+S.dev,content:b64(JSON.stringify(Object.assign({t:Date.now()},o))),...(ghSha?{sha:ghSha}:{})});
 let r=await ghF('/contents/'+f,{method:'PUT',body:body()});
 if(r.status===409||r.status===422){const g=await ghGet(f);ghSha=g?g.sha:null;r=await ghF('/contents/'+f,{method:'PUT',body:body()})}
@@ -632,14 +736,14 @@ m.innerHTML=`<div class="mb gm"><h3>اتصال به گیت‌هاب</h3><p>یه 
 m.onclick=async e=>{const t=e.target.closest('[data-m]');if(!t){if(e.target===m)m.hidden=true;return}const d=t.dataset.m;
 if(d==='no'){m.hidden=true;return}
 if(d==='eye'){const i=$('#ght');i.type=i.type==='password'?'text':'password';return}
-if(d==='off'){try{localStorage.removeItem(GHK)}catch(x){}GH=null;ghFor=null;ghIn=false;ghSha=null;ghLast=null;ghPL='';m.hidden=true;toast('اتصال قطع شد');render();return}
+if(d==='off'){try{localStorage.removeItem(GHK)}catch(x){}GH=null;auReset();ghFor=null;ghIn=false;ghSha=null;ghLast=null;ghPL='';m.hidden=true;toast('اتصال قطع شد');render();return}
 if(d==='save'){const repo=$('#ghr').value.trim().replace(/^https?:\/\/github\.com\//i,'').replace(/\.git$/,'').replace(/\/+$/,''),token=$('#ght').value.trim(),ge=$('#gme'),bad=x=>{ge.textContent=x};ge.textContent='';
 if(!/^[\w.-]+\/[\w.-]+$/.test(repo))return bad('آدرس ریپو رو به شکل username/repo بنویس');if(token.length<20)return bad('توکن رو کامل بچسبون');
 const sp=t.querySelector('span');sp.textContent='در حال تست…';t.disabled=true;
 try{const r=await ghF('',0,{repo,token});if(!r.ok){bad(ghErr(r.status));return}const j=await r.json();
 if(!j.private){bad('این ریپو عمومیه و همه می‌تونن داده‌هاتون رو ببینن. یه ریپوی Private بساز.');return}
 if(j.permissions&&!j.permissions.push){bad('توکن اجازه‌ی نوشتن نداره (باید Contents ← Read and write باشه)');return}
-GH={repo,token};try{localStorage.setItem(GHK,JSON.stringify(GH))}catch(x){}ghFor=null;ghIn=false;ghSha=null;ghLast=null;ghPL='';m.hidden=true;toast('وصل شد ✓');render()}
+GH={repo,token};try{localStorage.setItem(GHK,JSON.stringify(GH))}catch(x){}auReset();ghFor=null;ghIn=false;ghSha=null;ghLast=null;ghPL='';m.hidden=true;toast('وصل شد ✓');render()}
 catch(x){bad('اینترنت یا دسترسی به گیت‌هاب مشکل داره')}finally{sp.textContent='اتصال و تست';t.disabled=false}}}}
 const ghBan=()=>GH?'':`<div class="card ghbn" data-a="ghset" role="button" tabindex="0"><span>🔗</span><div><b>اتصال به گیت‌هاب</b><small>تا چیزهایی که ثبت می‌کنید خودکار به گوشی ${nm[other()]} هم برسه</small></div></div>`;
 const syncCard=()=>{const ot=nm[other()];return `<div class="card sy2"><h2>💞 همگام با ${ot}</h2><div class="lk"><i style="--c:var(--me)"></i><s></s><i style="--c:var(--her)"></i></div>${GH?`<p>هر چی ثبت کنی خودکار برای ${ot} می‌ره و هر چی اون ثبت کنه همین‌جا می‌رسه. نیازی به فرستادن لینک نیست.</p><div id="ghst" class="ghst${GS.st==='err'?' e':''}">${ghSt()}</div><div class="bkr"><button class="btn" data-a="ghnow">همگام‌سازی حالا</button><button class="btn alt" data-a="ghset">تنظیمات اتصال</button><button class="btn alt" data-a="snd">ارسال با لینک (پشتیبان)</button></div>`:`<p>برای اینکه چیزهایی که ثبت می‌کنید خودکار به گوشی هم برسه، یه بار به یه ریپوی خصوصی گیت‌هاب وصل شو.</p><div class="bkr"><button class="btn" data-a="ghset">اتصال به گیت‌هاب</button><button class="btn alt" data-a="snd">فعلاً با لینک بفرست</button></div>`}<small>${S.rcv?'آخرین دریافت: '+new Intl.DateTimeFormat('fa-IR',{weekday:'long',hour:'numeric',minute:'numeric'}).format(S.rcv):'هنوز چیزی از '+ot+' نرسیده'}</small></div>`};
@@ -670,9 +774,7 @@ ${qCard(d)}
 ${wishCard(d)}
 <div class="card"><h2>🌟 بهترین لحظه</h2><div class="field"><input type="text" data-f="best" value="${esc(d.best)}" placeholder="چی خوب بود؟"></div>
 <h2 style="margin-top:14px">🌧 سخت‌ترین لحظه</h2><div class="field"><input type="text" data-f="hard" value="${esc(d.hard)}" placeholder="چی اذیتت کرد؟"></div></div>
-<div class="card"><h2>📝 یه یادداشت برای ${nm[other()]}</h2><div class="tg">${NT.map((t,i)=>`<button class="${d.nt===i?'on':''}" data-a="nt" data-i="${i}">${t}</button>`).join('')}</div><div class="field"><textarea data-f="note" placeholder="بنویس…">${esc(d.note)}</textarea></div></div>
-${burdenCard(d)}${breathCard()}${gnCard(d)}${closeCard(d)}${syncCard()}
-<div class="btn" role="button" data-a="tab" data-i="together" style="display:grid;place-items:center">ادامه: خلاصه‌ی امروز ✨</div>`}
+${burdenCard(d)}${breathCard()}${closeCard(d)}`}
 const IC={wind:'M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2',chart:'M3 3v18h18M8 17v-6M13 17V7M18 17v-3',palette:'M12 22a10 10 0 1 1 10-10c0 3-2 4-4 4h-2a2 2 0 0 0-1 3.7c.6.4.8 1.2.4 1.9A3 3 0 0 1 12 22zM7.5 11h.01M10.5 7h.01M15.5 8h.01',flame:'M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z',sun:'M16 12a4 4 0 1 1-8 0a4 4 0 1 1 8 0M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41',moon:'M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z',briefcase:'M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zM16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16',droplet:'M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z',bed:'M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9',pill:'m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7ZM8.5 8.5l7 7',walk:'M22 12h-4l-3 9L9 3l-3 9H2',home:'m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10',heart:'M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z',sparkles:'m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z',star:'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z',rain:'M4 14.9A7 7 0 1 1 15.7 8h1.8a4.5 4.5 0 0 1 2.5 8.2M16 14v6M8 14v6M12 16v6',pin:'M12 17v5M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z',mail:'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7',send:'m22 2-7 20-4-9-9-4ZM22 2 11 13',dl:'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3'};
 const EMO={'🍃':['wind','#4FC3A1'],'🌀':['wind','#6C8CF5'],'📊':['chart','#6C8CF5'],'🎨':['palette','#F58FA9'],'🔥':['flame','#FF8A3D'],'☀':['sun','#FFB020'],'🌙':['moon','#8B7CF6'],'💼':['briefcase','#5B8DEF'],'💧':['droplet','#3DA9FC'],'😴':['bed','#8B7CF6'],'💊':['pill','#FF7AA8'],'🚶':['walk','#2EC4A0'],'🏠':['home','#F59E5B'],'📌':['pin','#F5B800'],'🙏':['sparkles','#FF8FB1'],'🌟':['star','#FFC233'],'🌧':['rain','#7C8CF0'],'📝':['mail','#6C8CF5'],'💌':['mail','#FF6FA0'],'💞':['heart','#FF6FA0'],'📤':['send','#6C8CF5'],'✨':['sparkles','#B48CF0'],'✈':['send','#6C8CF5'],'🖼':['dl','#6C8CF5'],'😞':['f0'],'😕':['f1'],'😐':['f2'],'🙂':['f3'],'😄':['f4']};
 const FACE='M22 12a10 10 0 1 1-20 0a10 10 0 1 1 20 0',EYES='M9.6 10a.9.9 0 1 1-1.8 0a.9.9 0 1 1 1.8 0M16.2 10a.9.9 0 1 1-1.8 0a.9.9 0 1 1 1.8 0',FCOL=['#9AA5C0','#8FB1F0','#C3B2EE','#FFC85C','#FF8FA8'],MOUTH=['M8 17.5c1.2-2.4 6.8-2.4 8 0','M8.5 16.5c1.2-1.2 5.8-1.2 7 0','M8.5 15.5h7','M8 14c1.2 2.4 6.8 2.4 8 0','M7.5 13.5h9c0 3-2 5-4.5 5s-4.5-2-4.5-5z'];
@@ -691,7 +793,7 @@ function burst(x,y){for(let i=0;i<12;i++){const s=document.createElement('i'),a=
 const LEAD=/^([\u2600-\u27BF]|[\u{1F300}-\u{1FAFF}])\uFE0F?\s*/u;
 function dIc(c,n,x,y,s,col,lw){c.save();c.translate(x,y);c.scale(s/24,s/24);c.strokeStyle=col;c.lineWidth=lw||2;c.lineCap='round';c.lineJoin='round';c.stroke(new Path2D(IC[n]));c.restore()}
 function faceC(c,i,cx,cy,r){c.save();c.translate(cx-r,cy-r);c.scale(r/12,r/12);c.fillStyle=FCOL[i];c.fill(new Path2D(FACE));c.fillStyle='#3B2F4F';c.fill(new Path2D(EYES));const m=new Path2D(MOUTH[i]);if(i===4){c.fillStyle='#fff';c.fill(m)}c.strokeStyle='#3B2F4F';c.lineWidth=1.6;c.lineCap='round';c.lineJoin='round';c.stroke(m);c.restore()}
-const NT=['تشکر','دلتنگی','تشویق','عذرخواهی'];
+const NT=['تشکر','دلتنگی','تشویق','عذرخواهی','دوستت دارم','فقط همین'];
 let IMG=null,busy=0,tmr;
 function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()}
 function wrap(c,t,mw){const o=[];String(t).split('\n').forEach(p=>{let l='';p.split(' ').forEach(w=>{const k=l?l+' '+w:w;if(c.measureText(k).width>mw&&l){o.push(l);l=w}else l=k});o.push(l)});return o}
@@ -776,18 +878,20 @@ return `<div class="top"><div><h1>آمار ما 📊</h1><div class="date">هف�
 <div class="card"><h2>پیشرفت روزانه<small class="lg"><span><i style="--c:var(--me)"></i>${nm.me}</span><span><i style="--c:var(--her)"></i>${nm.her}</span></small></h2><svg class="ch" viewBox="0 0 320 150"><path d="M0 118H320M0 66H320M0 13H320" fill="none" stroke-dasharray="3 5" style="stroke:var(--line)"/>${bars}</svg></div>
 <div class="bento"><div class="tile" style="--t:#3DA9FC"><span class="tl">💧 میانگین آب</span><b class="big">${fa(am('w'))}<small>لیوان</small></b></div><div class="tile" style="--t:#8B7CF6"><span class="tl">😴 میانگین خواب</span><b class="big">${fa(am('sl'))}<small>ساعت</small></b></div><div class="tile" style="--t:#FFB020"><span class="tl">🌟 روز کامل</span><b class="big">${fa(full)}<small>از ۷ روز</small></b></div><div class="tile" style="--t:#FF7AA8"><span class="tl">✨ بهترین روز</span><b class="big">${fa(best)}<small>٪</small></b></div></div>
 <div class="card" style="margin-top:14px"><h2>حال و هوای هفته</h2><div class="mrow"><b>${nm.me}</b>${mo('me')}</div><div class="mrow"><b>${nm.her}</b>${mo('her')}</div></div>
-${insights(u)}${syncCard()}${sky()}${moments()}${bkCard()}`}
+${insights(u)}${sky()}${moments()}${bkCard()}${syncCard()}`}
+const msgCard=d=>{const ot=other();return `<div class="card msgc"><h2>📝 یه پیام برای ${nm[ot]}<small>هر لحظه‌ای</small></h2><p class="mh">همین الان برای ${nm[ot]} می‌فرستی و بالای صفحه‌ی امروزش می‌شینه.</p><div class="tg">${NT.map((x,i)=>`<button class="${d.nt===i?'on':''}" data-a="nt" data-i="${i}">${x}</button>`).join('')}</div><div class="field"><textarea data-f="note" rows="3" placeholder="بنویس…">${esc(d.note)}</textarea></div><button class="btn" data-a="sn" style="margin-top:12px">بفرست برای ${nm[ot]} 💌</button></div>`};
 function together(){const u=S.u;
-return `<div class="top"><div><h1>خلاصه‌ی امروز 📤</h1><div class="date">عکسش رو بساز و بفرست تلگرام</div></div>
+return `<div class="top"><div><h1>ارسال 📤</h1><div class="date">پیام سریع یا عکس خلاصه‌ی امروز</div></div>
 <div class="sw"><button class="me ${u==='me'?'on':''}" data-a="user" data-i="me">${nm.me}</button><button class="her ${u==='her'?'on':''}" data-a="user" data-i="her">${nm.her}</button></div></div>
+${msgCard(D())}
 <div class="card" style="padding:12px"><img id="pv" alt="خلاصه‌ی روز" style="width:100%;display:block;border-radius:18px;min-height:240px;background:var(--bg)"></div>
 <div class="card"><h2>اسمت روی عکس</h2><div class="field"><input type="text" data-f="name" value="${esc(S.names[u]||'')}" placeholder="مثلاً علی"></div></div>
 <div class="btn" role="button" data-a="tg" style="display:grid;place-items:center">ارسال به تلگرام ✈️</div>
 <div class="btn" role="button" data-a="save" style="display:grid;place-items:center;margin-top:10px;background:var(--card);color:var(--tx);box-shadow:var(--sh)">ذخیره‌ی عکس 🖼</div>
 <div class="tiny">منوی اشتراک‌گذاری باز می‌شه، تلگرام و بعد چت رو انتخاب کن</div>`}
 function render(){if(!S.dev||!UN){gate();return}$('#gate').hidden=true;document.body.classList.remove('gated');$('#lockb').hidden=false;$('#lockb').innerHTML=ik('back');if(PEND){const p=PEND;PEND=null;setTimeout(()=>askSync(p),500)}if(GH&&ghFor!==S.dev){ghFor=S.dev;ghIn=false;ghSha=null;ghLast=null;ghPL='';setTimeout(ghTick,200)}document.body.dataset.u=S.u;document.body.dataset.pal=S.pal||0;applyTheme();document.body.dataset.tab=S.tab;
-{let hh=({today,night,stats,together})[S.tab]();if(S.tab==='today')hh=hh.replace('</div></div>\n','</div></div>'+ghBan()+'\n');$('#app').innerHTML=hh}
-$('#nav').innerHTML=[['today','☀️','امروز'],['night','🌙','شب'],['stats','📊','آمار'],['together','📤','خلاصه']].map(t=>`<button class="${S.tab===t[0]?'on':''}" data-a="tab" data-i="${t[0]}"><span>${t[1]}</span>${t[2]}</button>`).join('');iconify($('#nav'));iconify($('#app'));post();save();if(S.tab==='together')setTimeout(refresh,30)}
+{let hh=({today,night,stats,together})[S.tab]();if(S.tab==='today')hh=hh.replace('</div></div>\n','</div></div>'+ghBan()+renewCard()+'\n');$('#app').innerHTML=hh}
+$('#nav').innerHTML=[['today','☀️','امروز'],['night','🌙','شب'],['together','📤','ارسال'],['stats','📊','آمار']].map(t=>`<button class="${S.tab===t[0]?'on':''}" data-a="tab" data-i="${t[0]}"><span>${t[1]}</span>${t[2]}</button>`).join('');iconify($('#nav'));iconify($('#app'));post();save();if(S.tab==='together')setTimeout(refresh,30)}
 function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('s');setTimeout(()=>e.classList.remove('s'),2200)}
 const buzz=()=>{try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,i=t.dataset.i,d=D(),x=Number(i),p0=pct(S.u);
@@ -804,16 +908,21 @@ else if(a==='del'){e.stopPropagation();S.chores[S.u]=S.chores[S.u].filter(k=>k.i
 else if(a==='add'){const v=$('#newch').value.trim();if(!v)return;S.chores[S.u].push({id:Date.now(),x:v})}
 else if(a==='mood')d.mood=x;
 else if(a==='nt')d.nt=x;
+else if(a==='sn'){if(!(d.note||'').trim()){toast('اول یه چیزی بنویس');return}burst(e.clientX,e.clientY);buzz();if(GH&&UN&&S.dev)ghTick(true);else toast('ثبت شد؛ با همگام‌سازی می‌رسه');return}
 else if(a==='ghnow'){ghTick(true);return}else if(a==='ghset'){ghModal();return}else if(a==='snd'){sendSync();return}
 else if(a==='bke'){const b=new Blob([JSON.stringify(S)],{type:'application/json'}),l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='our-journal-backup-'+key+'.json';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(l.href),5e3);toast('فایل پشتیبان ساخته شد');return}
 else if(a==='bki'){$('#bkf').click();return}
-else if(a==='wish')d.wish=d.wish===x?null:x;
-else if(a==='ask')d.ask=d.ask===x?null:x;
-else if(a==='ws'){if(d.wish!=null&&d.ask!=null)d.ws=1}
+else if(a==='bkdl'){const b=new Blob([bankText()],{type:'text/plain;charset=utf-8'}),l=document.createElement('a');l.href=URL.createObjectURL(b);l.download='journal-bank-'+key+'.txt';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(l.href),5e3);toast('فایل لیست دانلود شد');return}
+else if(a==='bkno'){BK={st:0,q:[],l:[],err:''}}
+else if(a==='bkok'){const st=DI()>=BQ().length?key:ymd(new Date(new Date(key+'T12:00:00').getTime()+864e5));S.bank={q:BK.q,l:BK.l,s:st,v:Date.now()};BK={st:0,q:[],l:[],err:''};toast('درست شد ✓ لیست جدید از '+(st===key?'امروز':'فردا')+' شروع می‌شه')}
+else if(a==='wo')WO[i]=WO[i]?0:1;
+else if(a==='wish'){d.wish=d.wish===x?null:x;if(d.wish!=null){d.wx='';WO.wish=0}}
+else if(a==='ask'){d.ask=d.ask===x?null:x;if(d.ask!=null){d.ax='';WO.ask=0}}
+else if(a==='ws'){if((d.wish!=null||(d.wx||'').trim())&&(d.ask!=null||(d.ax||'').trim()))d.ws=1;else{toast('از هر دو بخش یکی انتخاب کن یا خودت بنویس');return}}
 else if(a==='we')d.ws=0;
 else if(a==='lv'){d.lv=d.lv?0:1;if(d.lv)burst(innerWidth/2,innerHeight*.3)}
 else if(a==='gnp')d.gn=GNP[x];
-else if(a==='br'){document.getElementById('brz').classList.toggle('on');t.classList.toggle('on');t.textContent=t.classList.contains('on')?'توقف':'شروع تنفس';return}
+else if(a==='br'){brStart();return}
 else if(a==='rel'){const el=t.closest('.card'),ta=el&&el.querySelector('textarea');if(ta&&ta.value.trim()&&!d.rel){el.classList.add('go');d.rel=1;save();setTimeout(render,1600)}return}
 else if(a==='rel2')d.rel=0;
 else if(a==='cl'){d.closed=d.closed?0:1;if(d.closed)for(let k=0;k<7;k++)setTimeout(()=>burst(innerWidth*(.15+k*.12),innerHeight*.3),k*130)}
@@ -827,6 +936,10 @@ buzz();if(['m','t','ch','med','w','mood'].includes(a)){POP=[a,i];burst(e.clientX
 document.addEventListener('input',e=>{const f=e.target.dataset.f;if(!f)return;const d=D(),v=e.target.value;
 if(f[0]==='t'&&f.length===2)d.t[+f[1]].x=v;else if(f==='name'){S.names[S.u]=v;save();clearTimeout(tmr);tmr=setTimeout(refresh,500);return}
 else if(f==='en'){d.en=+v;save();const l=e.target.previousElementSibling;if(l)l.textContent='سطح انرژی: '+fa(v)+' از ۱۰';return}
+else if(f==='wx'||f==='ax'){d[f]=v;if(v.trim()){d[f==='wx'?'wish':'ask']=null;const p=e.target.closest('.field').previousElementSibling;if(p)p.querySelectorAll('.on').forEach(z=>z.classList.remove('on'))}}
 else d[f]=v;save()});
 render();
-</script></body></html>
+</script><script>["gesturestart","gesturechange","gestureend"].forEach(n=>document.addEventListener(n,e=>e.preventDefault(),{passive:false}));document.addEventListener("touchmove",e=>{if(e.touches.length>1||(e.scale&&e.scale!==1))e.preventDefault()},{passive:false});document.addEventListener("dblclick",e=>e.preventDefault(),{passive:false});</script>
+<script>(function(){var a=document.createElement("div");a.id="aur";a.innerHTML="<i></i><i></i><i></i>";document.body.prepend(a);
+document.addEventListener("pointerdown",function(e){var b=e.target.closest(".btn,.nav button");if(!b||b.disabled)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,p=document.createElement("span");p.className="rp";p.style.cssText="width:"+s+"px;height:"+s+"px;left:"+(e.clientX-r.left-s/2)+"px;top:"+(e.clientY-r.top-s/2)+"px";b.appendChild(p);setTimeout(function(){p.remove()},650)},{passive:true})})();</script>
+</body></html>
