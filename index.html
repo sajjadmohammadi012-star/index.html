@@ -570,6 +570,43 @@ html{scrollbar-width:none}::-webkit-scrollbar{display:none}
 .qah{margin-top:6px}
 .qah summary{cursor:pointer;font-weight:800;font-size:14px;padding:6px 2px;min-height:44px;box-sizing:border-box;display:flex;align-items:center}
 .qhh{font-size:12px;font-weight:800;opacity:.7;margin:12px 2px 6px}
+
+/* === پیام پارتنر: کارت نامه‌ی عاشقانه === */
+body .card.pn.pn{position:relative;overflow:hidden;padding:18px 18px 16px;border:0;color:var(--tx);
+ background:linear-gradient(160deg,color-mix(in srgb,var(--c) 20%,#fff) 0%,color-mix(in srgb,var(--c) 7%,#fff) 55%,color-mix(in srgb,var(--tog) 12%,#fff) 100%);
+ box-shadow:0 26px 44px -22px var(--c),0 0 0 1.5px color-mix(in srgb,var(--c) 45%,transparent),inset 0 1px 0 #fff}
+body .card.pn.pn::before{content:"";position:absolute;inset:-40% -20% auto auto;width:70%;height:90%;border-radius:50%;
+ background:radial-gradient(closest-side,color-mix(in srgb,var(--c) 38%,transparent),transparent);pointer-events:none}
+body .card.pn.pn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+ background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:pnsh 6s ease-in-out infinite;pointer-events:none}
+@keyframes pnsh{0%,60%{left:-60%}100%{left:130%}}
+.pn-top{position:relative;z-index:1;display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.pn-av{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font:400 24px/1 Lalezar,Vazirmatn,sans-serif;
+ background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 55%,#fff));
+ box-shadow:0 10px 18px -6px var(--c),0 0 0 3px #fff,0 0 0 5px color-mix(in srgb,var(--c) 40%,transparent);animation:pnbt 2.6s ease-in-out infinite}
+@keyframes pnbt{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.pn-who{flex:1;min-width:0}
+.pn-who small{display:block;font-size:12px;font-weight:700;opacity:.7}
+.pn-who b{display:block;font:400 22px/1.4 Lalezar,Vazirmatn,sans-serif;color:var(--c);filter:brightness(.82)}
+.pn-tag{flex:none;font-size:12px;font-weight:800;color:#fff;padding:6px 13px;border-radius:99px;
+ background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 60%,var(--tog)));box-shadow:0 8px 14px -6px var(--c)}
+.pn-q{position:relative;z-index:1;padding:16px 18px 16px 18px;border-radius:22px;line-height:2.05;font-size:15.5px;font-weight:500;color:#33283f;
+ background:rgba(255,255,255,.82);box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 10px 22px -14px color-mix(in srgb,var(--c) 70%,#000);
+ white-space:pre-wrap;word-break:break-word}
+.pn-qm{position:absolute;top:-6px;inset-inline-start:10px;font:400 56px/1 Georgia,serif;color:var(--c);opacity:.28;pointer-events:none}
+.pn-q{padding-top:22px}
+.pn-ft{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-top:12px;font-size:12.5px;font-weight:700;opacity:.8}
+.pn-ft s{flex:1;height:1.5px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--c),transparent);text-decoration:none}
+.pnh{position:absolute;z-index:0;font-style:normal;color:var(--c);opacity:.22;pointer-events:none;animation:pnfl 5s ease-in-out infinite}
+.pnh.a{top:10px;inset-inline-end:60px;font-size:18px}
+.pnh.b{bottom:46px;inset-inline-start:12px;font-size:26px;animation-delay:-1.7s}
+.pnh.c{bottom:12px;inset-inline-end:22px;font-size:15px;animation-delay:-3.2s}
+@keyframes pnfl{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(8deg)}}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) body .card.pn.pn{background:linear-gradient(160deg,color-mix(in srgb,var(--c) 30%,#272344),#272344 70%);color:var(--tx)}
+ :root:not([data-theme=light]) .pn-q{background:rgba(255,255,255,.08);color:var(--tx)}:root:not([data-theme=light]) .pn-who b{filter:none}}
+:root[data-theme=dark] body .card.pn.pn{background:linear-gradient(160deg,color-mix(in srgb,var(--c) 30%,#272344),#272344 70%);color:var(--tx)}
+:root[data-theme=dark] .pn-q{background:rgba(255,255,255,.08);color:var(--tx)}:root[data-theme=dark] .pn-who b{filter:none}
+@media (prefers-reduced-motion:reduce){body .card.pn.pn::after,.pn-av,.pnh{animation:none!important}}
 </style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="دفترچه‌ی ما"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💞%3C/text%3E%3C/svg%3E">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -825,19 +862,19 @@ pgOf=L=>'صفحه '+fa(EN_FIRST+L%EN_N)+(L>=EN_N?' · دور '+fa(Math.floor(L/E
 let h=`<div class="qabox"><h3>❓ سؤال‌وجواب این صفحه${pend?`<small>🔔 ${fa(pend)} سؤال منتظر جواب توئه</small>`:''}</h3>${qaItem(st.L,u,o,true)}`;
 if(old.length){const sh=old.slice(0,40);h+=`<details class="qah"><summary>📚 تاریخچه‌ی سؤال‌ها (${fa(old.length)} صفحه)</summary>${sh.map(L=>`<div class="qhh">${pgOf(L)}</div>${qaItem(L,u,o,false)}`).join('')}${old.length>sh.length?`<p class="enst">فقط ${fa(sh.length)} مورد آخر نشون داده شده.</p>`:''}</details>`}
 return h+'</div>'}
-function today(){const d=D(),p=pct(S.u),W=wk(),o=D(other()),PN=(o.note||'').trim()?`<div class="card pn"><h2>💌 پیام ${nm[other()]} برای تو<small>${NT[o.nt]||'پیام'}</small></h2><div class="pq">${esc(o.note)}</div></div>`:'',NB=o.need!=null&&NEED[o.need]?`<div class="card nb" style="--t:${NEED[o.need][2]}"><div class="np">♥</div><div><small>پیام بی‌کلام از ${nm[other()]}</small><b>امروز دوست داره ${NEED[o.need][3]}</b></div></div>`:'';
+function today(){const d=D(),p=pct(S.u),W=wk(),o=D(other()),PN=(o.note||'').trim()?`<div class="card pn" style="--c:var(--${other()})"><i class="pnh a">♥</i><i class="pnh b">♥</i><i class="pnh c">♥</i><div class="pn-top"><div class="pn-av">${esc([...nm[other()]][0]||'♥')}</div><div class="pn-who"><small>یه پیام تازه برای تو 💌</small><b>${nm[other()]}</b></div><span class="pn-tag">${NT[o.nt]||'پیام'}</span></div><div class="pn-q"><span class="pn-qm">”</span>${esc(o.note)}</div><div class="pn-ft"><s></s><span>با عشق، ${nm[other()]} 💞</span><s></s></div></div>`:'',NB=o.need!=null&&NEED[o.need]?`<div class="card nb" style="--t:${NEED[o.need][2]}"><div class="np">♥</div><div><small>پیام بی‌کلام از ${nm[other()]}</small><b>امروز دوست داره ${NEED[o.need][3]}</b></div></div>`:'';
 const dt=new Intl.DateTimeFormat('fa-IR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());
 return `<div class="top"><div class="sw wide">${['me','her'].map(k=>`<button class="${k} ${S.u===k?'on':''}" data-a="user" data-i="${k}">${nm[k]}</button>`).join('')}</div></div>
 <div class="hero"><i class="b1"></i><i class="b2"></i><div class="ht"><small>${dt}</small><h1>${greet()}، ${nm[S.u]}</h1><p>${p>=100?'روزت کامل شد، آفرین':p>=80?'یه قدم تا کامل شدن':p>=40?'داری عالی پیش می‌ری':p>0?'شروع خوبیه، ادامه بده':'بزن بریم، روز قشنگی در پیش داره'}</p><div class="pc"><span class="pd" style="background:var(--${other()})"></span>${nm[other()]} تا الان ${fa(pct(other()))}٪ پیش رفته</div>${W[1]>0?`<div class="pc sk">🔥 ${fa(W[1])} روز پشت‌سرهم</div>`:''}</div>${ring(p,'#fff',112)}</div>
 ${W[0]}
-<div class="card c-m"><h2>☀️ روتین صبح <small>${fa(d.m.filter(Boolean).length)}/${fa(MORN.length)}</small></h2><div class="seg">${d.m.map(v=>`<i class="${v?'on':''}"></i>`).join('')}</div>${MORN.map((l,i)=>i===0?mrow(0,d.m[0],tm(wtOf(d)),30,'wt'):i===6?mrow(6,d.m[6],fa(exOf(d))+' دقیقه',5,'ex'):row('m',i,l,d.m[i])).join('')}</div>
+${PN}<div class="card c-m"><h2>☀️ روتین صبح <small>${fa(d.m.filter(Boolean).length)}/${fa(MORN.length)}</small></h2><div class="seg">${d.m.map(v=>`<i class="${v?'on':''}"></i>`).join('')}</div>${MORN.map((l,i)=>i===0?mrow(0,d.m[0],tm(wtOf(d)),30,'wt'):i===6?mrow(6,d.m[6],fa(exOf(d))+' دقیقه',5,'ex'):row('m',i,l,d.m[i])).join('')}</div>
 <div class="card"><h2>💼 سه کار اصلی امروز</h2>${d.t.map((t,i)=>`<div class="row ${t.d?'done':''}" style="cursor:default"><span class="dot" data-a="t" data-i="${i}" style="cursor:pointer">${CK}</span><input class="tk lb" type="text" data-f="t${i}" value="${esc(t.x)}" placeholder="کار شماره ${fa(i+1)}…"></div>`).join('')}</div>
 <div class="card"><h2>🩺 سلامتی</h2><div class="bento"><div class="tile wide" style="--t:#3DA9FC"><div class="th"><span class="tl">💧 آب</span><b class="big">${fa(d.w)}<small>از ۸ لیوان</small></b></div><div class="cups">${[...Array(8)].map((_,i)=>`<button class="cup ${i<d.w?'f':''}" data-a="w" data-i="${i+1}"></button>`).join('')}</div></div>
 <div class="tile" style="--t:#8B7CF6"><span class="tl">😴 خواب دیشب</span><b class="big">${fa(d.sl)}<small>ساعت</small></b><div class="step"><button data-a="sl" data-i="-1">−</button><button data-a="sl" data-i="1">+</button></div></div>
 <div class="tile" style="--t:#2EC4A0"><span class="tl">🚶 قدم زدن</span><b class="big">${fa(d.read)}<small>دقیقه</small></b><div class="step"><button data-a="read" data-i="-5">−</button><button data-a="read" data-i="5">+</button></div></div>
 <div class="tile wide med row ${d.med?'done':''}" style="--t:#FF7AA8" data-a="med" data-i="0"><span class="dot">${CK}</span><span class="tl">💊 دارو / ویتامین</span><small class="st">${d.med?'خورده شد':'هنوز نه'}</small></div></div>
 </div>
-${enCard()}${PN}${lvCard(d)}
+${enCard()}${lvCard(d)}
 <div class="sticky"><b style="font-size:13px">📌 فردا یادم نره…</b><textarea data-f="nx" placeholder="یه یادآوری برای فردا">${esc(d.nx)}</textarea></div>
 ${msgCard(d)}`}
 function night(){const d=D(),p=pct(S.u);
