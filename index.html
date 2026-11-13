@@ -652,7 +652,7 @@ const D=u=>S.days[VIEW][u||S.u];
 const other=()=>S.u==='me'?'her':'me';
 const nm={get me(){return S.names.me||'سجاد'},get her(){return S.names.her||'ستایش'}};
 const MM=['😞','😕','😐','🙂','😄'];
-const MORN=['بیدار شدن سر ساعت','صبح‌ها بعد از بیدار شدن، تا نیم ساعت گوشی چک نکنیم','مرتب کردن تخت','قبل از هر چیزی ۱ لیوان کامل آب بخوریم','قبل از صبحانه مسواک بزنیم','خوردن صبحانه','ورزش یا مدیتیشن'];
+const MORN=['بیدار شدن سر ساعت','صبح‌ها بعد از بیدار شدن، تا یه ربع گوشی چک نکنیم','مرتب کردن تخت','قبل از هر چیزی ۱ لیوان کامل آب بخوریم','قبل از صبحانه مسواک بزنیم','خوردن صبحانه','ورزش یا مدیتیشن'];
 const tm=n=>{n=((n%1440)+1440)%1440;return fa(String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0'))};
 const wtOf=d=>d.wt==null?630:d.wt,exOf=d=>d.ex||0;
 Object.values(S.days).forEach(v=>['me','her'].forEach(u=>{const q=v&&v[u];if(q&&(!q.m||q.m.length!==7)){q.m=[0,0,0,0,0,0,0]}if(q&&q.wt==null)q.wt=630;if(q&&q.ex==null)q.ex=0}));
