@@ -960,6 +960,16 @@ function blkNote(W,d){const m=mctx();m.font='400 36px Vazirmatn';const nl=wrap(m
 return{h,draw(c,x,y,w){const R=x+w-50,cxm=x+w/2;c.save();c.translate(cxm,y+h/2);c.rotate(-.012);c.translate(-cxm,-(y+h/2));c.shadowColor='rgba(0,0,0,.45)';c.shadowBlur=40;c.shadowOffsetY=16;const q=c.createLinearGradient(0,y,0,y+h);q.addColorStop(0,'#FFF4B0');q.addColorStop(1,'#FFE066');c.fillStyle=q;rr(c,x,y,w,h,36);c.fill();c.shadowColor='transparent';
 c.fillStyle='rgba(255,255,255,.6)';c.save();c.translate(cxm,y+2);c.rotate(.04);rr(c,-90,-22,180,44,6);c.fill();c.restore();
 c.fillStyle='#6b5810';c.textAlign='right';c.font='800 34px Vazirmatn';c.fillText('💌 '+(NT[d.nt]||'یه پیام کوچولو'),R,y+82);c.fillStyle='#4a3d0c';c.font='400 36px Vazirmatn';nl.forEach((l,k)=>c.fillText(l,R,y+144+k*60));c.restore()}}}
+function blkNight(W,d,ac,tg){const L=window.NRL;if(!L||!L.length)return{h:0,draw(){}};const a=L.map((_,i)=>d.nr&&d.nr[i]?1:0),n=a.filter(Boolean).length,m=mctx();m.font='600 30px Vazirmatn';
+const iw=W-80,cw=(iw-20)/2,tl=L.map(r=>wrap(m,r[1],cw-100)),rows=Math.ceil(L.length/2),rh=[];for(let r=0;r<rows;r++){let k=1;for(let j=r*2;j<Math.min(L.length,r*2+2);j++)k=Math.max(k,tl[j].length);rh.push(Math.max(88,k*42+40))}
+const h=140+rh.reduce((p,q)=>p+q,0)+(rows-1)*14+30,cnt=fa(n)+' از '+fa(L.length);
+return{h,draw(c,x,y,w){const R=x+w-40;glass(c,x,y,w,h);c.textAlign='right';c.fillStyle=TX;c.font='800 40px Vazirmatn';c.fillText('🌙 روتین شب',R,y+72);
+c.font='700 30px Vazirmatn';const pw=c.measureText(cnt).width+44;c.fillStyle=ac+'40';rr(c,x+40,y+34,pw,56,28);c.fill();c.fillStyle='#EDE8FF';c.textAlign='center';c.fillText(cnt,x+40+pw/2,y+73);c.textAlign='right';
+const bw=w-80;c.fillStyle='rgba(255,255,255,.1)';rr(c,x+40,y+108,bw,14,7);c.fill();if(n){const gg=c.createLinearGradient(R,0,R-bw,0);gg.addColorStop(0,ac);gg.addColorStop(1,tg);c.fillStyle=gg;rr(c,R-bw*n/L.length,y+108,bw*n/L.length,14,7);c.fill()}
+let ty=y+140;for(let r=0;r<rows;r++){for(let j=r*2;j<Math.min(L.length,r*2+2);j++){const col=j%2,t=L[j][2],on=a[j],cx=x+40+(col===0?iw-cw:0),hh=rh[r];
+c.fillStyle=on?t+'33':'rgba(255,255,255,.07)';rr(c,cx,ty,cw,hh,28);c.fill();c.strokeStyle=on?t:'rgba(255,255,255,.14)';c.lineWidth=2;rr(c,cx,ty,cw,hh,28);c.stroke();
+const px=cx+cw-38,py=ty+hh/2;c.beginPath();if(on){c.fillStyle=t;c.arc(px,py,20,0,7);c.fill();c.strokeStyle='#fff';c.lineWidth=4.5;c.lineCap='round';c.lineJoin='round';c.beginPath();c.moveTo(px-9,py+1);c.lineTo(px-3,py+7);c.lineTo(px+9,py-6);c.stroke()}else{c.arc(px,py,20,0,7);c.strokeStyle='rgba(255,255,255,.35)';c.lineWidth=3.5;c.stroke()}
+c.textAlign='right';c.font='600 30px Vazirmatn';c.fillStyle=on?MU:TX;const ls=tl[j],t0=py-(ls.length-1)*21+10;ls.forEach((l,k)=>c.fillText(l,cx+cw-74,t0+k*42))}ty+=rh[r]+14}}}}
 function layoutPage(c,fn,top,bottom,minGap,maxGap){let f=1,B,tot,need,av;for(let k=0;k<5;k++){B=fn((PW-2*PM)/f);tot=B.reduce((a,b)=>a+b.h,0);need=tot+(B.length-1)*minGap;av=(bottom-top)/f;if(need<=av)break;f=Math.max(.62,f*av/need*.985)}
 const n=B.length,slack=av-need,gap=n>1?minGap+Math.min(slack/(n-1),maxGap-minGap):0,used=tot+(n-1)*gap,y0=Math.max(0,Math.min((av-used)/2,f<1?10:50));
 c.save();c.translate(PM,top);c.scale(f,f);let y=y0;B.forEach(b=>{b.draw(c,0,y,(PW-2*PM)/f);y+=b.h+gap});c.restore()}
@@ -976,7 +986,7 @@ if(p>0){const rg=c.createLinearGradient(cx-r0,cy-r0,cx+r0,cy+r0);rg.addColorStop
 c.textAlign='center';c.fillStyle='#fff';c.font='800 70px Vazirmatn';c.fillText(fa(p)+'٪',cx,cy+18);c.fillStyle=MU;c.font='400 28px Vazirmatn';c.fillText('انجام شد',cx,cy+62);c.textAlign='right';
 layoutPage(c,w=>[blkTiles(w,d,ac),blkDuo(w,d),blkChecklist(w,'☀️ روتین صبح',fa(d.m.filter(Boolean).length)+' از '+fa(MORN.length),MORN.map((l,i)=>({t:l,d:d.m[i],x:i===0?tm(wtOf(d)):i===6?fa(exOf(d))+' دقیقه':''})),ac,tg)],520,PH-150,30,44)}
 else{c.fillStyle='#fff';c.font='800 88px Vazirmatn';c.fillText('لحظه‌های امروز',W-M,245);c.fillStyle=MU;c.font='400 36px Vazirmatn';c.fillText((n?n+'  ·  ':'')+DT,W-M,315);
-layoutPage(c,w=>[blkChecklist(w,'💼 سه کار اصلی امروز',fa(d.t.filter(t=>t.d&&t.x.trim()).length)+' از '+fa(d.t.length),d.t.map(t=>({t:t.x.trim()||'—',d:t.d})),ac,tg),blkRefs(w,d),blkNote(w,d)],380,PH-150,30,44)}
+layoutPage(c,w=>[blkChecklist(w,'💼 سه کار اصلی امروز',fa(d.t.filter(t=>t.d&&t.x.trim()).length)+' از '+fa(d.t.length),d.t.map(t=>({t:t.x.trim()||'—',d:t.d})),ac,tg),blkNight(w,d,ac,tg),blkRefs(w,d),blkNote(w,d)],380,PH-150,30,44)}
 c.textAlign='center';c.fillStyle='#9A94C4';c.font='700 32px Vazirmatn';c.fillText('💞 دفترچه‌ی ما',W/2,PH-92);c.fillStyle='#6F6A99';c.font='400 26px Vazirmatn';c.fillText(DT,W/2,PH-46);return c0}
 async function makeImgs(){try{await Promise.all([400,600,700,800].map(w=>document.fonts.load(w+' 30px Vazirmatn','خلاصه ۱۲۳')))}catch(e){}
 return Promise.all([0,1].map(i=>new Promise(r=>paintPage(i).toBlob(r,'image/png'))))}
@@ -1123,7 +1133,7 @@ var st=document.createElement('style');st.textContent=css;document.head.appendCh
 var NR=[['🪥','مسواک زدن (شب)','#4DB3FF'],['🧴','شستن صورت و مراقبت از پوست','#FF8FB1'],['💧','یه لیوان آب کوچیک قبل خواب','#3DA9FC'],['🍵','یه دمنوش گرم (بابونه، به‌لیمو…)','#FFB020'],['🧘','۵ دقیقه کشش آروم بدن','#2EC4A0'],['📖','چند صفحه کتاب یا مطالعه‌ی سبک','#B48CF0']];
 var TIPS=[['💡','نور رو کم کن','نورای اضافه رو خاموش کن و اتاق رو کم‌نور کن.','#FFB020'],['❄️','دمای اتاق','کمی خنک، حدود ۱۸ تا ۲۰ درجه، برای خواب راحت‌تر.','#3DA9FC'],['🔋','گوشی رو شارژ بذار','تا صبح باتری داشته باشی و تماس شبانه قطع نشه.','#2EC4A0'],['🛏','تخت و پتو','پتو و بالشت رو راحت کن تا خوابیدن لذت‌بخش بشه.','#B48CF0']];
 var MSG=['شروع کنیم؟ یه قدم کوچیک کافیه','شروع خوبیه، آروم آروم ادامه بده','داری عالی پیش می‌ری','کم مونده، یه کم دیگه','آخرش رسیدی، یه قدم تا خواب آروم','روتین امشب کامل شد'];
-SF.push('nr');
+SF.push('nr');window.NRL=NR;
 function arr(d){if(!Array.isArray(d.nr)||d.nr.length!==NR.length)d.nr=NR.map(function(_,i){return d.nr&&d.nr[i]?1:0});return d.nr}
 function card(d){var a=arr(d),n=a.filter(Boolean).length,all=n===NR.length,p=Math.round(n/NR.length*100);
 return '<div class="card nrc"><div class="nrh">'+ring(p,'#fff',96)+'<div class="nrt"><small>'+fa(n)+' از '+fa(NR.length)+' انجام شد</small><h2>🌙 روتین شب</h2><p>'+MSG[Math.min(MSG.length-1,Math.floor(n/NR.length*(MSG.length-1)+(all?1:0)))]+'</p></div></div><div class="nrl">'+NR.map(function(r,i){return '<div class="nrr '+(a[i]?'done':'')+'" style="--t:'+r[2]+';--k:'+i+'" data-a="nr" data-i="'+i+'"><span class="nri">'+r[0]+'</span><span class="nrx">'+r[1]+'</span><span class="dot">'+CK+'</span></div>'}).join('')+'</div>'+(all?'<div class="nrdone"><span>✦</span><b>روتین امشب کامل شد</b><small>حالا آماده‌ای برای یه خواب آروم، کنار هم 💞</small></div>':'')+'</div>'}
