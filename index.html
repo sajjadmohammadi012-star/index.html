@@ -1080,4 +1080,58 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
   });
 }
 </script>
+<script>
+/* night routine v3 */
+(function(){try{
+if(typeof night!=='function'||typeof SF==='undefined'||typeof ring!=='function')return;
+var css=`
+.nrc{position:relative;overflow:hidden;padding:20px 16px 12px!important;background:linear-gradient(165deg,rgba(62,48,128,.95),rgba(30,24,70,.9) 60%,rgba(24,18,56,.95))!important;box-shadow:0 34px 56px -26px #000,inset 0 1px 0 rgba(255,255,255,.18)!important}
+.nrc:before{content:"";position:absolute;top:-70px;left:-50px;width:240px;height:240px;border-radius:50%;background:radial-gradient(closest-side,rgba(185,169,247,.5),transparent);animation:float 7s ease-in-out infinite alternate;pointer-events:none}
+.nrc:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1.6px 1.6px at 82% 16%,#fffc,transparent),radial-gradient(1.2px 1.2px at 64% 34%,#fff9,transparent),radial-gradient(1.4px 1.4px at 92% 52%,#fffa,transparent),radial-gradient(1.2px 1.2px at 74% 8%,#fff8,transparent);animation:tw 3.5s ease-in-out infinite alternate}
+.nrh{position:relative;z-index:1;display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.nrh .ring{margin:0;flex:none;position:relative;animation:none}
+.nrh .ring b{font-size:24px!important;color:#fff}
+.nrh .ring circle:first-child{stroke:rgba(255,255,255,.14)}
+.nrh .ring svg{filter:drop-shadow(0 0 12px var(--tog))}
+.nrt small{display:block;font-size:12px;font-weight:700;color:#CFC8F2;opacity:.85}
+.nrt h2{margin:2px 0 4px!important;font:400 26px/1.3 Lalezar,Vazirmatn,sans-serif!important;display:block!important}
+.nrt p{margin:0;font-size:12.5px;line-height:1.8;color:#CFC8F2}
+.nrl{position:relative;z-index:1;display:grid;gap:8px}
+.nrr{--t:var(--ac);display:flex;align-items:center;gap:12px;padding:10px 12px;margin:0;min-height:62px;border-radius:22px;cursor:pointer;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);transition:transform .25s cubic-bezier(.2,.9,.3,1.5),background .3s,box-shadow .3s;animation:up .6s cubic-bezier(.2,.9,.3,1.1) both;animation-delay:calc(var(--k)*60ms)}
+.nrr:active{transform:scale(.97)}
+.nri{flex:none;width:44px;height:44px;display:grid;place-items:center;border-radius:16px;font-size:21px;background:color-mix(in srgb,var(--t) 28%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--t) 50%,transparent);transition:.35s}
+.nri .ico{margin:0;background:none;box-shadow:none;width:26px;height:26px}
+.nrx{flex:1;font-size:15px;font-weight:700;line-height:1.7;color:#F4F0FF}
+.nrr .dot{border-color:rgba(255,255,255,.4)}
+.nrr.done{background:linear-gradient(135deg,color-mix(in srgb,var(--t) 26%,transparent),rgba(255,255,255,.05));box-shadow:inset 0 0 0 1.5px var(--t),0 12px 22px -14px var(--t)}
+.nrr.done .nri{background:linear-gradient(135deg,var(--t),color-mix(in srgb,var(--t) 55%,#fff));box-shadow:0 8px 18px -6px var(--t);transform:rotate(-6deg) scale(1.06)}
+.nrr.done .nrx{opacity:.6;text-decoration:line-through;text-decoration-thickness:2px}
+.nrr.done .dot{background:var(--t);border-color:transparent;box-shadow:0 6px 14px -4px var(--t)}
+.nrdone{position:relative;z-index:1;margin:12px 0 4px;padding:18px;text-align:center;border-radius:24px;background:linear-gradient(135deg,#FFE9A8,#FFC2D4 60%,#C9B8FF);color:#3a2a5a;box-shadow:0 20px 34px -16px #FFC27A;animation:rv .7s both}
+.nrdone span{display:block;font-size:28px;animation:float 2.4s ease-in-out infinite alternate}
+.nrdone b{display:block;font:400 24px/1.5 Lalezar,Vazirmatn,sans-serif}
+.nrdone small{display:block;font-size:12.5px;font-weight:700;opacity:.8;line-height:1.8}
+.tpc h2 small{background:rgba(255,255,255,.12)!important;color:#EDE8FF!important}
+.tps{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tp{--t:var(--ac);position:relative;overflow:hidden;padding:16px 14px 14px;border-radius:24px;background:linear-gradient(160deg,color-mix(in srgb,var(--t) 30%,transparent),color-mix(in srgb,var(--t) 6%,transparent));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--t) 45%,transparent);animation:up .6s cubic-bezier(.2,.9,.3,1.1) both;animation-delay:calc(var(--k)*80ms + 300ms)}
+.tp:before{content:"";position:absolute;top:-30px;inset-inline-end:-30px;width:90px;height:90px;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--t) 55%,transparent),transparent)}
+.tp i{position:relative;font-style:normal;display:grid;place-items:center;width:44px;height:44px;margin-bottom:10px;border-radius:16px;font-size:22px;background:linear-gradient(135deg,var(--t),color-mix(in srgb,var(--t) 50%,#fff));box-shadow:0 10px 18px -8px var(--t)}
+.tp b{position:relative;display:block;font-size:14.5px;font-weight:800;margin-bottom:4px}
+.tp small{position:relative;display:block;font-size:12px;line-height:1.85;color:var(--mut)}
+`;
+var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+var NR=[['🪥','مسواک زدن (شب)','#4DB3FF'],['🧴','شستن صورت و مراقبت از پوست','#FF8FB1'],['💧','یه لیوان آب کوچیک قبل خواب','#3DA9FC'],['🍵','یه دمنوش گرم (بابونه، به‌لیمو…)','#FFB020'],['🧘','۵ دقیقه کشش آروم بدن','#2EC4A0'],['📖','چند صفحه کتاب یا مطالعه‌ی سبک','#B48CF0']];
+var TIPS=[['💡','نور رو کم کن','نورای اضافه رو خاموش کن و اتاق رو کم‌نور کن.','#FFB020'],['❄️','دمای اتاق','کمی خنک، حدود ۱۸ تا ۲۰ درجه، برای خواب راحت‌تر.','#3DA9FC'],['🔋','گوشی رو شارژ بذار','تا صبح باتری داشته باشی و تماس شبانه قطع نشه.','#2EC4A0'],['🛏','تخت و پتو','پتو و بالشت رو راحت کن تا خوابیدن لذت‌بخش بشه.','#B48CF0']];
+var MSG=['شروع کنیم؟ یه قدم کوچیک کافیه','شروع خوبیه، آروم آروم ادامه بده','داری عالی پیش می‌ری','کم مونده، یه کم دیگه','آخرش رسیدی، یه قدم تا خواب آروم','روتین امشب کامل شد'];
+SF.push('nr');
+function arr(d){if(!Array.isArray(d.nr)||d.nr.length!==NR.length)d.nr=NR.map(function(_,i){return d.nr&&d.nr[i]?1:0});return d.nr}
+function card(d){var a=arr(d),n=a.filter(Boolean).length,all=n===NR.length,p=Math.round(n/NR.length*100);
+return '<div class="card nrc"><div class="nrh">'+ring(p,'#fff',96)+'<div class="nrt"><small>'+fa(n)+' از '+fa(NR.length)+' انجام شد</small><h2>🌙 روتین شب</h2><p>'+MSG[Math.min(MSG.length-1,Math.floor(n/NR.length*(MSG.length-1)+(all?1:0)))]+'</p></div></div><div class="nrl">'+NR.map(function(r,i){return '<div class="nrr '+(a[i]?'done':'')+'" style="--t:'+r[2]+';--k:'+i+'" data-a="nr" data-i="'+i+'"><span class="nri">'+r[0]+'</span><span class="nrx">'+r[1]+'</span><span class="dot">'+CK+'</span></div>'}).join('')+'</div>'+(all?'<div class="nrdone"><span>✦</span><b>روتین امشب کامل شد</b><small>حالا آماده‌ای برای یه خواب آروم، کنار هم 💞</small></div>':'')+'</div>'}
+function tips(){return '<div class="card tpc"><h2>✨ توصیه‌های قبل خواب<small>فقط توصیه</small></h2><div class="tps">'+TIPS.map(function(t,i){return '<div class="tp" style="--t:'+t[3]+';--k:'+i+'"><i>'+t[0]+'</i><b>'+t[1]+'</b><small>'+t[2]+'</small></div>'}).join('')+'</div></div>'}
+var orig=night,M='<div class="card"><h2>حال امروزت چطور بود؟</h2>';
+night=function(){var h=orig();try{var i=h.indexOf(M);if(i>=0)h=h.slice(0,i)+card(D())+tips()+h.slice(i)}catch(e){}return h};
+document.addEventListener('click',function(e){var t=e.target.closest('[data-a="nr"]');if(!t)return;var a=arr(D()),i=+t.dataset.i;a[i]=a[i]?0:1;save();if(a[i]&&typeof burst==='function'){burst(e.clientX,e.clientY);if(a.every(Boolean))for(var k=0;k<6;k++)setTimeout(function(k){return function(){burst(innerWidth*(.2+k*.12),innerHeight*.3)}}(k),k*130)}},true);
+}catch(err){console.warn('night routine patch skipped',err)}})();
+</script>
+
 </body></html>
